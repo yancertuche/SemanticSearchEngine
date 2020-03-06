@@ -11,11 +11,14 @@ function App() {
     <div className="App">
       <br></br>
       <p>
-        Buscador Sobre Casos de Aplicación de Ingeniería de Líneas de Producto
+        Buscador Sobre Casos Industriales de Aplicación de Ingeniería de Líneas de Producto
       </p>
       <div className="App">
       <SearchBar></SearchBar>
       </div>
+      <p>
+        by Yan Carlos Certuche Grueso
+      </p>
     </div>
   );
 }
