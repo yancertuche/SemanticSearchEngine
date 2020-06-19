@@ -19,6 +19,7 @@
   "homepage": "https://github.com/YanCarlosCertucheGrueso/Node-course#readme",
   "dependencies": {
     "countries-list": "^2.5.4",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "solr-node": "^1.2.1"
   }
 }
