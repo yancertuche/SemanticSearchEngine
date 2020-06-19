@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <br></br>
       <p>
-        Buscador Sobre Casos Industriales de Aplicación de Ingeniería de Líneas de Producto
+        Buscador Sobre Casos Industriales de Aplicación de Ingeniería de Líneas de Productos
       </p>
       <div className="App">
       <SearchBar></SearchBar>
