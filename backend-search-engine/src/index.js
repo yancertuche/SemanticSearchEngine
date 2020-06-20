@@ -11,6 +11,10 @@ const app= express()
 app.get("/", function(request,response){
     response.status(200).send("Holaaaa")
 })
+
+app.get("*",function(request,response){
+    response.status(400).send("NOT FOUNDDD")
+})
 // var server = http.createServer(
 //     function(request, response) {
 //         var parsed = url.parse(request.url); // para dividir la url y recibir parametros

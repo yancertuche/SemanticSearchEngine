@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,8 @@
     "countries-list": "^2.5.4",
     "express": "^4.17.1",
     "solr-node": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
