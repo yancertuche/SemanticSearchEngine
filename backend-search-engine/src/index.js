@@ -4,20 +4,26 @@ const express = require("express");
 
 //importaciones de módulos locales, que son lo que se aporvechan para las funciones que se desarrolan. 
 const {error, info  }= require('./modules/my-log');
-const pais  = require('countries-list')
+const pais  = require('countries-list');
+const { response } = require("express");
 
 const app= express()
 
-app.get("/", function(request,response){
+app.get("/", (request,response) => {
     response.status(200).send("Holaaaa")
 });
 
-app.get("/info",function(request,response){
+app.get("/info",(request,response) => {
     info('hola fución')
     response.send("info 2");
 });
 
-app.get("*",function(request,response){
+app.get("/pais", (request, response) => {
+    //console.log("request.query", request.query)
+    response.json(pais.countries[request.query.code] );
+})
+
+app.get("*",(request,response) => {
     response.status(400).send("NOT FOUNDDD")
 });
 

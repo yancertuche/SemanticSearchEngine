@@ -1,11 +1,9 @@
-module.exports.info = function info(text){
+const info = (text) => {
     console.log("INFO", text);
     return text;
 };
 
-module.exports.error = function error(text){
+const error = (text) => {
     console.log("Error", text);
     return text;
 };
-
-//module.exports = {info, error};
