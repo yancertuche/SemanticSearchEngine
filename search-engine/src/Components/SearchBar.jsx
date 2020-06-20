@@ -10,6 +10,10 @@ export class SearchBar extends Component{
 
   handleQuery = (e) =>{
     console.log("el estado final " ,this.state.query)
+    fetch('http://localhost:4000/pais?code='+this.state.query)
+    .then(res => {
+      console.log('esta es la promesa', res)
+      console.log('este es la promesa json',res.json())})
   }
 
   handleChange = (e) =>{

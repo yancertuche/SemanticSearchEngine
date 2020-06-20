@@ -20,6 +20,8 @@ app.get("/info",(request,response) => {
 
 app.get("/pais", (request, response) => {
     //console.log("request.query", request.query)
+    response.header('Access-Control-Allow-Origin', "*");
+    console.log(pais.countries[request.query.code] );
     response.json(pais.countries[request.query.code] );
 })
 
