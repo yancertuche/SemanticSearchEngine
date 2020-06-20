@@ -14,6 +14,7 @@ export class SearchBar extends Component{
     .then(res => {
       console.log('esta es la promesa', res)
       console.log('este es la promesa json',res.json())})
+    .then(response => {console.log('respuesta', response)})
   }
 
   handleChange = (e) =>{
