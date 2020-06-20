@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 import '../App.css';
-import { render } from '@testing-library/react';
+import axios from 'axios';
 
 export class SearchBar extends Component{ 
   state={
@@ -10,13 +10,11 @@ export class SearchBar extends Component{
 
   handleQuery = (e) =>{
     console.log("el estado final " ,this.state.query)
-    fetch('http://localhost:4000/pais?code='+this.state.query)
+    axios.get('http://localhost:4000/pais?code='+this.state.query)
     .then(res => {
-      console.log('esta es la promesa', res)
-      console.log('este es la promesa json',res.json())})
-    .then(response => {console.log('respuesta', response)})
+      console.log('esta es la promesa', res.data)
+    })
   }
-
   handleChange = (e) =>{
     e.preventDefault()
     this.setState({
