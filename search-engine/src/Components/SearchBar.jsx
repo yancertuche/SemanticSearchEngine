@@ -14,7 +14,9 @@ export class SearchBar extends Component{
     .then(res => {
       console.log('esta es la promesa', res.data)
     })
+    .catch(error => {console.log('algo ha ocurrido')})
   }
+  
   handleChange = (e) =>{
     e.preventDefault()
     this.setState({
