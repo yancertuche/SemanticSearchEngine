@@ -18,7 +18,7 @@ const { response } = require("express");
 const app= express()
 
 app.get('/getProduct',(req, res) =>  { 
-    var strQuery = client.query().q('*');
+    var strQuery = client.query().q('id:1');
     client.search(strQuery, function (err, result) {
     if (err) {
         console.log(err);
