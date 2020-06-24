@@ -17,8 +17,9 @@ const { response } = require("express");
 
 const app= express()
 
-app.get('/getProduct',(req, res) =>  { 
-    var strQuery = client.query().q('id:1');
+app.get('/getDoc',(req, res) =>  { 
+    res.header('Access-Control-Allow-Origin', "*");
+    var strQuery = client.query().q('id:'+ req.query.id);
     client.search(strQuery, function (err, result) {
     if (err) {
         console.log(err);

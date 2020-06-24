@@ -10,9 +10,9 @@ export class SearchBar extends Component{
 
   handleQuery = (e) =>{
     console.log("el estado final " ,this.state.query)
-    axios.get('http://localhost:4000/pais?code='+this.state.query)
+    axios.get('http://localhost:4000/getDoc?id='+this.state.query)
     .then(res => {
-      console.log('esta es la promesa', res.data)
+      console.log('esta es la promesa', res.data.docs[0])
     })
     .catch(error => {console.log('algo ha ocurrido')})
   }
