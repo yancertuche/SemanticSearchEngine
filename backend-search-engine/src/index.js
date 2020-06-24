@@ -1,6 +1,14 @@
 //importaciones de módulos de tipo core, esto es más de lado del servidor
 
 const express = require("express");
+const solr = require('solr-node');
+
+var client = new solr({
+    host: 'localhost',
+    port: '8983',
+    core: 'testFiles',
+    protocol: 'http'
+});
 
 //importaciones de módulos locales, que son lo que se aporvechan para las funciones que se desarrolan. 
 const {error, info  }= require('./modules/my-log');
@@ -8,6 +16,18 @@ const pais  = require('countries-list');
 const { response } = require("express");
 
 const app= express()
+
+app.get('/getProduct',(req, res) =>  { 
+    var strQuery = client.query().q('*');
+    client.search(strQuery, function (err, result) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log('Response:', result.response);
+    res.send(result.response);
+    });
+});
 
 app.get("/", (request,response) => {
     response.status(200).send("Holaaaa")
