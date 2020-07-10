@@ -2,6 +2,7 @@ import {LOCALES} from '../locales'
 
 export default {
     [LOCALES.ENGLISH]: {
-        'hola' : 'HELLO'
+        'hola' : 'HELLO',
+        'nombre': 'Semantic Search Engine'
     }
 }

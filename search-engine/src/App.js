@@ -11,12 +11,11 @@ import translate from './i18n/translate'
 
 function App() {
   return (
-    <I18nProvider locale={LOCALES.ESPAÑOL}>
+    <I18nProvider locale={LOCALES.ENGLISH}>
     <div className="App">
       <br></br>
       <p>
-        
-        Buscador Sobre Casos Industriales de Aplicación de Ingeniería de Líneas de Productos
+        {translate('nombre')}
       </p>
       <div className="App">
       <SearchBar></SearchBar>
