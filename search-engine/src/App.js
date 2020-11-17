@@ -11,7 +11,7 @@ import translate from './i18n/translate'
 
 function App() {
   return (
-    <I18nProvider locale={LOCALES.ENGLISH}>
+    <I18nProvider locale={LOCALES.ESPAÑOL}>
     <div className="App">
       <br></br>
       <p>
