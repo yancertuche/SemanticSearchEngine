@@ -21,7 +21,8 @@
   "dependencies": {
     "countries-list": "^2.5.4",
     "express": "^4.17.1",
-    "solr-node": "^1.2.1"
+    "solr-node": "^1.2.1",
+    "sparql-http-client": "^2.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
