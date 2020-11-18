@@ -3,6 +3,9 @@
 const express = require("express");
 const solr = require('solr-node');
 
+
+
+
 var client = new solr({
     host: 'localhost',
     port: '8983',
