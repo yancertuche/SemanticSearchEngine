@@ -10,9 +10,10 @@ export class SearchBar extends Component{
 
   handleQuery = (e) =>{
     console.log("el estado final " ,this.state.query)
-    axios.get('http://localhost:4000/getDoc?id='+this.state.query)
+    //axios.get('http://localhost:4000/getDoc?id='+this.state.query)
+    axios.get('http://localhost:8080/API-JENA/resources/javaee8/response')
     .then(res => {
-      console.log('esta es la promesa', res.data.docs[0])
+      console.log('esta es la promesa', res.data)
     })
     .catch(error => {console.log('algo ha ocurrido')})
   }
