@@ -5,6 +5,6 @@ export default {
         'hola' : 'Hola',
         'nombre' : 'Buscador Sobre Casos Industriales de Aplicación de Ingeniería de Líneas de Productos',
         'buscar' : 'Buscar',
-        'consulta' : 'Cosulta'
+        'consulta' : 'Consulta'
     }
 }

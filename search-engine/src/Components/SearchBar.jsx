@@ -2,12 +2,17 @@ import React, {Component} from 'react';
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 import '../App.css';
 import axios from 'axios';
+import {CardResult} from './CardResult'
+//import { CardSubtitle } from 'react-bootstrap/Card';
 
 export class SearchBar extends Component{ 
   constructor(props){
-    this.state={
+    super(props)
+      this.state={
       query : "",
-      result : []
+      result : [{"x":"kakakakaka", "label":"kakakak"}],
+      textButton :"",
+      textPlaceholder :""
     }
   }
 
@@ -37,12 +42,14 @@ export class SearchBar extends Component{
     return (
       <MDBCol md="30">
         <MDBFormInline className="md-form mr-auto mb-4">
-          <input style={{ width: "500px" }} type="text" placeholder="Consulta" aria-label="Search" onChange={this.handleChange}/>
+          <input style={{ width: "500px" }} type="text" placeholder={this.props.textPlaceholder} aria-label="Search" onChange={this.handleChange}/>
         </MDBFormInline>
         <MDBBtn gradient="aqua" rounded size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
-            Buscar
+            {this.props.textButton}
           </MDBBtn>
+          <CardResult crd={this.props.result}></CardResult>
       </MDBCol>
+      
     )
   }
 }

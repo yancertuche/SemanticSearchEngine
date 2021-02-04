@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import SearchBar from './Components/SearchBar.jsx'
 
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -11,14 +12,14 @@ import translate from './i18n/translate'
 
 function App() {
   return (
-    <I18nProvider locale={LOCALES.ESPAÑOL}>
+    <I18nProvider locale={LOCALES.ENGLISH}>
     <div className="App">
       <br></br>
       <p>
         {translate('nombre')}
       </p>
       <div className="App">
-      <SearchBar></SearchBar>
+      <SearchBar textButton={translate('buscar')} textPlaceholder ={translate('consulta')}></SearchBar>
       </div>
       <p>
         by Yan Carlos Certuche Grueso
