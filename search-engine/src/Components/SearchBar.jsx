@@ -4,9 +4,11 @@ import '../App.css';
 import axios from 'axios';
 
 export class SearchBar extends Component{ 
-  state={
-    query : "",
-    result : []
+  constructor(props){
+    this.state={
+      query : "",
+      result : []
+    }
   }
 
   handleQuery = (e) =>{
