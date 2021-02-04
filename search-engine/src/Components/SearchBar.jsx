@@ -5,7 +5,8 @@ import axios from 'axios';
 
 export class SearchBar extends Component{ 
   state={
-    query : ""
+    query : "",
+    result : []
   }
 
   handleQuery = (e) =>{
@@ -13,7 +14,11 @@ export class SearchBar extends Component{
     //axios.get('http://localhost:4000/getDoc?id='+this.state.query)
     axios.get('http://localhost:8080/API-JENA/resources/javaee8/response')
     .then(res => {
-      console.log('esta es la promesa', res.data)
+      console.log('esta es la promesa', res.data.results.bindings)
+      this.setState(
+        {result: res.data.results.bindings}
+      );
+      console.log('resultado', this.state.result)
     })
     .catch(error => {console.log('algo ha ocurrido')})
   }
