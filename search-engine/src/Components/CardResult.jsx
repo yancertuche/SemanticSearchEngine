@@ -10,8 +10,8 @@ export class CardResult extends Component{
 
             return Object.keys(crd).map(currency => (
                 <div key={currency}> 
-                        <h1> {crd[currency][0] || "nada"}</h1>
-                        <h1>{crd[currency][1] || "nada"}</h1>
+                        <h1> {crd[currency].x || "nada"}</h1>
+                        <h1>{crd[currency].label || "nada"}</h1>
                 </div>
             ))
         }

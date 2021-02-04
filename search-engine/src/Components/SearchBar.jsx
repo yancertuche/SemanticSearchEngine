@@ -10,7 +10,7 @@ export class SearchBar extends Component{
     super(props)
       this.state={
       query : "",
-      result : [{"x":"kakakakaka", "label":"kakakak"}],
+      result : [],
       textButton :"",
       textPlaceholder :""
     }
