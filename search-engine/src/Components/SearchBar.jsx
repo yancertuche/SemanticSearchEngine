@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 import '../App.css';
 import axios from 'axios';
-import {CardResult} from './CardResult'
+//import CardResult from './CardResult';
 //import { CardSubtitle } from 'react-bootstrap/Card';
 
 export class SearchBar extends Component{ 
@@ -40,17 +40,16 @@ export class SearchBar extends Component{
 
   render(){
     return (
-      <MDBCol md="30">
-        <MDBFormInline className="md-form mr-auto mb-4">
-          <input style={{ width: "500px" }} type="text" placeholder={this.props.textPlaceholder} aria-label="Search" onChange={this.handleChange}/>
-        </MDBFormInline>
-        <MDBBtn gradient="aqua" rounded size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
-            {this.props.textButton}
-          </MDBBtn>
-          <CardResult crd={this.props.result}></CardResult>
-      </MDBCol>
-      
-    )
+        <MDBCol md="30">
+          <MDBFormInline className="md-form mr-auto mb-4">
+            <input style={{ width: "500px" }} type="text" placeholder={this.props.textPlaceholder} aria-label="Search" onChange={this.handleChange}/>
+          </MDBFormInline>
+          <MDBBtn gradient="aqua" rounded size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
+              {this.props.textButton}
+            </MDBBtn>
+        </MDBCol>
+        
+      )
   }
 }
 
