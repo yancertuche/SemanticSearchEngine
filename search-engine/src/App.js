@@ -17,7 +17,6 @@ export class App extends Component {
   }
   
   _handleResults = (results) =>{
-    console.log("Antes de cambiar estado", results)
     this.setState({results})
     console.log("luego de cambiar estado", results)
   }
