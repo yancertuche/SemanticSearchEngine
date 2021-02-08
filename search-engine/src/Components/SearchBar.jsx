@@ -6,30 +6,27 @@ import axios from 'axios';
 //import { CardSubtitle } from 'react-bootstrap/Card';
 
 export class SearchBar extends Component{ 
-  constructor(props){
-    super(props)
-      this.state={
+    
+    state={
       query : "",
-      result : [],
       textButton :"",
       textPlaceholder :""
     }
-  }
+  
 
   handleQuery = (e) =>{
+    e.preventDefault()
     console.log("el estado final " ,this.state.query)
     //axios.get('http://localhost:4000/getDoc?id='+this.state.query)
     axios.get('http://localhost:8080/API-JENA/resources/javaee8/response')
     .then(res => {
-      console.log('esta es la promesa', res.data.results.bindings)
+      console.log('la promesa', res)
+      console.log('esta es la promesa accedida', res.data.results.bindings)
       this.props.onResults(res.data.results.bindings)
-      this.setState(
-        {result: res.data.results.bindings}
-      );
       console.log('resultado en la search bar ', this.state.result)
       })
     .then( result =>{
-      console.log(result)
+      console.log("RESPUESTA SEARCH BAR",result)
     })
 
     .catch(error => {console.log('algo ha ocurrido')})
