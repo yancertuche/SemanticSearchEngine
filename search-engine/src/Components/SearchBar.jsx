@@ -44,7 +44,7 @@ export class SearchBar extends Component{
     return (
         <MDBCol md="30">
           <MDBFormInline className="md-form mr-auto mb-4">
-            <input style={{ width: "500px" }} type="text" placeholder={this.props.textPlaceholder} aria-label="Search" onChange={this.handleChange}/>
+            <input style={{ width: "500px" }} type="text" placeholder={String(this.props.textPlaceholder)} aria-label="Search" onChange={this.handleChange}></input>
           </MDBFormInline>
           <MDBBtn gradient="aqua" rounded size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
               {this.props.textButton}
