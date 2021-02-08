@@ -22,11 +22,16 @@ export class SearchBar extends Component{
     axios.get('http://localhost:8080/API-JENA/resources/javaee8/response')
     .then(res => {
       console.log('esta es la promesa', res.data.results.bindings)
+      this.props.onResults(res.data.results.bindings)
       this.setState(
         {result: res.data.results.bindings}
       );
-      console.log('resultado', this.state.result)
+      console.log('resultado en la search bar ', this.state.result)
+      })
+    .then( result =>{
+      console.log(result)
     })
+
     .catch(error => {console.log('algo ha ocurrido')})
   }
   

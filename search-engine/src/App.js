@@ -9,8 +9,18 @@ import 'mdbreact/dist/css/mdb.css';
 
 import {I18nProvider, LOCALES} from './i18n';
 import translate from './i18n/translate'
+import CardResult from './Components/CardResult';
 
 export class App extends Component {
+  state = {
+    results : []
+  }
+  
+  _handleResults = (results) =>{
+    console.log("Antes de cambiar estado", results)
+    this.setState({results})
+    console.log("luego de cambiar estado", results)
+  }
   render(){
     return (
       <I18nProvider locale={LOCALES.ENGLISH}>
@@ -20,11 +30,16 @@ export class App extends Component {
           {translate('nombre')}
         </p>
         <div className="App">
-        <SearchBar textButton={translate('buscar')} textPlaceholder ={translate('consulta')}></SearchBar>
+        <SearchBar 
+          textButton={translate('buscar')} 
+          textPlaceholder ={translate('consulta')} 
+          onResults={this._handleResults}></SearchBar>
         </div>
-        <p>
+        {this.state.results.length === 0 
+        ?<p>
           by Yan Carlos Certuche Grueso
-        </p>
+          </p>
+        : <CardResult crd = {this.state.results}></CardResult> }
       </div>
       </I18nProvider>
     );

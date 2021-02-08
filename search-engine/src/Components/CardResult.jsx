@@ -6,12 +6,12 @@ export class CardResult extends Component{
     _renderConcurrencies() {
         const {crd} =this.props
         if(crd){
-            console.log("dentro de la card" + crd)
+            console.log("dentro de la card" ,  JSON.stringify(crd))
 
-            return Object.keys(crd).map(currency => (
+            return crd.map(currency => (
                 <div key={currency}> 
-                        <h1> {crd[currency].x || "nada"}</h1>
-                        <h1>{crd[currency].label || "nada"}</h1>
+                        <h1> {crd[currency]|| "nada"}</h1>
+                        <h1>{crd[currency] || "nada2"}</h1>
                 </div>
             ))
         }
