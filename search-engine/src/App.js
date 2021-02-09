@@ -31,8 +31,8 @@ export class App extends Component {
         </p>
         <div className="App">
           <SearchBar 
-            textButton={translate('buscar')} 
-            textPlaceholder={translate('consulta')} 
+            textPlaceholder={translate('consulta')}
+            textButton={translate('buscar')}  
             onResults={this._handleResults}>  
           </SearchBar>
         </div>
