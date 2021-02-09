@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Card} from 'react-bootstrap'
 //import { Card, CardContent } from '@material-ui/core';
 
 export class CardResult extends Component{
@@ -14,8 +15,10 @@ export class CardResult extends Component{
 
             return  crd.map(currency => (
                 <div key={currency}> 
-                        <h1> {JSON.stringify(currency.x.value)}</h1>
-                        <h1>{JSON.stringify(currency.label.value)}</h1>
+                <Card>
+                        <Card.Text> {JSON.stringify(currency.x.value)}</Card.Text>
+                        <Card.Text>{JSON.stringify(currency.label.value)}</Card.Text>
+                </Card>
                 </div>
             ))
         
