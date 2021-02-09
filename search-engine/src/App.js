@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import SearchBar from './Components/SearchBar.jsx'
 
-
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -23,7 +22,7 @@ export class App extends Component {
   }
   render(){
     return (
-      <I18nProvider locale={LOCALES.ENGLISH}>
+      <I18nProvider locale={LOCALES.ESPAÑOL}>
       <div className="App">
         <br></br>
         <p>
