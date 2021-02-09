@@ -15,6 +15,7 @@ export class App extends Component {
   state = {
     results : []
   }
+
   
   _handleResults = (results) =>{
     this.setState({results})
@@ -29,10 +30,11 @@ export class App extends Component {
           {translate('nombre')}
         </p>
         <div className="App">
-        <SearchBar 
-          textButton={translate('buscar')} 
-          textPlaceholder ={translate('consulta')} 
-          onResults={this._handleResults}></SearchBar>
+          <SearchBar 
+            textButton={translate('buscar')} 
+            textPlaceholder={translate('consulta')} 
+            onResults={this._handleResults}>  
+          </SearchBar>
         </div>
         {this.state.results.length === 0 
         ?<p>

@@ -6,7 +6,6 @@ import axios from 'axios';
 //import { CardSubtitle } from 'react-bootstrap/Card';
 
 export class SearchBar extends Component{ 
-    
     state={
       query : "",
       textButton :"",
@@ -41,10 +40,11 @@ export class SearchBar extends Component{
   }
 
   render(){
+    console.log("params", this.props)
     return (
         <MDBCol md="30">
           <MDBFormInline className="md-form mr-auto mb-4">
-            <input style={{ width: "500px" }} type="text" placeholder={String(this.props.textPlaceholder)} aria-label="Search" onChange={this.handleChange}></input>
+            <input style={{ width: "500px" }} type="text" placeholder={this.props.textPlaceholder} aria-label="Search" onChange={this.handleChange}></input>
           </MDBFormInline>
           <MDBBtn gradient="aqua" rounded size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
               {this.props.textButton}
