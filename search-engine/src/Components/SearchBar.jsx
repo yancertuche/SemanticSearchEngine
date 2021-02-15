@@ -16,7 +16,7 @@ export class SearchBar extends Component{
     e.preventDefault()
     console.log("el estado final " ,this.state.query)
     //axios.get('http://localhost:4000/getDoc?id='+this.state.query)
-    axios.get('http://localhost:8080/API-JENA/resources/javaee8/response')
+    axios.get('http://localhost:8080/API-JENA/resources/javaee8/response/search/q='+this.state.query)
     .then(res => {
       console.log('la promesa', res)
       console.log('esta es la promesa accedida', res.data.results.bindings)
