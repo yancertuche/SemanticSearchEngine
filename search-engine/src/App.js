@@ -10,6 +10,8 @@ import {I18nProvider, LOCALES} from './i18n';
 import translate from './i18n/translate'
 import CardResult from './Components/CardResult';
 
+import {Board} from './Components/Board'
+
 export class App extends Component {
   state = {
     results : []
@@ -41,6 +43,7 @@ export class App extends Component {
           </p>
         : <CardResult crd = {this.state.results}></CardResult> }
       </div>
+      <Board></Board>
       </I18nProvider>
     );
   }
