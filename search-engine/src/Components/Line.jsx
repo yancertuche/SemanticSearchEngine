@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { CChart } from '@coreui/react-chartjs';
 
-export class Board extends Component{
+export class Line extends Component{
     const 
     render(){
         return(
@@ -48,4 +48,4 @@ export class Board extends Component{
         )
     }
 }
-export default Board;
+export default Line;
