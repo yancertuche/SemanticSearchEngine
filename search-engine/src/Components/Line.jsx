@@ -6,6 +6,7 @@ export class Line extends Component{
     render(){
         return(
             <div>
+                <h4>Line</h4>
                     <CChart
                     type="line"
                     datasets={[

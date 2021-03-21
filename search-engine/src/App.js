@@ -44,9 +44,17 @@ export class App extends Component {
           </p>
         : <CardResult crd = {this.state.results}></CardResult> }
       </div>
-      <Line></Line>
-      <Bar></Bar>
-      <Doughnut></Doughnut>
+      <div className='row'>
+        <div className='col-md-6'>
+          <Line></Line>
+        </div>
+        <div className='col-md-6'>
+          <Bar></Bar>
+        </div>
+        <div className='col-md-6'>
+          <Doughnut></Doughnut>
+        </div>
+      </div>
       </I18nProvider>
     );
   }
