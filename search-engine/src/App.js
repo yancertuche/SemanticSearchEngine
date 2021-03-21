@@ -12,6 +12,7 @@ import CardResult from './Components/CardResult';
 
 import {Line} from './Components/Line';
 import {Bar} from './Components/Bar';
+import {Doughnut} from './Components/Doughnut';
 export class App extends Component {
   state = {
     results : []
@@ -45,6 +46,7 @@ export class App extends Component {
       </div>
       <Line></Line>
       <Bar></Bar>
+      <Doughnut></Doughnut>
       </I18nProvider>
     );
   }

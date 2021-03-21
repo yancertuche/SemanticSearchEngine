@@ -5,9 +5,7 @@ export class Line extends Component{
     const 
     render(){
         return(
-            <div className="row">
-            <div className="col-md-6">
-                <div className="char-wrappe">
+            <div>
                     <CChart
                     type="line"
                     datasets={[
@@ -42,8 +40,6 @@ export class Line extends Component{
                     }}
                     />
                 )                
-            </div>
-            </div>
             </div>
         )
     }
