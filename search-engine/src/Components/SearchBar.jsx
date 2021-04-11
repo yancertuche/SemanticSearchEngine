@@ -3,8 +3,7 @@ import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 
 import '../App.css';
 import axios from 'axios';
-//import CardResult from './CardResult';
-//import { CardSubtitle } from 'react-bootstrap/Card';
+
 
 export class SearchBar extends Component{ 
     state={

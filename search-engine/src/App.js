@@ -10,9 +10,6 @@ import {I18nProvider, LOCALES} from './i18n';
 import translate from './i18n/translate'
 import CardResult from './Components/CardResult';
 
-import {Line} from './Components/Line';
-import {Bar} from './Components/Bar';
-import {Doughnut} from './Components/Doughnut';
 export class App extends Component {
   state = {
     results : []
@@ -31,7 +28,7 @@ export class App extends Component {
         <p>
           {translate('nombre')}
         </p>
-        <div className="App">
+        <div>
           <SearchBar 
             textPlaceholder={translate('consulta')}
             textButton={translate('buscar')}  
@@ -43,17 +40,6 @@ export class App extends Component {
           by Yan Carlos Certuche Grueso
           </p>
         : <CardResult crd = {this.state.results}></CardResult> }
-      </div>
-      <div className='row'>
-        <div className='col-md-6'>
-          <Line></Line>
-        </div>
-        <div className='col-md-6'>
-          <Bar></Bar>
-        </div>
-        <div className='col-md-6'>
-          <Doughnut></Doughnut>
-        </div>
       </div>
       </I18nProvider>
     );
