@@ -9,6 +9,7 @@ import 'mdbreact/dist/css/mdb.css';
 import {I18nProvider, LOCALES} from './i18n';
 import translate from './i18n/translate'
 import CardResult from './Components/CardResult';
+import { MDBBtn, MDBIcon } from "mdbreact";
 
 export class App extends Component {
   state = {
@@ -29,10 +30,19 @@ export class App extends Component {
           <h2 className="Title">
             {translate('nombre')}
           </h2>
+          <br></br>
           <div>
-            <input className = "Input-home" type="text">
-            </input>
+            <div>
+              <input className = "Input-home" type="text">
+              </input>
+            </div>
+            <br></br>
+            <MDBBtn color="elegant" size="lg" type="submit">
+              <MDBIcon icon="search" className="mr-1" />
+              {translate('buscar')} 
+            </MDBBtn>
           </div>
+          <br></br>
           {this.state.results.length === 0 
           ?<h3>
             by Yan Carlos Certuche Grueso

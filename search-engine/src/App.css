@@ -22,15 +22,16 @@
 }
 
 .Input-home{
-  border-radius: 40px;
+  border-radius: 30px;
   width: 40%;
-  height: 50px;
+  height: 60px;
   font-size:24px;
+  padding-right: 50px;
 }
 
 .Input-home:focus{
-  outline: none
-
+  border-radius: 0px !important; 
+  outline-color: yellow;
 }
 
 
