@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import SearchBar from './Components/SearchBar.jsx'
+
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -25,21 +25,20 @@ export class App extends Component {
       <I18nProvider locale={LOCALES.ESPAÑOL}>
       <div className="App">
         <br></br>
-        <p>
-          {translate('nombre')}
-        </p>
-        <div>
-          <SearchBar 
-            textPlaceholder={translate('consulta')}
-            textButton={translate('buscar')}  
-            onResults={this._handleResults}>  
-          </SearchBar>
+        <div className="Search">
+          <h2 className="Title">
+            {translate('nombre')}
+          </h2>
+          <div>
+            <input className = "Input-home" type="text">
+            </input>
+          </div>
+          {this.state.results.length === 0 
+          ?<h3>
+            by Yan Carlos Certuche Grueso
+            </h3>
+          : <CardResult crd = {this.state.results}></CardResult> }
         </div>
-        {this.state.results.length === 0 
-        ?<p>
-          by Yan Carlos Certuche Grueso
-          </p>
-        : <CardResult crd = {this.state.results}></CardResult> }
       </div>
       </I18nProvider>
     );
