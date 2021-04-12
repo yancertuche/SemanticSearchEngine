@@ -21,6 +21,7 @@ export class App extends Component {
     this.setState({results})
     console.log("luego de cambiar estado", results)
   }
+  
   render(){
     return (
       <I18nProvider locale={LOCALES.ESPAÑOL}>
@@ -45,7 +46,7 @@ export class App extends Component {
           <br></br>
           {this.state.results.length === 0 
           ?<h3>
-            by Yan Carlos Certuche Grueso
+            {translate('por')} Yan Carlos Certuche Grueso
             </h3>
           : <CardResult crd = {this.state.results}></CardResult> }
         </div>

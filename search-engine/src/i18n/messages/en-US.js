@@ -5,6 +5,7 @@ export default {
         'hola' : 'HELLO',
         'nombre': 'Semantic Search Engine',
         'buscar' : 'Search',
-        'consulta' : 'Query'
+        'consulta' : 'Query',
+        'por' : 'By'
     }
 }
