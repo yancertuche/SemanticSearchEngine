@@ -39,8 +39,7 @@ export class Line extends Component{
                         //}
                         maintainAspectRatio: false
                     }}
-                    />
-                )                
+                    />               
             </div>
         )
     }

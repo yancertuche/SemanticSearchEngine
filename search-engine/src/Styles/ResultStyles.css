@@ -1,0 +1,27 @@
+.Result-container{
+    background-image: url("../Images/18010.jpg");
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    
+
+}
+.Card-container{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+.Container{
+    padding: 2em;
+}
+
+.Graphic-container{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
