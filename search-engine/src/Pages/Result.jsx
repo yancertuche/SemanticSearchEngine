@@ -7,6 +7,8 @@ import Bar from '../Components/Bar';
 import Line from '../Components/Line';
 import '../Styles/ResultStyles.css';
 
+import {I18nProvider, LOCALES} from '../i18n';
+import translate from '../i18n/translate'
 
 
 export class Result extends Component{
@@ -20,6 +22,7 @@ export class Result extends Component{
     render(){
         const {query} = this.state.param
         return(
+            <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
@@ -27,7 +30,9 @@ export class Result extends Component{
                                 <SearchBar></SearchBar>
                             </div>
                             <div className="col">
-                                <h4>nombre del buscador</h4>
+                                <h2 className="Title">
+                                    {translate('nombre')}
+                                </h2>
                             </div>
                         </div>
                         <div className="row">
@@ -38,18 +43,19 @@ export class Result extends Component{
                             </div>
                             <div className="col">
                                 <div className="Graphic-container">
-                                <Doughnut></Doughnut>
-                                </div>
-                                <div className="Graphic-container">
                                 <Line></Line>
                                 </div>
                                 <div className="Graphic-container">
                                 <Bar></Bar>
                                 </div>
+                                <div className="Graphic-container">
+                                <Doughnut></Doughnut>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </I18nProvider>
         )
     }
 
