@@ -5,27 +5,19 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Route
 } from "react-router-dom";
 
-import {Result} from "./Pages/Result"
 import {Home} from "./Pages/Home"
+import Result from './Pages/Result';
 
 export class App extends Component {
   
   render(){
     return (
       <Router>
-        <Switch>
-          <Route path='/' component={Home}>
-          </Route>
-          <Route path='/q' component={Result}>
-          </Route>
-        </Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/q/:query' component={Result}/>
       </Router>
     );
   }
