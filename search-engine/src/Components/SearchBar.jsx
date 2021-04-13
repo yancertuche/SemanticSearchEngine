@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { MDBFormInline, MDBBtn } from "mdbreact";
+import { MDBFormInline, MDBBtn, MDBIcon} from "mdbreact";
 
 import '../App.css';
 import axios from 'axios';
@@ -42,14 +42,19 @@ export class SearchBar extends Component{
     const x = this.props.textPlaceholder
     console.log("place", x)
     return (
-          <div>
+          <div className="Search-bar-result-container">
+            <div className="Inline-bar-result">
+              
               <MDBFormInline className="md-form">
-                <input style={{ width: "500px" }} 
+              <MDBIcon icon="search" />
+                <input className="Input-bar" 
                         type="text"
                         onChange={this.handleChange}>
                 </input>
+                
               </MDBFormInline> 
-              <MDBBtn gradient="aqua" rounded size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
+            </div>
+              <MDBBtn color="elegant" size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
                 {this.props.textButton}
               </MDBBtn>
           </div>

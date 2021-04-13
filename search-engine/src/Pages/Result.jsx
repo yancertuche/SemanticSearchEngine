@@ -27,7 +27,7 @@ export class Result extends Component{
                     <div className="Container">
                         <div className="row">
                             <div className="col">
-                                <SearchBar></SearchBar>
+                                <SearchBar textButton={translate('buscar')}></SearchBar>
                             </div>
                             <div className="col">
                                 <h2 className="Title">
