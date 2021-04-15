@@ -15,8 +15,8 @@ export class CardResult extends Component{
             return  crd.map(currency => (
                 <div key={currency}> 
                 <Card>
-                        <Card.Text> {JSON.stringify(currency.x.value)}</Card.Text>
-                        <Card.Text>{JSON.stringify(currency.label.value)}</Card.Text>
+                        <Card.Text> {JSON.stringify(currency.anyAutor.value)}</Card.Text>
+                        <Card.Text>{JSON.stringify(currency.nameAutor.value)}</Card.Text>
                 </Card>
                 </div>
             ))
