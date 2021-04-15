@@ -6,10 +6,10 @@ import axios from 'axios';
 
 
 export class SearchBar extends Component{ 
-    state={
-      query : ""
-    }
-  
+
+  state={
+    query : ""
+  }
 
   handleQuery = (e) =>{
     e.preventDefault()
@@ -20,13 +20,13 @@ export class SearchBar extends Component{
       console.log('la promesa', res)
       console.log('esta es la promesa accedida', res.data.results.bindings)
       this.props.onResults(res.data.results.bindings)
-      console.log('resultado en la search bar ', this.state.result)
+      //console.log('resultado en la search bar ', this.state.result)
       })
-    .then( result =>{
-      console.log("RESPUESTA SEARCH BAR",result)
-    })
+    //.then( result =>{
+    //  console.log("RESPUESTA SEARCH BAR",result)
+    //})
 
-    .catch(error => {console.log('algo ha ocurrido')})
+    .catch(error => {console.log('algo ha ocurrido', error)})
   }
   
   handleChange = (e) =>{

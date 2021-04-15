@@ -9,7 +9,6 @@ export class CardResult extends Component{
         
         if(crd){
             console.log("dentro de la card" ,crd.length, typeof(crd),  JSON.stringify(crd))
-            console.log("cero", crd[0].x)
             crd.map(currency => (console.log(currency)))
             
 

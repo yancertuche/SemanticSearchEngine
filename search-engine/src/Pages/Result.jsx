@@ -9,12 +9,23 @@ import '../Styles/ResultStyles.css';
 
 import {I18nProvider, LOCALES} from '../i18n';
 import translate from '../i18n/translate'
+import CardResult from '../Components/CardResult';
 
 
 export class Result extends Component{
-    state ={
-        param : ""
+    constructor(){
+        super();
+        this.handleResult=this.handleResult.bind(this)
+        this.state = {
+            param : "", 
+            results : []
+        }
     }
+    
+    handleResult = (results) => {
+        this.setState({results})
+    } 
+
     componentWillMount(){
         this.setState({param: this.props.match.params})
     }
@@ -27,7 +38,7 @@ export class Result extends Component{
                     <div className="Container">
                         <div className="row">
                             <div className="col">
-                                <SearchBar textButton={translate('buscar')}></SearchBar>
+                                <SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar>
                             </div>
                             <div className="col">
                                 <h2 className="Title">
@@ -38,7 +49,9 @@ export class Result extends Component{
                         <div className="row">
                             <div className="col">
                                 <div className="Card-container">
-                                    resultados parametros {query}
+                                    { this.state.results.length === 0 
+                                    ? <p>Sin resultados :resultados parametros {query}</p>
+                                    : <CardResult crd={this.state.results}></CardResult>}
                                 </div>
                             </div>
                             <div className="col">
