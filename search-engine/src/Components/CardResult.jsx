@@ -13,10 +13,10 @@ export class CardResult extends Component{
             
 
             return  crd.map(currency => (
-                <div key={currency}> 
+                <div key={currency} style={{marginBottom: '20px'}} > 
                 <Card>
-                        <Card.Text> {JSON.stringify(currency.anyAutor.value)}</Card.Text>
-                        <Card.Text>{JSON.stringify(currency.nameAutor.value)}</Card.Text>
+                        <Card.Text>{JSON.stringify(currency.Name.value)}</Card.Text>
+                        <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
                 </Card>
                 </div>
             ))
