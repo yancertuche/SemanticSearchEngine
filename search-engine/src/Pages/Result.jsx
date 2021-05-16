@@ -26,12 +26,14 @@ export class Result extends Component{
         this.setState({results})
     } 
 
-    componentWillMount(){
+    componentDidMount(){
         this.setState({param: this.props.match.params})
+        console.log("aqui se monto con" + this.state.param)
     }
 
     render(){
         const {query} = this.state.param
+        //this.setState({param:query})
         return(
             <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
@@ -56,13 +58,13 @@ export class Result extends Component{
                             </div>
                             <div className="col">
                                 <div className="Graphic-container">
-                                <Line></Line>
-                                </div>
-                                <div className="Graphic-container">
                                 <Bar></Bar>
                                 </div>
                                 <div className="Graphic-container">
                                 <Doughnut></Doughnut>
+                                </div>
+                                <div className="Graphic-container">
+                                <Line></Line>
                                 </div>
                             </div>
                         </div>
@@ -73,4 +75,4 @@ export class Result extends Component{
     }
 
 }
-export default withRouter(Result) ; 
+export default withRouter(Result); 

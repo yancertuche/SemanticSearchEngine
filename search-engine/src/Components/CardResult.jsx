@@ -17,6 +17,8 @@ export class CardResult extends Component{
                 <Card>
                         <Card.Text>{JSON.stringify(currency.Name.value)}</Card.Text>
                         <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
+                        <Card.Text>URL</Card.Text>
+
                 </Card>
                 </div>
             ))

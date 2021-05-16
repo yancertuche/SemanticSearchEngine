@@ -5,25 +5,16 @@ export class Bar extends Component{
     render(){
         return(
             <div>
-                    <h4>Bar</h4>
+                    <h4>Principales Autores de acuerdo a tu busqueda</h4>
                     <CChart type="bar" datasets={[
                                                 {
-                                                    label: 'My First dataset',
+                                                    label: 'Autores',
                                                     backgroundColor: 'rgba(255,99,132,0.2)',
                                                     borderColor: 'rgba(255,99,132,1)',
                                                     borderWidth: 1,
                                                     hoverBackgroundColor: 'rgba(255,99,132,0.4)',
                                                     hoverBorderColor: 'rgba(255,99,132,1)',
-                                                    data: [65, 59, 80, 81, 56, 55, 40],
-                                                },
-                                                {
-                                                    label: 'otro data set ',
-                                                    backgroundColor: 'rgba(255,99,132,0.2)',
-                                                    borderColor: 'rgba(255,99,132,2)',
-                                                    borderWidth: 1,
-                                                    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                                                    hoverBorderColor: 'rgba(255,99,132,2)',
-                                                    data: [5, 9, 8, 1, 56, 55, 40],
+                                                    data: [1, 2, 3],
                                                 }
                                                 ]} 
                                         options={{
@@ -33,7 +24,7 @@ export class Bar extends Component{
                                             // },
                                             maintainAspectRatio: false
                                             }} 
-                                        labels="months"/>
+                                        labels={["Autor1", "Autor2", "Autor3"]}/>
 
             </div>
         )
