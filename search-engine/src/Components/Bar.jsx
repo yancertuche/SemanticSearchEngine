@@ -14,7 +14,7 @@ export class Bar extends Component{
                                                     borderWidth: 1,
                                                     hoverBackgroundColor: 'rgba(255,99,132,0.4)',
                                                     hoverBorderColor: 'rgba(255,99,132,1)',
-                                                    data: [1, 2, 3],
+                                                    data: this.props.DataBar,
                                                 }
                                                 ]} 
                                         options={{
@@ -24,7 +24,7 @@ export class Bar extends Component{
                                             // },
                                             maintainAspectRatio: false
                                             }} 
-                                        labels={["Autor1", "Autor2", "Autor3"]}/>
+                                        labels={this.props.LabelsBar}/>
 
             </div>
         )

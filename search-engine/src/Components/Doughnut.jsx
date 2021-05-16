@@ -5,10 +5,10 @@ export class Doughnut extends Component{
     render(){
         return(
             <div>
-                    <h4>Categorias que presentan más proporción en la base de conocimiento </h4>
+                    <h4>Categorias que presentan más proporción de datos en la base de conocimiento </h4>
                             <CChart type="doughnut" datasets={[
                                                                 {
-                                                                data: [300, 50, 100],
+                                                                data: this.props.DataDo,
                                                                 backgroundColor: [
                                                                     '#FF6384',
                                                                     '#36A2EB',
@@ -20,11 +20,7 @@ export class Doughnut extends Component{
                                                                     '#FFCE56',
                                                                 ],
                                                                 }]} 
-                                                                labels={ [
-                                                                    'Advantages',
-                                                                    'Tools',
-                                                                    'Results',
-                                                                  ]}
+                                                                labels={this.props.LabelsDo}
                                                                   options={{
                                                                     // tooltips: {
                                                                     //   enabled: false,

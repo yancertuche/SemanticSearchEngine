@@ -58,10 +58,10 @@ export class Result extends Component{
                             </div>
                             <div className="col">
                                 <div className="Graphic-container">
-                                <Bar></Bar>
+                                <Bar LabelsBar ={["Autor1", "Autor2", "Autor3"]} DataBar={[1, 2, 3]}></Bar>
                                 </div>
                                 <div className="Graphic-container">
-                                <Doughnut></Doughnut>
+                                <Doughnut LabelsDo ={['Advantages','Tools','Results',]} DataDo={[300, 50, 100]}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
                                 <Line></Line>
