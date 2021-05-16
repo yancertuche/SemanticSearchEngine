@@ -64,7 +64,7 @@ export class Result extends Component{
                                 <Doughnut LabelsDo ={['Advantages','Tools','Results',]} DataDo={[300, 50, 100]}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
-                                <Line></Line>
+                                <Line DataLine ={[65, 59, 80, 81, 56, 55, 40]}></Line>
                                 </div>
                             </div>
                         </div>
