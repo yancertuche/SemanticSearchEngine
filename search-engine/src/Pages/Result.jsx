@@ -58,13 +58,16 @@ export class Result extends Component{
                             </div>
                             <div className="col">
                                 <div className="Graphic-container">
-                                <Bar LabelsBar ={["Autor1", "Autor2", "Autor3"]} DataBar={[1, 2, 3]}></Bar>
+                                <Bar LabelsBar ={["Autor1", "Autor2", "Autor3"]} 
+                                    DataBar={[1, 2, 3]}
+                                    Variable ={"Apariciones"}></Bar>
                                 </div>
                                 <div className="Graphic-container">
                                 <Doughnut LabelsDo ={['Advantages','Tools','Results',]} DataDo={[300, 50, 100]}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
-                                <Line DataLine ={[65, 59, 80, 81, 56, 55, 40]}></Line>
+                                <Line DataLine ={[65, 59, 80, 81, 56, 55, 40]}
+                                    Variable ={"Algo xd"}></Line>
                                 </div>
                             </div>
                         </div>

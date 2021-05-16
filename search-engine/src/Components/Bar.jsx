@@ -8,7 +8,7 @@ export class Bar extends Component{
                     <h4>Principales Autores de acuerdo a tu busqueda</h4>
                     <CChart type="bar" datasets={[
                                                 {
-                                                    label: 'Autores',
+                                                    label: this.props.Variable,
                                                     backgroundColor: 'rgba(255,99,132,0.2)',
                                                     borderColor: 'rgba(255,99,132,1)',
                                                     borderWidth: 1,
