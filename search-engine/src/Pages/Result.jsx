@@ -95,7 +95,7 @@ export class Result extends Component{
                                     Variable ={"Apariciones"}></Bar>
                                 </div>
                                 <div className="Graphic-container">
-                                <Doughnut LabelsDo ={['Advantages','Tools','Results',]} DataDo={[300, 50, 100]}></Doughnut>
+                                <Doughnut LabelsDo ={['AUTOR','METHODOLOGIES','PRODUCTS',]} DataDo={[14, 10, 8]}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
                                 <Line DataLine ={[65, 59, 80, 81, 56, 55, 40]}
