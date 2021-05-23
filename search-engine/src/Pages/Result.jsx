@@ -18,8 +18,34 @@ export class Result extends Component{
         this.handleResult=this.handleResult.bind(this)
         this.state = {
             param : "", 
-            results : []
+            results : [],
+            dataBar : []
         }
+    }
+
+    principalAutors = ( arrAutor ) =>{
+        var holi, sorteable, aut, num
+        holi = arrAutor.reduce((accumulator, currentValue) => {
+            !accumulator[currentValue] ? accumulator[currentValue] = 1 : accumulator[currentValue]++
+            return accumulator
+            }, {})
+        sorteable =[]
+        for (var i in holi){
+            sorteable.push([i, holi[i]])
+        }
+        sorteable.sort(function(a, b) {
+            return a[1] - b[1];
+        });
+
+        sorteable = sorteable.reverse().slice(0,5)
+        aut =[]
+        num =[]
+        for (var i in sorteable){
+            console.log("esto es i", i)
+            aut.push(sorteable[i][0])
+            num.push(sorteable[i][1])
+        }
+        return [aut, num]
     }
     
     handleResult = (results) => {
@@ -27,19 +53,9 @@ export class Result extends Component{
         for(var i = 0 ; i < results.length ; i++ ){
          arrAutor.push(results[i].NameAutor.value)
         }
-        var holi = arrAutor.reduce((accumulator, currentValue) => {
-            !accumulator[currentValue] ? accumulator[currentValue] = 1 : accumulator[currentValue]++
-            return accumulator
-            }, {})
-        var sorteable =[]
-        for (var i in holi){
-            sorteable.push([i, holi[i]])
-        }
-        sorteable.sort(function(a, b) {
-            return a[1] - b[1];
-        });
-        console.log("los autores" + sorteable)
-        this.setState({results})
+        arrAutor = this.principalAutors(arrAutor)
+        console.log("asi llega para BAR", arrAutor)
+        this.setState({results : results, dataBar : arrAutor})
     } 
 
     componentDidMount(){
@@ -74,8 +90,8 @@ export class Result extends Component{
                             </div>
                             <div className="col">
                                 <div className="Graphic-container">
-                                <Bar LabelsBar ={["Autor1", "Autor2", "Autor3"]} 
-                                    DataBar={[1, 2, 3]}
+                                <Bar LabelsBar ={ this.state.dataBar[0] } 
+                                    DataBar={this.state.dataBar[1]}
                                     Variable ={"Apariciones"}></Bar>
                                 </div>
                                 <div className="Graphic-container">

@@ -24,14 +24,20 @@ export class CardResult extends Component{
 
             return  crd.map(currency => (
                 <div key={1} style={{marginBottom: '20px'}} > 
-                <Card>
+                {currency.Report.value === "No Results" 
+                    ?<Card>
+                        <Card.Text>{JSON.stringify(currency.Name.value)}</Card.Text>
+                        <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
+                    </Card>
+                    :<Card>
                         <Card.Text>{JSON.stringify(currency.Uri.value)}</Card.Text>
                         <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
                         <a href={currency.Url.value} target="_blank">
                         <Card.Text>Clic aqui para ir a la fuente</Card.Text>
                         </a>
 
-                </Card>
+                    </Card>
+                }
                 </div>
             ))
         
