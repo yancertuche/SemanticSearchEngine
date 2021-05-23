@@ -23,6 +23,22 @@ export class Result extends Component{
     }
     
     handleResult = (results) => {
+        var arrAutor = []
+        for(var i = 0 ; i < results.length ; i++ ){
+         arrAutor.push(results[i].NameAutor.value)
+        }
+        var holi = arrAutor.reduce((accumulator, currentValue) => {
+            !accumulator[currentValue] ? accumulator[currentValue] = 1 : accumulator[currentValue]++
+            return accumulator
+            }, {})
+        var sorteable =[]
+        for (var i in holi){
+            sorteable.push([i, holi[i]])
+        }
+        sorteable.sort(function(a, b) {
+            return a[1] - b[1];
+        });
+        console.log("los autores" + sorteable)
         this.setState({results})
     } 
 
