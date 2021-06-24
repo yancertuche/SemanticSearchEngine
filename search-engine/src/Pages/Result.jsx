@@ -6,11 +6,13 @@ import Doughnut from '../Components/Doughnut';
 import Bar from '../Components/Bar';
 import Line from '../Components/Line';
 import '../Styles/ResultStyles.css';
+import Select from 'react-select';
+import {MDBBtn} from "mdbreact";
 
 import {I18nProvider, LOCALES} from '../i18n';
 import translate from '../i18n/translate'
 import CardResult from '../Components/CardResult';
-import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption } from "mdbreact";
+
 
 
 export class Result extends Component{
@@ -67,13 +69,32 @@ export class Result extends Component{
     render(){
         const {query} = this.state.param
         //this.setState({param:query})
+        const options = [
+            { value: 'chocolate', label: 'Chocolate' },
+            { value: 'strawberry', label: 'Strawberry' },
+            { value: 'vanilla', label: 'Vanilla' }
+        ]
         return(
             <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
                             <div className="col">
-                                <SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar>
+                                <div className="row">
+                                    <div className="col">
+                                    <Select options={options} />
+                                    </div>
+                                    <div className="col">
+                                    <Select options={options} />
+                                    </div>
+                                    <div className="col">
+                                    <Select options={options} />
+                                    </div>
+                                </div>
+                                <MDBBtn color="elegant" size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
+                                {translate('buscar')}
+                                </MDBBtn>
+                                {/*<SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar> */}
                             </div>
                             <div className="col">
                                 <h2 className="Title">
