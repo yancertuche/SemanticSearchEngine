@@ -17,7 +17,7 @@ export class App extends Component {
     return (
       <Router>
           <Route exact path='/' component={Home}/>
-          <Route path='/q/:query' component={Result}/>
+          <Route path='/result' component={Result}/>
       </Router>
     );
   }

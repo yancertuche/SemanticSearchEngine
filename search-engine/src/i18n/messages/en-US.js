@@ -6,6 +6,7 @@ export default {
         'nombre': 'Semantic Search Engine',
         'buscar' : 'Search',
         'consulta' : 'Query',
-        'por' : 'By'
+        'por' : 'By',
+        'entrar' : 'Go in'
     }
 }

@@ -40,7 +40,7 @@ export class Result extends Component{
         sorteable = sorteable.reverse().slice(0,5)
         aut =[]
         num =[]
-        for (var i in sorteable){
+        for ( i in sorteable){
             console.log("esto es i", i)
             aut.push(sorteable[i][0])
             num.push(sorteable[i][1])
@@ -98,9 +98,9 @@ export class Result extends Component{
                                 <Doughnut LabelsDo ={['AUTOR','METHODOLOGIES','PRODUCTS',]} DataDo={[14, 10, 8]}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
-                                <Line DataLine ={[65, 59, 80, 81, 56, 55, 40]}
-                                    Variable ={"Algo xd"}></Line>
-                                </div>
+                                <Line DataLine ={[]}
+                                    Variable ={"año"}></Line>
+                                    </div>
                             </div>
                         </div>
                     </div>

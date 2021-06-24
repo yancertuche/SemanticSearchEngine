@@ -12,15 +12,16 @@ export class Home extends Component {
 
 
   _handleClick =() =>{
-    console.log(this.state.query)
-    this.props.history.push(`/q/${this.state.query}`);
+    //console.log(this.state.query)
+    this.props.history.push(`/result`);
+    //this.props.history.push(`/q/${this.state.query}`);
   }
 
-  _handleChange = (e) =>{
+  /*_handleChange = (e) =>{
     this.setState({
       query: e.target.value
     }); 
-  }
+  }*/
   
   render(){
     return (
@@ -33,14 +34,15 @@ export class Home extends Component {
                 </h2>
                 <br></br>
                   <div>
-                      <div>
+                      {/*<div>
                         <input className = "Input-home" type="text" onChange={this._handleChange}>
                         </input>
-                      </div>
+                      </div> */}
                       <br></br>
                         <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick}>
-                            <MDBIcon icon="search" className="mr-1" />
-                            {translate('buscar')} 
+                            {translate('entrar')} 
+                            <br></br>
+                            <MDBIcon icon="arrow-right" className="mr-1" />
                         </MDBBtn>
                   </div>
                 <br></br>
