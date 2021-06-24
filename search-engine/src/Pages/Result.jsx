@@ -82,19 +82,26 @@ export class Result extends Component{
                             <div className="col">
                                 <div className="row">
                                     <div className="col">
-                                    <Select options={options} />
+                                        <label>{translate('clase')}</label>
+                                        <Select options={options} />
                                     </div>
                                     <div className="col">
-                                    <Select options={options} />
+                                        <label>{translate('relacion')}</label>
+                                        <Select options={options} />
                                     </div>
                                     <div className="col">
-                                    <Select options={options} />
+                                        <label>{translate('clase')}</label>
+                                        <Select options={options} />
                                     </div>
                                 </div>
-                                <MDBBtn color="elegant" size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
-                                {translate('buscar')}
-                                </MDBBtn>
-                                {/*<SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar> */}
+                                <div className="row justify-content-center">
+                                    <div className="btn-search">
+                                        <MDBBtn color="elegant" size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
+                                        {translate('buscar')}
+                                        </MDBBtn>
+                                        {/*<SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar> */}
+                                    </div>
+                                </div>
                             </div>
                             <div className="col">
                                 <h2 className="Title">
@@ -104,6 +111,7 @@ export class Result extends Component{
                         </div>
                         <div className="row">
                             <div className="col">
+                                <br></br>
                                 <div className="Card-container">
                                     { this.state.results.length === 0 
                                     ? <p>Sin resultados :resultados parametros {query}</p>

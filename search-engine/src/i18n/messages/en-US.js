@@ -7,6 +7,8 @@ export default {
         'buscar' : 'Search',
         'consulta' : 'Query',
         'por' : 'By',
-        'entrar' : 'Go in'
+        'entrar' : 'Go in',
+        'clase' : 'Class',
+        'relacion' : 'Relation',
     }
 }
