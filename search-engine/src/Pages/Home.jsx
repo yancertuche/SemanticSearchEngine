@@ -5,6 +5,7 @@ import {I18nProvider, LOCALES} from '../i18n';
 import translate from '../i18n/translate'
 import { MDBBtn, MDBIcon } from "mdbreact";
 
+
 export class Home extends Component {
   state = {
     query : ""

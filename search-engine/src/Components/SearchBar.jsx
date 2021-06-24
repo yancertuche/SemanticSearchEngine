@@ -27,9 +27,6 @@ export class SearchBar extends Component{
     //})
 
     .catch(error => {console.log('algo ha ocurrido', error)})
-
-
-    
   }
   
   handleChange = (e) =>{

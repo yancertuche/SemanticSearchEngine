@@ -10,6 +10,7 @@ import '../Styles/ResultStyles.css';
 import {I18nProvider, LOCALES} from '../i18n';
 import translate from '../i18n/translate'
 import CardResult from '../Components/CardResult';
+import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption } from "mdbreact";
 
 
 export class Result extends Component{
