@@ -6,7 +6,7 @@ import Doughnut from '../Components/Doughnut';
 import Bar from '../Components/Bar';
 import Line from '../Components/Line';
 import '../Styles/ResultStyles.css';
-import Select from 'react-select';
+import Select from 'react-select/async';
 import {MDBBtn} from "mdbreact";
 
 import {I18nProvider, LOCALES} from '../i18n';
@@ -22,7 +22,11 @@ export class Result extends Component{
         this.state = {
             param : "", 
             results : [],
-            dataBar : []
+            dataBar : [],
+            classFirst: "",
+            classSecond: "",
+            relation:""
+             
         }
     }
 
@@ -61,19 +65,36 @@ export class Result extends Component{
         this.setState({results : results, dataBar : arrAutor})
     } 
 
-    componentDidMount(){
-        this.setState({param: this.props.match.params})
-        console.log("aqui se monto con" + this.state.param)
+    handleInputChange = (newValue) => {
+        const inputValue = newValue.toString().replace(/\W/g, '');
+        this.setState({ inputValue });  
+        console.log(newValue)
+        //return inputValue;
     }
 
-    render(){
-        const {query} = this.state.param
-        //this.setState({param:query})
+    filterColors = (inputValue) => {
         const options = [
             { value: 'chocolate', label: 'Chocolate' },
             { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' }
-        ]
+            { value: 'vanilla', label: 'Vanilla' }]
+        return options.filter(i =>
+          i.label.toLowerCase().includes(inputValue.toLowerCase())
+        );
+      };
+
+    loadOptions = (inputValue, callback) => {
+        setTimeout(() => {
+          callback(this.filterColors(inputValue));
+        }, 1000);
+      };
+
+    render(){
+        const {query} = this.state.param
+        const options = [
+            { value: 'chocolate', label: 'Chocolate' },
+            { value: 'strawberry', label: 'Strawberry' },
+            { value: 'vanilla', label: 'Vanilla' }]
+
         return(
             <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
@@ -83,15 +104,19 @@ export class Result extends Component{
                                 <div className="row">
                                     <div className="col">
                                         <label>{translate('clase')}</label>
-                                        <Select options={options} />
+                                        <Select defaultOptions={options} isSearchable={true}
+                                            loadOptions={this.loadOptions}/>
                                     </div>
                                     <div className="col">
                                         <label>{translate('relacion')}</label>
-                                        <Select options={options} />
+                                        <Select defaultOptions={options} isSearchable={true} 
+                                            loadOptions={this.loadOptions}/>
                                     </div>
                                     <div className="col">
                                         <label>{translate('clase')}</label>
-                                        <Select options={options} />
+                                        <Select defaultOptions={options}   
+                                            onChange={this.handleInputChange} isSearchable={true}
+                                            loadOptions={this.loadOptions}/>
                                     </div>
                                 </div>
                                 <div className="row justify-content-center">
