@@ -121,7 +121,7 @@ export class Result extends Component{
                                 </div>
                                 <div className="row justify-content-center">
                                     <div className="btn-search">
-                                        <MDBBtn color="elegant" size="lg" type="submit" className="mr-auto" onClick={this.handleQuery}>
+                                        <MDBBtn color="elegant"  type="submit" className="mr-auto" onClick={this.handleQuery}>
                                         {translate('buscar')}
                                         </MDBBtn>
                                         {/*<SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar> */}
