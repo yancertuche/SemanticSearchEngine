@@ -2,7 +2,8 @@
 
 .App {
   background-image: url("./Images/18010.jpg");
-  background-size: 100%;
+  /*background-size: 100%;*/
+  background-repeat: repeat-y;
   height: 100%;
   width: 100%;
   overflow: hidden;
