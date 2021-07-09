@@ -104,18 +104,23 @@ export class Result extends Component{
                                 <div className="row">
                                     <div className="col">
                                         <label>{translate('clase')}</label>
-                                        <Select defaultOptions={options} isSearchable={true}
+                                        <Select defaultOptions={options} 
+                                            onChange={this.handleInputChange} 
+                                            isSearchable={true}
                                             loadOptions={this.loadOptions}/>
                                     </div>
                                     <div className="col">
                                         <label>{translate('relacion')}</label>
-                                        <Select defaultOptions={options} isSearchable={true} 
+                                        <Select defaultOptions={options} 
+                                            onChange={this.handleInputChange} 
+                                            isSearchable={true} 
                                             loadOptions={this.loadOptions}/>
                                     </div>
                                     <div className="col">
                                         <label>{translate('clase')}</label>
                                         <Select defaultOptions={options}   
-                                            onChange={this.handleInputChange} isSearchable={true}
+                                            onChange={this.handleInputChange} 
+                                            isSearchable={true}
                                             loadOptions={this.loadOptions}/>
                                     </div>
                                 </div>
