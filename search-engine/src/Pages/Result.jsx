@@ -1,7 +1,6 @@
 
 import React, {Component} from 'react';
 import { withRouter } from "react-router-dom";
-import SearchBar from '../Components/SearchBar';
 import Doughnut from '../Components/Doughnut';
 import Bar from '../Components/Bar';
 import Line from '../Components/Line';
@@ -12,6 +11,8 @@ import {MDBBtn} from "mdbreact";
 import {I18nProvider, LOCALES} from '../i18n';
 import translate from '../i18n/translate'
 import CardResult from '../Components/CardResult';
+import ConfigData from '../Config/server.json';
+import axios from 'axios';
 
 
 
@@ -73,6 +74,11 @@ export class Result extends Component{
     }
 
     filterColors = (inputValue) => {
+        const Url_Base = ConfigData.BASE_URL
+        console.log("hola")
+        axios.get(Url_Base+'class')
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
         const options = [
             { value: 'chocolate', label: 'Chocolate' },
             { value: 'strawberry', label: 'Strawberry' },
