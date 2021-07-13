@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import puj from '../Images/logoPuj.png';
+import reactImg from '../Images/logoReact.png';
+import javaImg from '../Images/logoJava.png';
 import '../App.css';
 
 import {I18nProvider, LOCALES} from '../i18n';
@@ -48,6 +51,12 @@ export class Home extends Component {
                   </div>
                 <br></br>
                 <h2> {translate('por')} Yan Carlos Certuche Grueso </h2>
+                <br></br>
+                <div className="logos"> 
+                  <img src={puj} alt="Italian Trulli" width='80px' height='100px'/>
+                  <img src={reactImg} alt="Italian Trulli" width='80px' height='80px'/>
+                  <img src={javaImg} alt="Italian Trulli" width='80px' height='110px'/>
+                </div>
               </div>
       </div>
       </I18nProvider>
