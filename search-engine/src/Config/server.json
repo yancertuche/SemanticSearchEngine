@@ -1,3 +1,6 @@
 {
-    "BASE_URL": "http://localhost:8080/API-JENA/v1/ontology/"
+    "BASE_URL": "http://localhost:8080/API-JENA/v1/ontology",
+    "CLASSES_RESOURCE": "/class",
+    "INSTANCES_RESOURCE": "/instance",
+    "RELATIONS_RESOURCE": "/relation"
 }

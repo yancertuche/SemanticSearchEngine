@@ -20,15 +20,46 @@ export class Result extends Component{
     constructor(){
         super();
         this.handleResult=this.handleResult.bind(this)
-        this.state = {
-            param : "", 
+        this.state = { 
             results : [],
             dataBar : [],
             classFirst: "",
             classSecond: "",
-            relation:""
+            relation:"",
+            listClassFirst:[],
+            listRelation:[],
+            listClassSecond:[]
              
         }
+    }
+
+    componentDidMount (){
+        const Url_Base = ConfigData.BASE_URL
+        const resource = ConfigData.CLASSES_RESOURCE
+        let result = []
+        axios.get(Url_Base+resource)
+        .then(response => {
+            var ref = response.data.results.bindings
+            for(let i = 0; i < ref.length;i++ ){
+                var element = { value : i, label : ref[i].labelSubClass.value}
+                result.push(element)
+            }
+            this.setState({listClassFirst : result});
+            console.log(result)
+        })
+        .catch(error => console.log(error))
+    }
+
+    handleQuery = (event) =>{
+        event.preventDefault()
+        const Url_Base = ConfigData.BASE_URL
+        const resource = ConfigData.INSTANCES_RESOURCE
+        const obj = { classIn : this.state.classFirst }
+        axios.post(Url_Base+resource, obj)
+        .then(response => {
+            console.log(this.state.classFirst)
+            console.log(response.data.results.bindings)
+        })  
     }
 
     principalAutors = ( arrAutor ) =>{
@@ -66,24 +97,25 @@ export class Result extends Component{
         this.setState({results : results, dataBar : arrAutor})
     } 
 
+    promiseOptions = () =>{
+        console.log(this.state.listClassFirst)
+        return this.state.listClassFirst
+    }
+
     handleInputChange = (newValue) => {
         const inputValue = newValue.toString().replace(/\W/g, '');
-        this.setState({ inputValue });  
+        this.setState({ inputValue }); 
+        this.setState({classFirst : newValue.label}) 
         console.log(newValue)
         //return inputValue;
     }
 
     filterColors = (inputValue) => {
-        const Url_Base = ConfigData.BASE_URL
-        console.log("hola")
-        axios.get(Url_Base+'class')
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
         const options = [
             { value: 'chocolate', label: 'Chocolate' },
             { value: 'strawberry', label: 'Strawberry' },
             { value: 'vanilla', label: 'Vanilla' }]
-        return options.filter(i =>
+        return this.state.listClassFirst.filter(i =>
           i.label.toLowerCase().includes(inputValue.toLowerCase())
         );
       };
@@ -95,12 +127,6 @@ export class Result extends Component{
       };
 
     render(){
-        const {query} = this.state.param
-        const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' }]
-
         return(
             <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
@@ -110,21 +136,22 @@ export class Result extends Component{
                                 <div className="row">
                                     <div className="col">
                                         <label>{translate('clase')}</label>
-                                        <Select defaultOptions={options} 
-                                            onChange={this.handleInputChange} 
+                                        <Select defaultOptions={this.state.listClassFirst}
+                                            onChange={this.handleInputChange}
                                             isSearchable={true}
-                                            loadOptions={this.loadOptions}/>
+                                            loadOptions={this.loadOptions}
+                                            />
                                     </div>
                                     <div className="col">
                                         <label>{translate('relacion')}</label>
-                                        <Select defaultOptions={options} 
+                                        <Select defaultOptions={[{value: 1, label : "hola"}]} 
                                             onChange={this.handleInputChange} 
                                             isSearchable={true} 
                                             loadOptions={this.loadOptions}/>
                                     </div>
                                     <div className="col">
                                         <label>{translate('clase')}</label>
-                                        <Select defaultOptions={options}   
+                                        <Select defaultOptions={[{value: 1, label : "hola"}]}   
                                             onChange={this.handleInputChange} 
                                             isSearchable={true}
                                             loadOptions={this.loadOptions}/>
@@ -150,7 +177,7 @@ export class Result extends Component{
                                 <br></br>
                                 <div className="Card-container">
                                     { this.state.results.length === 0 
-                                    ? <p>Sin resultados :resultados parametros {query}</p>
+                                    ? <p>Sin resultados :resultados parametros</p>
                                     : <CardResult crd={this.state.results}></CardResult>}
                                 </div>
                             </div>
