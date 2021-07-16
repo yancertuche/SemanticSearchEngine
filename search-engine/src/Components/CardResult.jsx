@@ -4,16 +4,6 @@ import {Card} from 'react-bootstrap'
 
 export class CardResult extends Component{
 
-    state={
-        contador : 0
-    }
-    
-    _next = (a) => {
-        var sigue = a + 1
-        this.setState({contador : sigue})
-        return sigue
-    }
-
     _renderConcurrencies() {
         const {crd} =this.props
         
@@ -24,17 +14,21 @@ export class CardResult extends Component{
 
             return  crd.map(currency => (
                 <div key={1} style={{marginBottom: '20px'}} > 
-                {currency.Report.value === "No Results" 
+                {currency.labelInstance.value === "No Results" 
                     ?<Card>
                         <Card.Text>{JSON.stringify(currency.Name.value)}</Card.Text>
                         <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
                     </Card>
                     :<Card>
-                        <Card.Text>{JSON.stringify(currency.Uri.value)}</Card.Text>
+                        {Object.entries(currency).map( label => (
+                            <Card.Text>{JSON.stringify(label[0])} : {JSON.stringify(label[1].value)}</Card.Text>
+                        ))}
+
+                        {/*<Card.Text>{JSON.stringify(currency.Uri.value)}</Card.Text>
                         <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
                         <a href={currency.Url.value} target="_blank">
                         <Card.Text>Clic aqui para ir a la fuente</Card.Text>
-                        </a>
+                        </a>*/}
 
                     </Card>
                 }

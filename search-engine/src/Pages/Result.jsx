@@ -59,6 +59,7 @@ export class Result extends Component{
         .then(response => {
             console.log(this.state.classFirst)
             console.log(response.data.results.bindings)
+            this.setState({results : response.data.results.bindings })
         })  
     }
 
@@ -111,10 +112,10 @@ export class Result extends Component{
     }
 
     filterColors = (inputValue) => {
-        const options = [
+        {/*const options = [
             { value: 'chocolate', label: 'Chocolate' },
             { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' }]
+        { value: 'vanilla', label: 'Vanilla' }]*/}
         return this.state.listClassFirst.filter(i =>
           i.label.toLowerCase().includes(inputValue.toLowerCase())
         );
