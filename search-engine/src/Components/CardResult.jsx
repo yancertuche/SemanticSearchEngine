@@ -17,8 +17,7 @@ export class CardResult extends Component{
                 <div className="cardResult" > 
                 {currency.labelInstance.value === "No Results" 
                     ?<Card>
-                        <Card.Text>{JSON.stringify(currency.Name.value)}</Card.Text>
-                        <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
+                        <Card.Text>{currency.labelInstance.value}</Card.Text>
                     </Card>
                     :<Card>
                         {Object.entries(currency).map( label => (
@@ -26,7 +25,7 @@ export class CardResult extends Component{
                             ? <a href={label[1].value} target="_blank">
                                 <Card.Text>Clic aqui para ir a la fuente</Card.Text>
                             </a>
-                            :<Card.Text>{JSON.stringify(label[0])} : {JSON.stringify(label[1].value)}</Card.Text>
+                            :<Card.Text><b>{label[0]}</b> : {label[1].value}</Card.Text>
                         ))}
 
                         {/*<Card.Text>{JSON.stringify(currency.Uri.value)}</Card.Text>

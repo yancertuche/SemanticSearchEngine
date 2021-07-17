@@ -178,7 +178,7 @@ export class Result extends Component{
                                 <br></br>
                                 <div className="Card-container">
                                     { this.state.results.length === 0 
-                                    ? <p>Sin resultados :resultados parametros</p>
+                                    ? <p><b>Bienvenido</b>, aqui se desplegarán los resultado de tu búsqueda</p>
                                     : <CardResult crd={this.state.results}></CardResult>}
                                 </div>
                             </div>
