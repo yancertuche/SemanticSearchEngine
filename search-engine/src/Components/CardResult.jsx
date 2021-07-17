@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Card} from 'react-bootstrap'
+import {Card} from 'react-bootstrap';
+import '../Styles/CardResultStyles.css';
 //import { Card, CardContent } from '@material-ui/core';
 
 export class CardResult extends Component{
@@ -13,7 +14,7 @@ export class CardResult extends Component{
             
 
             return  crd.map(currency => (
-                <div key={1} style={{marginBottom: '20px'}} > 
+                <div className="cardResult" > 
                 {currency.labelInstance.value === "No Results" 
                     ?<Card>
                         <Card.Text>{JSON.stringify(currency.Name.value)}</Card.Text>
@@ -21,11 +22,16 @@ export class CardResult extends Component{
                     </Card>
                     :<Card>
                         {Object.entries(currency).map( label => (
-                            <Card.Text>{JSON.stringify(label[0])} : {JSON.stringify(label[1].value)}</Card.Text>
+                            label[0] === "url"
+                            ? <a href={label[1].value} target="_blank">
+                                <Card.Text>Clic aqui para ir a la fuente</Card.Text>
+                            </a>
+                            :<Card.Text>{JSON.stringify(label[0])} : {JSON.stringify(label[1].value)}</Card.Text>
                         ))}
 
                         {/*<Card.Text>{JSON.stringify(currency.Uri.value)}</Card.Text>
                         <Card.Text>{JSON.stringify(currency.Report.value)}</Card.Text>
+                        <Card.Link href={JSON.stringify(label[1].value)}>Card Link</Card.Link>
                         <a href={currency.Url.value} target="_blank">
                         <Card.Text>Clic aqui para ir a la fuente</Card.Text>
                         </a>*/}
