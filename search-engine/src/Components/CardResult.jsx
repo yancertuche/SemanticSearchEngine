@@ -15,11 +15,11 @@ export class CardResult extends Component{
 
             return  crd.map(currency => (
                 <div className="cardResult" > 
-                {currency.labelInstance.value === "No Results" 
-                    ?<Card>
-                        <Card.Text>{currency.labelInstance.value}</Card.Text>
+                {currency.Instance.value === "No Results" 
+                    ?<Card className="cardInside">
+                        <Card.Text>{currency.Instance.value}</Card.Text>
                     </Card>
-                    :<Card>
+                    :<Card className="cardInside">
                         {Object.entries(currency).map( label => (
                             label[0] === "url"
                             ? <a href={label[1].value} target="_blank">

@@ -129,7 +129,7 @@ export class Result extends Component{
 
     render(){
         return(
-            <I18nProvider locale={LOCALES.ENGLISH}>
+            <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">

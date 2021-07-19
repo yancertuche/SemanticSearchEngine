@@ -1,5 +1,6 @@
 .cardResult{
-    margin-bottom: '20px';
-    width:auto;
-    overflow: hidden;
+    margin-bottom: 20px;
+}
+.cardInside{
+    padding: 1em;
 }
