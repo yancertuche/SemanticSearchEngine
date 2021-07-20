@@ -28,7 +28,8 @@ export class Result extends Component{
             relation:"",
             listClassFirst:[],
             listRelation:[],
-            listClassSecond:[]
+            listClassSecond:[],
+            emptyInput: false
              
         }
     }
@@ -51,6 +52,10 @@ export class Result extends Component{
         })
         .catch(error => console.log(error))
     }
+
+/*************************************************/   
+//Search botton handler
+/*************************************************/ 
 
     handleQuery = (event) =>{
         event.preventDefault()
