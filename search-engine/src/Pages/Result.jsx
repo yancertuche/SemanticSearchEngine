@@ -59,8 +59,8 @@ export class Result extends Component{
         const obj = { classIn : this.state.classFirst}
         axios.post(Url_Base+resource, obj)
         .then(response => {
-            console.log(this.state.classFirst)
-            console.log(response.data.results.bindings)
+            console.log("La clase al hacer clic en buscar: ",this.state.classFirst)
+            console.log("La Response al hacer clic", response.data.results.bindings)
             this.setState({results : response.data.results.bindings })
         })  
     }
@@ -104,16 +104,12 @@ export class Result extends Component{
 // Input of Relations
 /*****************************************************************************************/
     handleInputChangeRelation = (newValue) => {
-        const inputValue = newValue.toString().replace(/\W/g, '');
+        //const inputValue = newValue.toString().replace(/\W/g, '');
         this.setState({relation : newValue.label})
         console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     }
 
     filterRelations = (inputValue) => {
-        {/*const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }]*/}
         return this.state.listRelation.filter(i =>
           i.label.toLowerCase().includes(inputValue.toLowerCase())
         );
@@ -135,20 +131,18 @@ handleInputChange = (newValue) => {
         const Url_Base = ConfigData.BASE_URL
         const resource = ConfigData.RELATIONS_RESOURCE
         const obj = { classIn : this.state.classFirst}
-        console.log("el body", obj)
         var result =[]
         axios.post(Url_Base+resource, obj)
         .then( response =>{
-            if(response.data.results.bindings.instance !== undefined ){
+            var temp = JSON.stringify(response.data.results.bindings)
+            if(!(temp === JSON.stringify(ConfigData.NO_RESULT))){
                 var ref = response.data.results.bindings
                 for(let i = 0; i < ref.length;i++ ){
-                    console.log("la response al traer las relaciones de la clase", response)
                     var newWord = ref[i].property.value.split(/(?=[A-Z])/).join(" ")
                     var element = { value : i, label : newWord}
                     result.push(element)
                 }
                 this.setState({listRelation : result});
-                console.log(this.state.listRelation)
             }else{
                 this.setState({listRelation : []});
 
@@ -158,10 +152,6 @@ handleInputChange = (newValue) => {
     
 }
     filterColors = (inputValue) => {
-        {/*const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }]*/}
         return this.state.listClassFirst.filter(i =>
           i.label.toLowerCase().includes(inputValue.toLowerCase())
         );
