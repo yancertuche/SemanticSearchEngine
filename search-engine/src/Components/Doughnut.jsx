@@ -5,7 +5,7 @@ export class Doughnut extends Component{
     render(){
         return(
             <div>
-                    <h4>Categorias que presentan más proporción de datos en la base de conocimiento </h4>
+                    <h4>{this.props.donaTitle} </h4>
                             <CChart type="doughnut" datasets={[
                                                                 {
                                                                 data: this.props.DataDo,

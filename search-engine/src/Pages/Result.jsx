@@ -42,7 +42,8 @@ export class Result extends Component{
         .then(response => {
             var ref = response.data.results.bindings
             for(let i = 0; i < ref.length;i++ ){
-                var element = { value : i, label : ref[i].labelSubClass.value}
+                var newWord = ref[i].labelSubClass.value.toString().split(/(?=[A-Z])/).join(" ")
+                var element = { value : i, label : newWord}
                 result.push(element)
             }
             this.setState({listClassFirst : result});
@@ -55,7 +56,7 @@ export class Result extends Component{
         event.preventDefault()
         const Url_Base = ConfigData.BASE_URL
         const resource = ConfigData.INSTANCES_RESOURCE
-        const obj = { classIn : this.state.classFirst }
+        const obj = { classIn : this.state.classFirst}
         axios.post(Url_Base+resource, obj)
         .then(response => {
             console.log(this.state.classFirst)
@@ -128,24 +129,33 @@ export class Result extends Component{
 /*****************************************************************************************/
 
 handleInputChange = (newValue) => {
-    const inputValue = newValue.toString().replace(/\W/g, '');
-    this.setState({ inputValue }); 
-    this.setState({classFirst : newValue.label}) 
     console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
-    const Url_Base = ConfigData.BASE_URL
-    const resource = ConfigData.RELATIONS_RESOURCE
-    const obj = { classIn : this.state.classFirst }
-    var result =[]
-    axios.post(Url_Base+resource, obj)
-    .then( response =>{
-        var ref = response.data.results.bindings
-        for(let i = 0; i < ref.length;i++ ){
-            var element = { value : i, label : ref[i].property.value}
-            result.push(element)
-        }
-        this.setState({listRelation : result});
-        console.log(this.state.listRelation)
-    })
+    var classLabel = newValue.label.split(/\s/).join("")
+    this.setState({classFirst : classLabel}, () => {
+        const Url_Base = ConfigData.BASE_URL
+        const resource = ConfigData.RELATIONS_RESOURCE
+        const obj = { classIn : this.state.classFirst}
+        console.log("el body", obj)
+        var result =[]
+        axios.post(Url_Base+resource, obj)
+        .then( response =>{
+            if(response.data.results.bindings.instance !== undefined ){
+                var ref = response.data.results.bindings
+                for(let i = 0; i < ref.length;i++ ){
+                    console.log("la response al traer las relaciones de la clase", response)
+                    var newWord = ref[i].property.value.split(/(?=[A-Z])/).join(" ")
+                    var element = { value : i, label : newWord}
+                    result.push(element)
+                }
+                this.setState({listRelation : result});
+                console.log(this.state.listRelation)
+            }else{
+                this.setState({listRelation : []});
+
+            }
+        })
+    }) 
+    
 }
     filterColors = (inputValue) => {
         {/*const options = [
@@ -181,7 +191,7 @@ handleInputChange = (newValue) => {
                                     </div>
                                     <div className="col">
                                         <label>{translate('relacion')}</label>
-                                        <Select defaultOptions={[{value: 1, label : "hola"}]} 
+                                        <Select defaultOptions={this.state.listRelation} 
                                             onChange={this.handleInputChangeRelation} 
                                             isSearchable={true} 
                                             loadOptions={this.loadOptionsRelation}/>
@@ -196,7 +206,7 @@ handleInputChange = (newValue) => {
                                 </div>
                                 <div className="row justify-content-center">
                                     <div className="btn-search">
-                                        <MDBBtn color="elegant"  type="submit" className="mr-auto" onClick={this.handleQuery}>
+                                        <MDBBtn color="elegant"  type="submit" className="mr-auto" onClick={this.handleQuery.bind(this)}>
                                         {translate('buscar')}
                                         </MDBBtn>
                                         {/*<SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar> */}

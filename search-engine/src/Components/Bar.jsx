@@ -5,10 +5,10 @@ export class Bar extends Component{
     render(){
         return(
             <div>
-                    <h4>Principales Autores de acuerdo a tu busqueda</h4>
+                    <h4>{this.props.barTitle} </h4>
                     <CChart type="bar" datasets={[
                                                 {
-                                                    label: this.props.Variable,
+                                                    label: this.props.Var ,
                                                     backgroundColor: 'rgba(255,99,132,0.2)',
                                                     borderColor: 'rgba(255,99,132,1)',
                                                     borderWidth: 1,
