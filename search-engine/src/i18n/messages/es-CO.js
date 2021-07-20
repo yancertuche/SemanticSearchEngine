@@ -15,6 +15,8 @@ export default {
         'barTitle': 'Principales Autores de acuerdo a tu busqueda',
         'donaTitle': 'Categorias que presentan más proporción de datos en la base de conocimiento',
         'lineTitle': 'Line',
-        'apariciones' : 'Apariciones'
+        'apariciones' : 'Apariciones',
+        'errorInputMsg' : '*Por favor, elige o busca una clase',
+        'errorInputMsgRelation' : '*Por favor, elige o busca una relación'
     }
 }

@@ -29,7 +29,7 @@ export class Result extends Component{
             listClassFirst:[],
             listRelation:[],
             listClassSecond:[],
-            emptyInput: false
+            emptyInput: true
              
         }
     }
@@ -170,7 +170,7 @@ handleInputChange = (newValue) => {
 
     render(){
         return(
-            <I18nProvider locale={LOCALES.ENGLISH}>
+            <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
@@ -183,6 +183,9 @@ handleInputChange = (newValue) => {
                                             isSearchable={true}
                                             loadOptions={this.loadOptions}
                                             />
+                                        {this.state.emptyInput === true
+                                        ?<label className="labelError">{translate('errorInputMsg')}</label>
+                                        : <label></label>}
                                     </div>
                                     <div className="col">
                                         <label>{translate('relacion')}</label>
@@ -190,6 +193,9 @@ handleInputChange = (newValue) => {
                                             onChange={this.handleInputChangeRelation} 
                                             isSearchable={true} 
                                             loadOptions={this.loadOptionsRelation}/>
+                                        {this.state.emptyInput === true
+                                        ?<label className="labelError">{translate('errorInputMsgRelation')}</label>
+                                        : <label></label>}
                                     </div>
                                     <div className="col">
                                         <label>{translate('clase')}</label>
@@ -197,6 +203,9 @@ handleInputChange = (newValue) => {
                                             onChange={this.handleInputChange} 
                                             isSearchable={true}
                                             loadOptions={this.loadOptions}/>
+                                        {this.state.emptyInput === true
+                                        ?<label className="labelError">{translate('errorInputMsg')}</label>
+                                        : <label></label>}
                                     </div>
                                 </div>
                                 <div className="row justify-content-center">

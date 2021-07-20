@@ -15,7 +15,9 @@ export default {
         'barTitle': 'main authors according to your search',
         'donaTitle': 'Categories with the highest proportion of data in the knowledge base',
         'lineTitle': 'Line',
-        'apariciones' : 'Frecuency'
+        'apariciones' : 'Frecuency',
+        'errorInputMsg' : '*Please, select or search a class',
+        'errorInputMsgRelation' : '*Please, select or search a relation'
 
 
     }

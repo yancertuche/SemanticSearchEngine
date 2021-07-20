@@ -37,3 +37,7 @@
 .btn-search{
     align-items: center;
 }
+
+.labelError{
+    color: red;
+}
