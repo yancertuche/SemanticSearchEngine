@@ -33,6 +33,7 @@ export class Result extends Component{
         }
     }
 
+
     componentDidMount (){
         const Url_Base = ConfigData.BASE_URL
         const resource = ConfigData.CLASSES_RESOURCE
@@ -98,19 +99,54 @@ export class Result extends Component{
         this.setState({results : results, dataBar : arrAutor})
     } 
 
-    promiseOptions = () =>{
-        console.log(this.state.listClassFirst)
-        return this.state.listClassFirst
-    }
-
-    handleInputChange = (newValue) => {
+/*****************************************************************************************/  
+// Input of Relations
+/*****************************************************************************************/
+    handleInputChangeRelation = (newValue) => {
         const inputValue = newValue.toString().replace(/\W/g, '');
-        this.setState({ inputValue }); 
-        this.setState({classFirst : newValue.label}) 
-        console.log(newValue)
-        //return inputValue;
+        this.setState({relation : newValue.label})
+        console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     }
 
+    filterRelations = (inputValue) => {
+        {/*const options = [
+            { value: 'chocolate', label: 'Chocolate' },
+            { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }]*/}
+        return this.state.listRelation.filter(i =>
+          i.label.toLowerCase().includes(inputValue.toLowerCase())
+        );
+      };
+
+    loadOptionsRelation = (inputValue, callback) => {
+    setTimeout(() => {
+        callback(this.filterRelations(inputValue));
+    }, 1000);
+    };
+/*****************************************************************************************/  
+// Input of Class first
+/*****************************************************************************************/
+
+handleInputChange = (newValue) => {
+    const inputValue = newValue.toString().replace(/\W/g, '');
+    this.setState({ inputValue }); 
+    this.setState({classFirst : newValue.label}) 
+    console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
+    const Url_Base = ConfigData.BASE_URL
+    const resource = ConfigData.RELATIONS_RESOURCE
+    const obj = { classIn : this.state.classFirst }
+    var result =[]
+    axios.post(Url_Base+resource, obj)
+    .then( response =>{
+        var ref = response.data.results.bindings
+        for(let i = 0; i < ref.length;i++ ){
+            var element = { value : i, label : ref[i].property.value}
+            result.push(element)
+        }
+        this.setState({listRelation : result});
+        console.log(this.state.listRelation)
+    })
+}
     filterColors = (inputValue) => {
         {/*const options = [
             { value: 'chocolate', label: 'Chocolate' },
@@ -129,7 +165,7 @@ export class Result extends Component{
 
     render(){
         return(
-            <I18nProvider locale={LOCALES.ESPAÑOL}>
+            <I18nProvider locale={LOCALES.ENGLISH}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
@@ -146,9 +182,9 @@ export class Result extends Component{
                                     <div className="col">
                                         <label>{translate('relacion')}</label>
                                         <Select defaultOptions={[{value: 1, label : "hola"}]} 
-                                            onChange={this.handleInputChange} 
+                                            onChange={this.handleInputChangeRelation} 
                                             isSearchable={true} 
-                                            loadOptions={this.loadOptions}/>
+                                            loadOptions={this.loadOptionsRelation}/>
                                     </div>
                                     <div className="col">
                                         <label>{translate('clase')}</label>
@@ -178,7 +214,7 @@ export class Result extends Component{
                                 <br></br>
                                 <div className="Card-container">
                                     { this.state.results.length === 0 
-                                    ? <p><b>Bienvenido</b>, aqui se desplegarán los resultado de tu búsqueda</p>
+                                    ? <p><b>{translate('bienvenido')}</b> , {translate('resultadosMsg')}</p>
                                     : <CardResult crd={this.state.results}></CardResult>}
                                 </div>
                             </div>
@@ -186,14 +222,18 @@ export class Result extends Component{
                                 <div className="Graphic-container">
                                 <Bar LabelsBar ={ this.state.dataBar[0] } 
                                     DataBar={this.state.dataBar[1]}
-                                    Variable ={"Apariciones"}></Bar>
+                                    Var ={'Variable'}
+                                    barTitle={translate('barTitle')}></Bar>
                                 </div>
                                 <div className="Graphic-container">
-                                <Doughnut LabelsDo ={['AUTOR','METHODOLOGIES','PRODUCTS',]} DataDo={[14, 10, 8]}></Doughnut>
+                                <Doughnut LabelsDo ={['AUTOR','METHODOLOGIES','PRODUCTS',]}
+                                     DataDo={[14, 10, 8]}
+                                     donaTitle={translate('donaTitle')}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
                                 <Line DataLine ={[]}
-                                    Variable ={"año"}></Line>
+                                    Variable ={"año"}
+                                    lineTitle={translate('lineTitle')}></Line>
                                     </div>
                             </div>
                         </div>
