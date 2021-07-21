@@ -29,7 +29,9 @@ export class Result extends Component{
             listClassFirst:[],
             listRelation:[],
             listClassSecond:[],
-            emptyInput: true
+            emptyInputClassFirst: false,
+            emptyInputRelation: false,
+            emptyInputClassSecond: false
              
         }
     }
@@ -59,15 +61,25 @@ export class Result extends Component{
 
     handleQuery = (event) =>{
         event.preventDefault()
-        const Url_Base = ConfigData.BASE_URL
-        const resource = ConfigData.INSTANCES_RESOURCE
-        const obj = { classIn : this.state.classFirst}
-        axios.post(Url_Base+resource, obj)
-        .then(response => {
-            console.log("La clase al hacer clic en buscar: ",this.state.classFirst)
-            console.log("La Response al hacer clic", response.data.results.bindings)
-            this.setState({results : response.data.results.bindings })
-        })  
+        if(this.state.relation !== "" && this.state.classSecond === ""){
+            this.setState({emptyInputClassSecond : true})
+        }
+        if(this.state.relation === "" && this.state.classSecond !== ""){
+            this.setState({emptyInputRelation : true})
+        }
+        if(this.state.classFirst === ""){
+            this.setState({emptyInputClassFirst : true})
+        }else{
+            const Url_Base = ConfigData.BASE_URL
+            const resource = ConfigData.INSTANCES_RESOURCE
+            const obj = { classIn : this.state.classFirst}
+            axios.post(Url_Base+resource, obj)
+            .then(response => {
+                console.log("La clase al hacer clic en buscar: ",this.state.classFirst)
+                console.log("La Response al hacer clic", response.data.results.bindings)
+                this.setState({results : response.data.results.bindings })
+            })  
+        }
     }
 
     principalAutors = ( arrAutor ) =>{
@@ -106,10 +118,21 @@ export class Result extends Component{
     } 
 
 /*****************************************************************************************/  
+// Input of class Second
+/*****************************************************************************************/    
+handleInputChangeClassSecond = (newValue) => {
+    this.setState({emptyInputClassSecond : false})
+    //const inputValue = newValue.toString().replace(/\W/g, '');
+    this.setState({classSecond : newValue.label})
+    console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
+}
+
+/*****************************************************************************************/  
 // Input of Relations
 /*****************************************************************************************/
     handleInputChangeRelation = (newValue) => {
         //const inputValue = newValue.toString().replace(/\W/g, '');
+        this.setState({emptyInputRelation : false})
         this.setState({relation : newValue.label})
         console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     }
@@ -130,6 +153,7 @@ export class Result extends Component{
 /*****************************************************************************************/
 
 handleInputChange = (newValue) => {
+    this.setState({emptyInputClassFirst : false})
     console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     var classLabel = newValue.label.split(/\s/).join("")
     this.setState({classFirst : classLabel}, () => {
@@ -183,7 +207,7 @@ handleInputChange = (newValue) => {
                                             isSearchable={true}
                                             loadOptions={this.loadOptions}
                                             />
-                                        {this.state.emptyInput === true
+                                        {this.state.emptyInputClassFirst === true
                                         ?<label className="labelError">{translate('errorInputMsg')}</label>
                                         : <label></label>}
                                     </div>
@@ -193,17 +217,17 @@ handleInputChange = (newValue) => {
                                             onChange={this.handleInputChangeRelation} 
                                             isSearchable={true} 
                                             loadOptions={this.loadOptionsRelation}/>
-                                        {this.state.emptyInput === true
+                                        {this.state.emptyInputRelation === true
                                         ?<label className="labelError">{translate('errorInputMsgRelation')}</label>
                                         : <label></label>}
                                     </div>
                                     <div className="col">
                                         <label>{translate('clase')}</label>
                                         <Select defaultOptions={[{value: 1, label : "hola"}]}   
-                                            onChange={this.handleInputChange} 
+                                            onChange={this.handleInputChangeClassSecond} 
                                             isSearchable={true}
                                             loadOptions={this.loadOptions}/>
-                                        {this.state.emptyInput === true
+                                        {this.state.emptyInputClassSecond === true
                                         ?<label className="labelError">{translate('errorInputMsg')}</label>
                                         : <label></label>}
                                     </div>
