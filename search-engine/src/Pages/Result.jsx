@@ -64,9 +64,11 @@ export class Result extends Component{
         if(this.state.relation !== "" && this.state.classSecond === ""){
             this.setState({emptyInputClassSecond : true})
         }
+
         if(this.state.relation === "" && this.state.classSecond !== ""){
             this.setState({emptyInputRelation : true})
         }
+
         if(this.state.classFirst === ""){
             this.setState({emptyInputClassFirst : true})
         }else{
@@ -79,6 +81,10 @@ export class Result extends Component{
                 console.log("La Response al hacer clic", response.data.results.bindings)
                 this.setState({results : response.data.results.bindings })
             })  
+        }
+
+        if(this.state.classFirst !== "" && this.state.relation !== "" && this.state.classSecond !== ""){
+            console.log(`la consulta sencilla será: ${this.state.classFirst} ${this.state.relation} ${this.state.classSecond} `)
         }
     }
 
