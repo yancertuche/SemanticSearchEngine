@@ -14,6 +14,9 @@ import CardResult from '../Components/CardResult';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
 
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 
 export class Result extends Component{
@@ -31,7 +34,8 @@ export class Result extends Component{
             listClassSecond:[],
             emptyInputClassFirst: false,
             emptyInputRelation: false,
-            emptyInputClassSecond: false
+            emptyInputClassSecond: false,
+            language : "ENGLISH"
              
         }
     }
@@ -44,6 +48,9 @@ export class Result extends Component{
         axios.get(Url_Base+resource)
         .then(response => {
             var ref = response.data.results.bindings
+            result.push({value : -1, label : "Autor" })
+            result.push({value : -2, label : "Challenges" })
+            result.push({value : -3, label : "Motivations" })
             for(let i = 0; i < ref.length;i++ ){
                 var newWord = ref[i].labelSubClass.value.toString().split(/(?=[A-Z])/).join(" ")
                 var element = { value : i, label : newWord}
@@ -61,17 +68,11 @@ export class Result extends Component{
 
     handleQuery = (event) =>{
         event.preventDefault()
-        if(this.state.relation !== "" && this.state.classSecond === ""){
-            this.setState({emptyInputClassSecond : true})
-        }
 
-        if(this.state.relation === "" && this.state.classSecond !== ""){
-            this.setState({emptyInputRelation : true})
-        }
-
-        if(this.state.classFirst === ""){
+        if(this.state.relation === "" && this.state.classSecond === "" && this.state.classFirst === ""){
             this.setState({emptyInputClassFirst : true})
-        }else{
+        }
+        else if(this.state.classFirst !== "" && this.state.relation === "" && this.state.classSecond === ""){
             const Url_Base = ConfigData.BASE_URL
             const resource = ConfigData.INSTANCES_RESOURCE
             const obj = { classIn : this.state.classFirst}
@@ -80,11 +81,29 @@ export class Result extends Component{
                 console.log("La clase al hacer clic en buscar: ",this.state.classFirst)
                 console.log("La Response al hacer clic", response.data.results.bindings)
                 this.setState({results : response.data.results.bindings })
-            })  
+            })
         }
 
-        if(this.state.classFirst !== "" && this.state.relation !== "" && this.state.classSecond !== ""){
+        else if(this.state.classFirst !== "" && this.state.relation !== "" && this.state.classSecond !== ""){
             console.log(`la consulta sencilla será: ${this.state.classFirst} ${this.state.relation} ${this.state.classSecond} `)
+            const Url_Base = ConfigData.BASE_URL
+            const resource = ConfigData.SEARCH_RESOURCE
+            const obj = { classIn1 : this.state.classFirst, 
+                relation : this.state.relation, 
+                classIn2 : this.state.classSecond}
+            console.log("el objeto armado consulta sencilla", obj)
+            axios.post(Url_Base+resource, obj)
+            .then(response => {
+                console.log("La response al hacer clic en buscar sencilla: ",response)
+                this.setState({results : response.data.results.bindings })
+            })
+        }
+
+        else if(this.state.classFirst !== "" && this.state.classSecond !== "" && this.state.relation === ""){
+            this.setState({emptyInputRelation : true})
+        }
+        else{
+            this.setState({emptyInputClassSecond : true})
         }
     }
 
@@ -139,7 +158,7 @@ handleInputChangeClassSecond = (newValue) => {
     handleInputChangeRelation = (newValue) => {
         //const inputValue = newValue.toString().replace(/\W/g, '');
         this.setState({emptyInputRelation : false})
-        this.setState({relation : newValue.label})
+        this.setState({relation : newValue.label.split(/\s/).join("")})
         console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     }
 
@@ -198,9 +217,10 @@ handleInputChange = (newValue) => {
         }, 1000);
       };
 
+
     render(){
         return(
-            <I18nProvider locale={LOCALES.ESPAÑOL}>
+            <I18nProvider locale={LOCALES.ENGLISH}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
@@ -251,6 +271,14 @@ handleInputChange = (newValue) => {
                                 <h2 className="Title">
                                     {translate('nombre')}
                                 </h2>
+                                <FormControlLabel
+                                    value="top"
+                                    control={<Switch color="primary" 
+                                        size="small"
+                                        checked={this.state.language}/>}
+                                    label="Top"
+                                    labelPlacement="top"
+                                />
                             </div>
                         </div>
                         <div className="row">

@@ -3,6 +3,7 @@
     "CLASSES_RESOURCE": "/class",
     "INSTANCES_RESOURCE": "/instance",
     "RELATIONS_RESOURCE": "/relation",
+    "SEARCH_RESOURCE": "/search",
     "NO_RESULT" : [
         {
             "Name": {
