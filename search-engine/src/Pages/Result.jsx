@@ -35,7 +35,8 @@ export class Result extends Component{
             emptyInputClassFirst: false,
             emptyInputRelation: false,
             emptyInputClassSecond: false,
-            language : "ENGLISH"
+            language : "ENGLISH",
+            listRalationOrigin:[]
              
         }
     }
@@ -152,13 +153,38 @@ handleInputChangeClassSecond = (newValue) => {
     console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
 }
 
+filterClassSecond = (inputValue) => {
+    return this.state.listClassSecond.filter(i =>
+      i.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  };
+
+loadOptionsClassSecond = (inputValue, callback) => {
+setTimeout(() => {
+    callback(this.filterClassSecond(inputValue));
+}, 1000);
+};
+
 /*****************************************************************************************/  
 // Input of Relations
 /*****************************************************************************************/
     handleInputChangeRelation = (newValue) => {
         //const inputValue = newValue.toString().replace(/\W/g, '');
         this.setState({emptyInputRelation : false})
-        this.setState({relation : newValue.label.split(/\s/).join("")})
+        var dataFilter = []
+        let result = []
+        this.setState({relation : newValue.label.split(/\s/).join("")}, () =>{
+            dataFilter = this.state.listRalationOrigin.filter( obj => obj.property.value === this.state.relation)
+            for(var i=0 ; i < dataFilter.length; i++){
+                var newWord = dataFilter[i].Range.value.split(/(?=[A-Z])/).join(" ")
+                var element = { value : i, label : newWord}
+                console.log("el element de class secod list", element)
+                result.push(element)
+            }
+            console.log("el data filter", dataFilter)
+            this.setState({listClassSecond : result})
+        })
+        console.log("esta es la class second", this.listClassSecond)
         console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     }
 
@@ -191,6 +217,7 @@ handleInputChange = (newValue) => {
             var temp = JSON.stringify(response.data.results.bindings)
             if(!(temp === JSON.stringify(ConfigData.NO_RESULT))){
                 var ref = response.data.results.bindings
+                this.setState({listRalationOrigin : ref}, ()=> {console.log("la copia",this.state.listRalationOrigin)})
                 for(let i = 0; i < ref.length;i++ ){
                     var newWord = ref[i].property.value.split(/(?=[A-Z])/).join(" ")
                     var element = { value : i, label : newWord}
@@ -220,7 +247,7 @@ handleInputChange = (newValue) => {
 
     render(){
         return(
-            <I18nProvider locale={LOCALES.ENGLISH}>
+            <I18nProvider locale={LOCALES.ESPAÑOL}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
@@ -248,11 +275,11 @@ handleInputChange = (newValue) => {
                                         : <label></label>}
                                     </div>
                                     <div className="col">
-                                        <label>{translate('clase')}</label>
-                                        <Select defaultOptions={[{value: 1, label : "hola"}]}   
+                                        <label>{translate('subClase')}</label>
+                                        <Select defaultOptions={this.state.listClassSecond}  
                                             onChange={this.handleInputChangeClassSecond} 
                                             isSearchable={true}
-                                            loadOptions={this.loadOptions}/>
+                                            loadOptions={this.loadOptionsClassSecond}/>
                                         {this.state.emptyInputClassSecond === true
                                         ?<label className="labelError">{translate('errorInputMsg')}</label>
                                         : <label></label>}

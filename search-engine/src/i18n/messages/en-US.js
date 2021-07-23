@@ -9,6 +9,7 @@ export default {
         'por' : 'By',
         'entrar' : 'Go in',
         'clase' : 'Class',
+        'subClase' : 'Subclass',
         'relacion' : 'Relation',
         'bienvenido': 'Welcome',
         'resultadosMsg': "we will show results of your Search here!",
