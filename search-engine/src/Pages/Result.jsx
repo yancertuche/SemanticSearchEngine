@@ -42,7 +42,8 @@ export class Result extends Component{
             emptyInputRelation: false,
             emptyInputClassSecond: false,
             /* Language variable */
-            language : "ENGLISH",
+            language : "ESPAÑOL",
+            espanol : true,
             /* Copy of list of relation to filter Range of itself */
             listRalationOrigin:[]
              
@@ -237,36 +238,37 @@ setTimeout(() => {
 // Input of Class first
 /*****************************************************************************************/
 
-handleInputChange = (newValue) => {
-    this.setState({emptyInputClassFirst : false})
-    this.setState({classSecond: ""})
-    console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
-    var classLabel = newValue.label.split(/\s/).join("")
-    this.setState({classFirst : classLabel}, () => {
-        const Url_Base = ConfigData.BASE_URL
-        const resource = ConfigData.RELATIONS_RESOURCE
-        const obj = { classIn : this.state.classFirst}
-        var result =[]
-        axios.post(Url_Base+resource, obj)
-        .then( response =>{
-            var temp = JSON.stringify(response.data.results.bindings)
-            if(!(temp === JSON.stringify(ConfigData.NO_RESULT))){
-                var ref = response.data.results.bindings
-                this.setState({listRalationOrigin : ref}, ()=> {console.log("la copia",this.state.listRalationOrigin)})
-                for(let i = 0; i < ref.length;i++ ){
-                    var newWord = ref[i].property.value.split(/(?=[A-Z])/).join(" ")
-                    var element = { value : i, label : newWord}
-                    result.push(element)
-                }
-                this.setState({listRelation : result});
-            }else{
-                this.setState({listRelation : []});
+    handleInputChange = (newValue) => {
+        this.setState({emptyInputClassFirst : false})
+        this.setState({classSecond: ""})
+        console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
+        var classLabel = newValue.label.split(/\s/).join("")
+        this.setState({classFirst : classLabel}, () => {
+            const Url_Base = ConfigData.BASE_URL
+            const resource = ConfigData.RELATIONS_RESOURCE
+            const obj = { classIn : this.state.classFirst}
+            var result =[]
+            axios.post(Url_Base+resource, obj)
+            .then( response =>{
+                var temp = JSON.stringify(response.data.results.bindings)
+                if(!(temp === JSON.stringify(ConfigData.NO_RESULT))){
+                    var ref = response.data.results.bindings
+                    this.setState({listRalationOrigin : ref}, ()=> {console.log("la copia",this.state.listRalationOrigin)})
+                    for(let i = 0; i < ref.length;i++ ){
+                        var newWord = ref[i].property.value.split(/(?=[A-Z])/).join(" ")
+                        var element = { value : i, label : newWord}
+                        result.push(element)
+                    }
+                    this.setState({listRelation : result});
+                }else{
+                    this.setState({listRelation : []});
 
-            }
-        })
-    }) 
-    
-}
+                }
+            })
+        }) 
+        
+    }
+
     filterColors = (inputValue) => {
         return this.state.listClassFirst.filter(i =>
           i.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -279,7 +281,16 @@ handleInputChange = (newValue) => {
         }, 1000);
       };
 
-
+/* Language */
+    handleSwitchChange = (event) =>{
+        if(event.target.checked === false){
+            this.setState({language: "ENGLISH"})
+            this.setState({espanol: event.target.checked})
+        }else{
+            this.setState({language: "ESPAÑOL"})
+            this.setState({espanol: event.target.checked})
+        }
+    }
 
     render(){
         return(
@@ -331,17 +342,23 @@ handleInputChange = (newValue) => {
                                 </div>
                             </div>
                             <div className="col">
-                                <h2 className="Title">
-                                    {translate('nombre')}
-                                </h2>
-                                <FormControlLabel
-                                    value="top"
-                                    control={<Switch color="primary" 
-                                        size="small"
-                                        checked={this.state.language}/>}
-                                    label="Top"
-                                    labelPlacement="top"
-                                />
+                                <div className="row">
+                                    <div className ="col">
+                                        <h2 className="Title">
+                                            {translate('nombre')}
+                                        </h2>
+                                    </div>
+                                    <div className ="col col-lg-2">
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Switch color="default" 
+                                                onChange={this.handleSwitchChange}
+                                                checked={this.state.espanol}/>}
+                                            label={this.state.language}
+                                            labelPlacement="top"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="row">
