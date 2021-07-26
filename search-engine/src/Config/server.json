@@ -4,6 +4,7 @@
     "INSTANCES_RESOURCE": "/instance",
     "RELATIONS_RESOURCE": "/relation",
     "SEARCH_RESOURCE": "/search",
+    "DONA_RESOURCE": "/dona",
     "NO_RESULT" : [
         {
             "Name": {

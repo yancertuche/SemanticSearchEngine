@@ -24,18 +24,26 @@ export class Result extends Component{
         super();
         this.handleResult=this.handleResult.bind(this)
         this.state = { 
+            /* results to render in cards */
             results : [],
+            /* Graphics Data */
             dataBar : [],
+            dataDona : [],
+            /* inputs states */
             classFirst: "",
             classSecond: "",
             relation:"",
+            /* List of inputs */
             listClassFirst:[],
             listRelation:[],
             listClassSecond:[],
+            /* Management of errors in inputs */
             emptyInputClassFirst: false,
             emptyInputRelation: false,
             emptyInputClassSecond: false,
+            /* Language variable */
             language : "ENGLISH",
+            /* Copy of list of relation to filter Range of itself */
             listRalationOrigin:[]
              
         }
@@ -61,6 +69,29 @@ export class Result extends Component{
             console.log(result)
         })
         .catch(error => console.log(error))
+
+        /******************************************************************/  
+        /* GRAPHICS*/
+        /******************************************************************/
+        const resourceDona = ConfigData.DONA_RESOURCE
+        axios.get(Url_Base+resourceDona)
+        .then( response => {
+            console.log(response)
+            var refe = response.data.results.bindings
+            var data = []
+            var names = []
+            var count = []
+            for(var i=0; i < refe.length; i++){
+                names.push(refe[i].NameClass.value)
+                count.push(refe[i].counter.value)
+            }
+            data.push(names)
+            data.push(count)
+            this.setState({dataDona : data})
+
+        })
+        .catch(error => console.log(error))
+
     }
 
 /*************************************************/   
@@ -108,6 +139,9 @@ export class Result extends Component{
         }
     }
 
+/*************************************************************************/
+/* Principal Autor */    
+/*************************************************************************/
     principalAutors = ( arrAutor ) =>{
         var holi, sorteable, aut, num
         holi = arrAutor.reduce((accumulator, currentValue) => {
@@ -205,6 +239,7 @@ setTimeout(() => {
 
 handleInputChange = (newValue) => {
     this.setState({emptyInputClassFirst : false})
+    this.setState({classSecond: ""})
     console.log(`aqui Handle change ${JSON.stringify(newValue.label)}`)
     var classLabel = newValue.label.split(/\s/).join("")
     this.setState({classFirst : classLabel}, () => {
@@ -243,6 +278,7 @@ handleInputChange = (newValue) => {
           callback(this.filterColors(inputValue));
         }, 1000);
       };
+
 
 
     render(){
@@ -325,8 +361,8 @@ handleInputChange = (newValue) => {
                                     barTitle={translate('barTitle')}></Bar>
                                 </div>
                                 <div className="Graphic-container">
-                                <Doughnut LabelsDo ={['AUTOR','METHODOLOGIES','PRODUCTS',]}
-                                     DataDo={[14, 10, 8]}
+                                <Doughnut LabelsDo ={this.state.dataDona[0]}
+                                     DataDo={this.state.dataDona[1]}
                                      donaTitle={translate('donaTitle')}></Doughnut>
                                 </div>
                                 <div className="Graphic-container">
