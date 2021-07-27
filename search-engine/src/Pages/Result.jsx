@@ -17,6 +17,8 @@ import axios from 'axios';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
+import es from '../Images/colombia.png';
+import ee from '../Images/eeuu.png';
 
 
 export class Result extends Component{
@@ -351,15 +353,21 @@ setTimeout(() => {
                                             {translate('nombre')}
                                         </h2>
                                     </div>
-                                    <div className ="col col-lg-2">
-                                        <FormControlLabel
-                                            value="top"
-                                            control={<Switch color="default" 
-                                                onChange={this.handleSwitchChange}
-                                                checked={this.state.espanol}/>}
-                                            label={this.state.language}
-                                            labelPlacement="top"
-                                        />
+                                    <div className ="col col-lg-2 text-center">
+                                        <div className = "flags">
+                                            { this.state.language === "ESPAÑOL"
+                                                ? <img src={es} alt="co" />
+                                                : <img src={ee} alt="co" /> }
+                                            </div>   
+                                            <FormControlLabel
+                                                value="top"
+                                                control={<Switch color="default" 
+                                                    onChange={this.handleSwitchChange}
+                                                    checked={this.state.espanol}/>}
+                                                label={this.state.language}
+                                                labelPlacement="top"
+                                            />
+                                        
                                     </div>
                                 </div>
                             </div>
