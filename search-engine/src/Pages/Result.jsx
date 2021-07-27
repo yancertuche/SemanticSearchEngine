@@ -8,7 +8,7 @@ import '../Styles/ResultStyles.css';
 import Select from 'react-select/async';
 import {MDBBtn} from "mdbreact";
 
-import {I18nProvider, LOCALES} from '../i18n';
+import {I18nProvider} from '../i18n';
 import translate from '../i18n/translate'
 import CardResult from '../Components/CardResult';
 import ConfigData from '../Config/server.json';
@@ -44,6 +44,7 @@ export class Result extends Component{
             /* Language variable */
             language : "ESPAÑOL",
             espanol : true,
+            localLanguage : 'es-co',
             /* Copy of list of relation to filter Range of itself */
             listRalationOrigin:[]
              
@@ -286,15 +287,17 @@ setTimeout(() => {
         if(event.target.checked === false){
             this.setState({language: "ENGLISH"})
             this.setState({espanol: event.target.checked})
+            this.setState({localLanguage: 'en-us'})
         }else{
             this.setState({language: "ESPAÑOL"})
             this.setState({espanol: event.target.checked})
+            this.setState({localLanguage: 'es-co'})
         }
     }
 
     render(){
         return(
-            <I18nProvider locale={LOCALES.ESPAÑOL}>
+            <I18nProvider locale={this.state.localLanguage}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
