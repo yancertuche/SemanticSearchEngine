@@ -13,7 +13,7 @@ export default {
         'relacion' : 'Relación',
         'bienvenido': 'Bienvenido',
         'resultadosMsg': "aqui se desplegarán los resultado de tu búsqueda",
-        'barTitle': 'Principales Autores de acuerdo a tu busqueda',
+        'barTitle': 'Número de personas por equipo reportado',
         'donaTitle': 'Categorias que presentan más proporción de datos en la base de conocimiento',
         'lineTitle': 'Line',
         'apariciones' : 'Apariciones',
