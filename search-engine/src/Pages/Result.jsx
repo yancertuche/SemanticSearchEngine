@@ -77,6 +77,7 @@ export class Result extends Component{
         /******************************************************************/  
         /* GRAPHICS*/
         /******************************************************************/
+        /* DONA  */
         const resourceDona = ConfigData.DONA_RESOURCE
         axios.get(Url_Base+resourceDona)
         .then( response => {
@@ -95,6 +96,33 @@ export class Result extends Component{
 
         })
         .catch(error => console.log(error))
+
+        /* BAR */
+        const resourceBar = ConfigData.INSTANCES_RESOURCE
+        const bodyRequest = { classIn : "Team"}
+        axios.post(Url_Base+resourceBar, bodyRequest)
+        .then( response => {
+            console.log(response)
+            var refe = response.data.results.bindings
+            var data = []
+            var names = []
+            var count = []
+            for(var i=0; i < refe.length; i++){
+                console.log(Object.keys(refe[i]).length)
+                if(Object.keys(refe[i]).length > 2 ){
+                    names.push(refe[i].Instance.value)
+                    count.push(refe[i].Size.value)
+                }
+            }
+            data.push(names)
+            data.push(count)
+            this.setState({dataBar: data})
+
+        })
+        .catch(error => console.log(error))
+
+
+
 
     }
 
@@ -354,11 +382,9 @@ setTimeout(() => {
                                         </h2>
                                     </div>
                                     <div className ="col col-lg-2 text-center">
-                                        <div className = "flags">
                                             { this.state.language === "ESPAÑOL"
                                                 ? <img src={es} alt="co" />
-                                                : <img src={ee} alt="co" /> }
-                                            </div>   
+                                                : <img src={ee} alt="co" /> }  
                                             <FormControlLabel
                                                 value="top"
                                                 control={<Switch color="default" 
@@ -385,7 +411,7 @@ setTimeout(() => {
                                 <div className="Graphic-container">
                                 <Bar LabelsBar ={ this.state.dataBar[0] } 
                                     DataBar={this.state.dataBar[1]}
-                                    Var ={'Variable'}
+                                    Var ={'Persons'}
                                     barTitle={translate('barTitle')}></Bar>
                                 </div>
                                 <div className="Graphic-container">
