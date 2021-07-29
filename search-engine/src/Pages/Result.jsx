@@ -409,21 +409,22 @@ setTimeout(() => {
                             </div>
                             <div className="col">
                                 <div className="Graphic-container">
-                                <Bar LabelsBar ={ this.state.dataBar[0] } 
-                                    DataBar={this.state.dataBar[1]}
-                                    Var ={'Persons'}
+                                <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
+                                    DataBar={[2, 4, 10]}
+                                    Var ={'Empleados'}
                                     barTitle={translate('barTitle')}></Bar>
+                                </div>
+                                <div className="Graphic-container">
+                                <Line DataLineLabels ={[2002, 2008 , 2014 ]}
+                                    DataLine ={[2, 1, 2]}
+                                    Variable ={"Total Documents"}
+                                    lineTitle={translate('lineTitle')}></Line>
                                 </div>
                                 <div className="Graphic-container">
                                 <Doughnut LabelsDo ={this.state.dataDona[0]}
                                      DataDo={this.state.dataDona[1]}
                                      donaTitle={translate('donaTitle')}></Doughnut>
                                 </div>
-                                <div className="Graphic-container">
-                                <Line DataLine ={[]}
-                                    Variable ={"año"}
-                                    lineTitle={translate('lineTitle')}></Line>
-                                    </div>
                             </div>
                         </div>
                     </div>

@@ -13,9 +13,9 @@ export default {
         'relacion' : 'Relación',
         'bienvenido': 'Bienvenido',
         'resultadosMsg': "aqui se desplegarán los resultado de tu búsqueda",
-        'barTitle': 'Número de personas por equipo reportado',
+        'barTitle': 'Promedio del equipo de migración por tamaño de empresa',
         'donaTitle': 'Categorias que presentan más proporción de datos en la base de conocimiento',
-        'lineTitle': 'Line',
+        'lineTitle': 'Cantidad de documentos por año de publicación',
         'apariciones' : 'Apariciones',
         'errorInputMsg' : '*Por favor, elige o busca una clase',
         'errorInputMsgRelation' : '*Por favor, elige o busca una relación'

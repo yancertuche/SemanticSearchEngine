@@ -22,7 +22,17 @@ export class Bar extends Component{
                                             //   enabled: false,
                                             //   custom: customTooltips
                                             // },
-                                            maintainAspectRatio: false
+                                            maintainAspectRatio: false,
+                                            aspectRatio: 1.5,
+                                            scales: {
+                                                yAxes: [
+                                                  {
+                                                    ticks: {
+                                                      beginAtZero: true,
+                                                    },
+                                                  },
+                                                ],
+                                              }
                                             }} 
                                         labels={this.props.LabelsBar}/>
 

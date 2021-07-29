@@ -13,9 +13,9 @@ export default {
         'relacion' : 'Relation',
         'bienvenido': 'Welcome',
         'resultadosMsg': "We will show results of your Search here!",
-        'barTitle': 'Number of people per team reported',
+        'barTitle': 'Average migration team by company size',
         'donaTitle': 'Categories with the highest proportion of data in the knowledge base',
-        'lineTitle': 'Line',
+        'lineTitle': 'Number of documents by year of publication',
         'apariciones' : 'Frecuency',
         'errorInputMsg' : '*Please, select or search a class',
         'errorInputMsgRelation' : '*Please, select or search a relation'
