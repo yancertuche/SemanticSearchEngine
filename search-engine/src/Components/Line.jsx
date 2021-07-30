@@ -40,6 +40,15 @@ export class Line extends Component{
                         //}
                         maintainAspectRatio: false,
                         aspectRatio: 1.5,
+                        scales: {
+                            yAxes: [
+                              {
+                                ticks: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            ],
+                          }
                     }}
                     />               
             </div>
