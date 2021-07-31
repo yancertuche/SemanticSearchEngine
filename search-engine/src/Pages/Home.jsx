@@ -21,6 +21,10 @@ export class Home extends Component {
     //this.props.history.push(`/q/${this.state.query}`);
   }
 
+  _handleClick2 =() =>{
+    this.props.history.push(`/graphics`);
+  }
+
   /*_handleChange = (e) =>{
     this.setState({
       query: e.target.value
@@ -44,6 +48,11 @@ export class Home extends Component {
                       </div> */}
                       <br></br>
                         <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick}>
+                            {translate('entrar')} 
+                            <br></br>
+                            <MDBIcon icon="arrow-right" className="mr-1" />
+                        </MDBBtn>
+                        <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick2}>
                             {translate('entrar')} 
                             <br></br>
                             <MDBIcon icon="arrow-right" className="mr-1" />

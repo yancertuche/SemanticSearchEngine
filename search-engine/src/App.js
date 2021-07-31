@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 
 import {Home} from "./Pages/Home"
-import Result from './Pages/Result';
+import {Result}from './Pages/Result';
+import { Dashboard } from './Pages/Dashboard';
 
 export class App extends Component {
   
@@ -18,6 +19,7 @@ export class App extends Component {
       <Router>
           <Route exact path='/' component={Home}/>
           <Route path='/result' component={Result}/>
+          <Route path='/graphics' component={Dashboard}/>
       </Router>
     );
   }
