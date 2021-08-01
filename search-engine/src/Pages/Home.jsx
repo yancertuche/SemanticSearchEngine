@@ -47,13 +47,13 @@ export class Home extends Component {
                         </input>
                       </div> */}
                       <br></br>
-                        <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick}>
-                            {translate('entrar')} 
+                        <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick2}>
+                            {translate('explora')} 
                             <br></br>
                             <MDBIcon icon="arrow-right" className="mr-1" />
                         </MDBBtn>
-                        <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick2}>
-                            {translate('entrar')} 
+                        <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick}>
+                            {translate('avanzada')} 
                             <br></br>
                             <MDBIcon icon="arrow-right" className="mr-1" />
                         </MDBBtn>
