@@ -19,8 +19,10 @@ export default {
         'apariciones' : 'Frecuency',
         'errorInputMsg' : '*Please, select or search a class',
         'errorInputMsgRelation' : '*Please, select or search a relation',
-        'explora' : 'Explore',
-        'avanzada' : 'Advanced search',
+        /* nav bar */
+        'principal':'Principal',
+        'explorar': 'Explore Data',
+        'avanzada': 'Advanced search ' 
 
 
     }

@@ -43,10 +43,6 @@ export class Result extends Component{
             emptyInputClassFirst: false,
             emptyInputRelation: false,
             emptyInputClassSecond: false,
-            /* Language variable */
-            language : "ESPAÑOL",
-            espanol : true,
-            localLanguage : 'es-co',
             /* Copy of list of relation to filter Range of itself */
             listRalationOrigin:[]
              
@@ -312,19 +308,6 @@ setTimeout(() => {
         }, 1000);
       };
 
-/* Language */
-    handleSwitchChange = (event) =>{
-        if(event.target.checked === false){
-            this.setState({language: "ENGLISH"})
-            this.setState({espanol: event.target.checked})
-            this.setState({localLanguage: 'en-us'})
-        }else{
-            this.setState({language: "ESPAÑOL"})
-            this.setState({espanol: event.target.checked})
-            this.setState({localLanguage: 'es-co'})
-        }
-    }
-
     render(){
         return(
             <I18nProvider locale={this.props.la}>
@@ -380,20 +363,6 @@ setTimeout(() => {
                                         <h2 className="Title">
                                             {translate('nombre')}
                                         </h2>
-                                    </div>
-                                    <div className ="col col-lg-2 text-center">
-                                            { this.state.language === "ESPAÑOL"
-                                                ? <img src={es} alt="co" />
-                                                : <img src={ee} alt="co" /> }  
-                                            <FormControlLabel
-                                                value="top"
-                                                control={<Switch color="default" 
-                                                    onChange={this.handleSwitchChange}
-                                                    checked={this.state.espanol}/>}
-                                                label={this.state.language}
-                                                labelPlacement="top"
-                                            />
-                                        
                                     </div>
                                 </div>
                             </div>

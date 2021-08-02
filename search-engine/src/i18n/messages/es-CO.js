@@ -21,5 +21,10 @@ export default {
         'errorInputMsgRelation' : '*Por favor, elige o busca una relación',
         'explora' : 'Explora información',
         'avanzada' : 'Búsqueda Avanzada',
+        /* nav bar */
+        'principal':'Principal',
+        'explorar': 'Explorar Datos',
+        'avanzada': 'Búsqueda avanzada' 
+
     }
 }

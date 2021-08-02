@@ -31,13 +31,13 @@ const Sidebar = (props) => {
             <CDBSidebarContent className="sidebar-content">
             <CDBSidebarMenu>
                 <NavLink exact to="/" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="columns">Principal</CDBSidebarMenuItem>
+                <CDBSidebarMenuItem icon="columns">{translate('principal')}</CDBSidebarMenuItem>
                 </NavLink>
                 <NavLink exact to="/graphic" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="chart-line">Explorar Datos</CDBSidebarMenuItem>
+                <CDBSidebarMenuItem icon="chart-line">{translate('explorar')}</CDBSidebarMenuItem>
                 </NavLink>
                 <NavLink exact to="/result" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="search">Búsqueda avanzada</CDBSidebarMenuItem>
+                <CDBSidebarMenuItem icon="search">{translate('avanzada')}</CDBSidebarMenuItem>
                 </NavLink>
                 <NavLink exact to="/analytics" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="user">
