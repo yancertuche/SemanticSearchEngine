@@ -28,16 +28,16 @@ const Sidebar = () => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Home</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="columns">Principal</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/result" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Results</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="table">Búsqueda avanzada</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
+            <NavLink exact to="/graphic" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="chart-line">Explorar</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">
+              <CDBSidebarMenuItem icon="user">
                 Analytics
               </CDBSidebarMenuItem>
             </NavLink>
@@ -55,13 +55,15 @@ const Sidebar = () => {
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
-        <CDBSidebarFooter style={{ textAlign: 'center' }}>
+        <CDBSidebarFooter 
+        style={{ textAlign: 'center' }}>
           <div
             style={{
               padding: '20px 5px',
             }}
           >
-            Sidebar Footer
+            {<i className="fa fa-instagram"></i>}
+            @yancarlos.cg
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

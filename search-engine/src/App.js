@@ -19,7 +19,6 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import './Styles/PrincipalStyles.css';
-import test from './Pages/test';
 
 export class App extends Component {
   
@@ -52,9 +51,9 @@ export class App extends Component {
                   </div>
                   <div className="cuerpo">
                   <div className ="content">
-                    <Route exact path='/' component={test}/>
+                    <Route exact path='/' component={Home}/>
                     <Route path='/result' component={Result}/>
-                    <Route path='/home' component={Home}/>
+                    <Route path='/graphic' component={Dashboard}/>
                   </div>
                   </div>
                 </div>

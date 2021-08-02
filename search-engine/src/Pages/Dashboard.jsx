@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import Line from '../Components/Line';
-import Bar from '../Components/Bar';
-import Container from 'react-bootstrap/Container'
 import {I18nProvider, LOCALES} from '../i18n';
 import translate from '../i18n/translate';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import '../Styles/DashboardStyles.css';
-import Sidebar from '../Components/Sidebar';
+
 
 export class Dashboard extends Component {
 
