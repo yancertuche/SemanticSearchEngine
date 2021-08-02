@@ -20,39 +20,75 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import './Styles/PrincipalStyles.css';
 
+/* Flags */
+import es from './Images/colombia.png';
+import ee from './Images/eeuu.png';
+
 export class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      /* Language Handler */
+      language : "ESPAÑOL",
+      espanol : true,
+      localLanguage : 'es-co',
+    }
+
+    this.changeChildLanguage = this.changeChildLanguage.bind(this);
+  }
+
+  /* Language */
+  handleSwitchChange = (event) =>{
+    if(event.target.checked === false){
+        this.setState({language: "ENGLISH"})
+        this.setState({espanol: event.target.checked})
+        this.setState({localLanguage: 'en-us'})
+    }else{
+        this.setState({language: "ESPAÑOL"})
+        this.setState({espanol: event.target.checked})
+        this.setState({localLanguage: 'es-co'})
+    }
+  }
+
+  changeChildLanguage() {
+    this.setState(state => ({
+      localLanguage: !state.localLanguage
+    }));
+ }
   
   render(){
     return (
       <Router>
-        <I18nProvider locale={LOCALES.ESPAÑOL}>
+        <I18nProvider locale={this.state.localLanguage}>
           <div className ="Principal-container">
             <div className="partition">
               <div className ="sidebar">
-                <Sidebar></Sidebar>
+                <Sidebar la={this.state.localLanguage}></Sidebar>
               </div>
               <div className="cuerpo-right">
                 <div className="encabezado">
                   <div className='row'>
-                    <div className='col-md-auto justify-content-center'>
+                    <div className='col-md-auto justify-content-center align-self-center'>
                           <h4>{translate('nombre')}</h4> 
                       </div>   
                       <div className='col'>
                           <FormControlLabel
                                               value="top"
                                               control={<Switch color="default" 
-              
-                                                  />}
-                                              label={"hola"}
-                                              labelPlacement="top"
+                                              onChange={this.handleSwitchChange}
+                                              checked={this.state.espanol}/>}
                                           />
+                          { this.state.language === "ESPAÑOL"
+                            ? <img src={es} alt="co" />
+                            : <img src={ee} alt="co" /> }
                       </div>    
                     </div>
                   </div>
                   <div className="cuerpo">
                   <div className ="content">
                     <Route exact path='/' component={Home}/>
-                    <Route path='/result' component={Result}/>
+                    <Route path='/result' render = { (props) => (<Result la={this.state.localLanguage}/>)}/>
                     <Route path='/graphic' component={Dashboard}/>
                   </div>
                   </div>

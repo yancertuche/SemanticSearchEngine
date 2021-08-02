@@ -30,11 +30,11 @@ const Sidebar = () => {
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="columns">Principal</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/result" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Búsqueda avanzada</CDBSidebarMenuItem>
-            </NavLink>
             <NavLink exact to="/graphic" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">Explorar</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="chart-line">Explorar Datos</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/result" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="search">Búsqueda avanzada</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/analytics" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">
@@ -42,7 +42,7 @@ const Sidebar = () => {
               </CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink
+            {/*<NavLink
               exact
               to="/hero404"
               target="_blank"
@@ -51,7 +51,7 @@ const Sidebar = () => {
               <CDBSidebarMenuItem icon="exclamation-circle">
                 404 page
               </CDBSidebarMenuItem>
-            </NavLink>
+            </NavLink>*/}
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
@@ -59,11 +59,10 @@ const Sidebar = () => {
         style={{ textAlign: 'center' }}>
           <div
             style={{
-              padding: '20px 5px',
+              padding: '18px 5px',
             }}
           >
-            {<i className="fa fa-instagram"></i>}
-            @yancarlos.cg
+            Yan
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

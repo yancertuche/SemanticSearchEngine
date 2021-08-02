@@ -5,6 +5,7 @@
     width: 100%;
     overflow: scroll;
     position: fixed;
+    overflow-x: hidden;
     
 }
 .partition{
@@ -19,7 +20,7 @@
     float: left;
 }
 .encabezado{
-    height: 12%;
+    height: 9.2%;
     width: 100%;
     background-color: #333;
     color: white;
@@ -41,6 +42,8 @@
 
 .content{
     padding: 1em;
+    height: 100%;
+
 }
 
 .etiqueta{

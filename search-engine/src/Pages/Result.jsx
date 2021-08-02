@@ -327,7 +327,7 @@ setTimeout(() => {
 
     render(){
         return(
-            <I18nProvider locale={this.state.localLanguage}>
+            <I18nProvider locale={this.props.la}>
                 <div className="Result-container">
                     <div className="Container">
                         <div className="row">
