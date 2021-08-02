@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -31,7 +31,7 @@ const Sidebar = (props) => {
             <CDBSidebarContent className="sidebar-content">
             <CDBSidebarMenu>
                 <NavLink exact to="/" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="columns">{translate('principal')}</CDBSidebarMenuItem>
+                <CDBSidebarMenuItem icon="home">{translate('principal')}</CDBSidebarMenuItem>
                 </NavLink>
                 <NavLink exact to="/graphic" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="chart-line">{translate('explorar')}</CDBSidebarMenuItem>

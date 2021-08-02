@@ -4,9 +4,8 @@ import reactImg from '../Images/logoReact.png';
 import javaImg from '../Images/logoJava.png';
 import '../App.css';
 
-import {I18nProvider, LOCALES} from '../i18n';
+import {I18nProvider} from '../i18n';
 import translate from '../i18n/translate'
-import { MDBBtn, MDBIcon } from "mdbreact";
 
 
 export class Home extends Component {
@@ -33,7 +32,7 @@ export class Home extends Component {
   
   render(){
     return (
-      <I18nProvider locale={LOCALES.ESPAÑOL}>
+      <I18nProvider locale={this.props.la}>
       <div className="App">
               <br></br>
               <div className="Search">
@@ -45,7 +44,7 @@ export class Home extends Component {
                       {/*<div>
                         <input className = "Input-home" type="text" onChange={this._handleChange}>
                         </input>
-                      </div> */}
+                      </div> 
                       <br></br>
                         <MDBBtn color="elegant" size="lg" type="submit" onClick={this._handleClick2}>
                             {translate('explora')} 
@@ -57,6 +56,7 @@ export class Home extends Component {
                             <br></br>
                             <MDBIcon icon="arrow-right" className="mr-1" />
                         </MDBBtn>
+                        */}
                   </div>
                 <br></br>
                 <h2> {translate('por')} Yan Carlos Certuche Grueso </h2>

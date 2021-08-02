@@ -19,8 +19,6 @@ export default {
         'apariciones' : 'Apariciones',
         'errorInputMsg' : '*Por favor, elige o busca una clase',
         'errorInputMsgRelation' : '*Por favor, elige o busca una relación',
-        'explora' : 'Explora información',
-        'avanzada' : 'Búsqueda Avanzada',
         /* nav bar */
         'principal':'Principal',
         'explorar': 'Explorar Datos',

@@ -14,11 +14,6 @@ import CardResult from '../Components/CardResult';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
 
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-
-import es from '../Images/colombia.png';
-import ee from '../Images/eeuu.png';
 
 
 export class Result extends Component{
@@ -361,7 +356,7 @@ setTimeout(() => {
                                 <div className="row">
                                     <div className ="col">
                                         <h2 className="Title">
-                                            {translate('nombre')}
+                                            {translate('avanzada')}
                                         </h2>
                                     </div>
                                 </div>

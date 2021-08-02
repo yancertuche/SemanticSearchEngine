@@ -13,7 +13,7 @@ import {Result}from './Pages/Result';
 import { Dashboard } from './Pages/Dashboard';
 import Sidebar from './Components/Sidebar';
 
-import {I18nProvider, LOCALES} from './i18n';
+import {I18nProvider} from './i18n';
 import translate from './i18n/translate';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -87,9 +87,9 @@ export class App extends Component {
                   </div>
                   <div className="cuerpo">
                   <div className ="content">
-                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/' render = { (props) => (<Home la={this.state.localLanguage}/>)}/>
                     <Route path='/result' render = { (props) => (<Result la={this.state.localLanguage}/>)}/>
-                    <Route path='/graphic' component={Dashboard}/>
+                    <Route path='/graphic' render = { (props) => (<Dashboard la={this.state.localLanguage}/>)}/>
                   </div>
                   </div>
                 </div>
