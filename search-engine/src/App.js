@@ -18,7 +18,7 @@ import translate from './i18n/translate';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-import './Styles/DashboardStyles.css';
+import './Styles/PrincipalStyles.css';
 import test from './Pages/test';
 
 export class App extends Component {
