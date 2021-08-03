@@ -22,8 +22,6 @@ export class Bar extends Component{
                                             //   enabled: false,
                                             //   custom: customTooltips
                                             // },
-                                            indexAxis: 'y',
-                                            
                                             maintainAspectRatio: false,
                                             aspectRatio: 1.5,
                                             scales: {

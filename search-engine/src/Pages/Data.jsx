@@ -1,6 +1,7 @@
+import { CChartHorizontalBar } from '@coreui/react-chartjs';
 import React, {Component} from 'react';
 import { Card } from 'react-bootstrap';
-import Bar from '../Components/Bar';
+import Hbar from '../Components/Hbar';
 import Line from '../Components/Line';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
@@ -23,18 +24,15 @@ export class Data extends Component {
             <div className="row">
               <div className="col">
                 <div className="gr-container">
-                <Line DataLineLabels ={[2002, 2008 , 2014 ]}
-                                  DataLine ={[2, 1, 2]}
+                <Line DataLineLabels ={[2002, 2008 , 2014 , 2016 ]}
+                                  DataLine ={[8 , 20, 2 , 15]}
                                   Variable ={"Total Documents"}
                                   lineTitle={translate('lineTitle')}></Line>
               </div>
               </div>
               <div className="col">
                 <div className="gr-container">
-                  <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
-                              DataBar={[2, 4, 10]}
-                              Var ={'Empleados'}
-                              barTitle={translate('barTitle')}></Bar>
+                  <Hbar></Hbar>
                   </div>
                 </div>
             </div>
