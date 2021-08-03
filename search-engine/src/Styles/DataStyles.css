@@ -20,6 +20,8 @@ height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.5s;
     padding: 2em;
+    overflow: scroll;
+    margin-bottom: 2%;
 }
 .searchData-container{
     height: 50%;
@@ -35,4 +37,20 @@ height: 100%;
     width: 48%;
     margin-right: 2%;
     float: left;
+}
+.form-container{
+    padding: 2em;
+
+}
+.form-crd-container{
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.card-rta-continer{
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;;
+    
 }

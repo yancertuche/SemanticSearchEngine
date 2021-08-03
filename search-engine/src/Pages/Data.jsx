@@ -1,6 +1,6 @@
-import { CChartHorizontalBar } from '@coreui/react-chartjs';
 import React, {Component} from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button} from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 import CTable from '../Components/CTable';
 import Hbar from '../Components/Hbar';
 import Line from '../Components/Line';
@@ -33,9 +33,32 @@ export class Data extends Component {
             </div>
           </div>
           <div className="table-container">
-            <CTable></CTable>
+            <CTable la={this.props.la}></CTable>
           </div>
-          <div className="searchData-container"></div>
+          <div className="searchData-container">
+            <Card>
+              <div className="form-container">
+                <Card>
+                  <div className="form-crd-container">
+                    <Form>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <h4>Consulta por título, autor o año</h4>
+                        <Form.Control placeholder="Search" />
+                        <Button variant="primary" type="submit">
+                          Submit
+                        </Button>
+                      </Form.Group>
+                    </Form>
+                  </div>
+                  <div className="card-rta-continer">
+                    <Card>
+                      <p>holi</p>
+                    </Card>   
+                  </div>
+                </Card>
+              </div>
+            </Card>
+          </div>
         </div>
       </I18nProvider>
     );
