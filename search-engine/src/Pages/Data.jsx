@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Card, Button} from 'react-bootstrap';
+import { MDBIcon } from "mdbreact";
 import Form from 'react-bootstrap/Form';
 import CTable from '../Components/CTable';
 import Hbar from '../Components/Hbar';
@@ -7,6 +8,7 @@ import Line from '../Components/Line';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
 import '../Styles/DataStyles.css'
+import CardByTitle from '../Components/CardByTitle';
 
 export class Data extends Component {
 
@@ -44,16 +46,14 @@ export class Data extends Component {
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <h4>Consulta por título, autor o año</h4>
                         <Form.Control placeholder="Search" />
-                        <Button variant="primary" type="submit">
+                        <Button variant="Dark" type="submit">
                           Submit
                         </Button>
                       </Form.Group>
                     </Form>
                   </div>
                   <div className="card-rta-continer">
-                    <Card>
-                      <p>holi</p>
-                    </Card>   
+                    <CardByTitle></CardByTitle>  
                   </div>
                 </Card>
               </div>

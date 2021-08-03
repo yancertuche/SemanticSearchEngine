@@ -51,6 +51,7 @@ height: 100%;
 .card-rta-continer{
     padding-left: 2em;
     padding-right: 2em;
-    padding-bottom: 2em;;
+    padding-bottom: 2em;
+    position: flex;
     
 }

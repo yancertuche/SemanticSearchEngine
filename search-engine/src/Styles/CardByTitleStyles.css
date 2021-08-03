@@ -1,0 +1,24 @@
+.icon-label-text-conatiner{
+    position : flex;
+}
+
+.icon-text-partition{
+    position: flex;
+    padding: 0.5em;
+}
+.icon-partition{
+    float: left;
+    padding: 1em;
+}
+
+.ano-link-container{
+    position: flex;
+}
+
+.ano-container{
+    float: left;
+    width: 50%;
+}
+.in-card{
+    margin-bottom: 2%;
+}
