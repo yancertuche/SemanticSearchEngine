@@ -1,6 +1,7 @@
 import { CChartHorizontalBar } from '@coreui/react-chartjs';
 import React, {Component} from 'react';
 import { Card } from 'react-bootstrap';
+import CTable from '../Components/CTable';
 import Hbar from '../Components/Hbar';
 import Line from '../Components/Line';
 import { I18nProvider } from '../i18n';
@@ -31,7 +32,9 @@ export class Data extends Component {
               <Hbar></Hbar>
             </div>
           </div>
-          <div className="table-container"></div>
+          <div className="table-container">
+            <CTable></CTable>
+          </div>
           <div className="searchData-container"></div>
         </div>
       </I18nProvider>
