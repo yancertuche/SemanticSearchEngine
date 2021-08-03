@@ -22,7 +22,9 @@ export default {
         /* nav bar */
         'principal':'Principal',
         'explorar': 'Explorar Datos',
-        'avanzada': 'Búsqueda avanzada' 
+        'avanzada': 'Búsqueda avanzada' ,
+        'fuente' : 'Fuente de datos',
+        'descriptionDataPage' : 'Las experiencias industriales que se incluyen en el buscador corresponden a un subconjunto de aquellas publicadas en la conferencia de Ingeniería de Líneas de Productos SPLC hasta el año 2020.'
 
     }
 }

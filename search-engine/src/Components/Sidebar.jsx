@@ -39,9 +39,9 @@ const Sidebar = (props) => {
                 <NavLink exact to="/result" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="search">{translate('avanzada')}</CDBSidebarMenuItem>
                 </NavLink>
-                <NavLink exact to="/analytics" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="user">
-                    Analytics
+                <NavLink exact to="/data" activeClassName="activeClicked">
+                <CDBSidebarMenuItem icon="book">
+                    {translate('fuente')}
                 </CDBSidebarMenuItem>
                 </NavLink>
 
@@ -65,7 +65,8 @@ const Sidebar = (props) => {
                 padding: '18px 5px',
                 }}
             >
-                Yan
+                PDG - ISC
+                2021
             </div>
             </CDBSidebarFooter>
         </CDBSidebar>

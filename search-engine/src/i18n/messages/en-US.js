@@ -22,7 +22,8 @@ export default {
         /* nav bar */
         'principal':'Principal',
         'explorar': 'Explore Data',
-        'avanzada': 'Advanced search ' 
+        'avanzada': 'Advanced search ',
+        'fuente' : 'Data source'
 
 
     }

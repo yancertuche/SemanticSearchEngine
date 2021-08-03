@@ -23,6 +23,7 @@ import './Styles/PrincipalStyles.css';
 /* Flags */
 import es from './Images/colombia.png';
 import ee from './Images/eeuu.png';
+import Data from './Pages/Data';
 
 export class App extends Component {
 
@@ -90,6 +91,7 @@ export class App extends Component {
                     <Route exact path='/' render = { (props) => (<Home la={this.state.localLanguage}/>)}/>
                     <Route path='/result' render = { (props) => (<Result la={this.state.localLanguage}/>)}/>
                     <Route path='/graphic' render = { (props) => (<Dashboard la={this.state.localLanguage}/>)}/>
+                    <Route path='/data' render = { (props) => (<Data la={this.state.localLanguage}/>)}/>
                   </div>
                   </div>
                 </div>
