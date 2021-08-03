@@ -42,18 +42,18 @@ export class Data extends Component {
               <div className="form-container">
                 <Card>
                   <div className="form-crd-container">
-                    <Form>
+                    
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <h4>Consulta por título, autor o año</h4>
                         <Form.Control placeholder="Search" />
-                        <Button variant="Dark" type="submit">
+                        <Button variant="dark" type="submit">
                           Submit
                         </Button>
                       </Form.Group>
-                    </Form>
+                    
                   </div>
                   <div className="card-rta-continer">
-                    <CardByTitle></CardByTitle>  
+                    <CardByTitle la={this.props.la}></CardByTitle>  
                   </div>
                 </Card>
               </div>

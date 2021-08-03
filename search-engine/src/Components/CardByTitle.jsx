@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import { Card} from 'react-bootstrap';
 import { MDBIcon } from "mdbreact";
-import '../Styles/CardByTitleStyles.css'
+import '../Styles/CardByTitleStyles.css';
+import { I18nProvider } from '../i18n';
+import translate from '../i18n/translate';
 
 export class CardByTitle extends Component{
     render(){
         return(
+            <I18nProvider  locale={this.props.la}>
             <div className="in-card">
                 <Card>
                       <Card.Body>
@@ -54,6 +57,7 @@ export class CardByTitle extends Component{
                       </Card.Body>
                 </Card>   
             </div>
+            </I18nProvider>
 
         )
     }
