@@ -23,7 +23,9 @@ export default {
         'principal':'Principal',
         'explorar': 'Explore Data',
         'avanzada': 'Advanced search ',
-        'fuente' : 'Data source'
+        'fuente' : 'Data source',
+        /* Data Page */
+        'descriptionDataPage' :'The industrial experiences included in the search engine correspond to a subset of those published in the SPLC Product Line Engineering conference through 2020'
 
 
     }

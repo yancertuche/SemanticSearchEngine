@@ -11,7 +11,7 @@ const state = {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [65, 59, 80, 81]
+        data: [50, 59, 80, 81]
       }
     ]
 }
@@ -21,7 +21,8 @@ export default class Hbar extends React.Component {
     return (
         <div>
             <h4>Horizontal Bar Example</h4>
-            <Bar data={state} options={{indexAxis :'y'}} />
+            <Bar data={state} width={100}
+	        height={26} options={{indexAxis :'y'}} />
         </div>
     );
   }

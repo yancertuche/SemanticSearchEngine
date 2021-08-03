@@ -39,7 +39,7 @@ export class Line extends Component{
                         //enabled: true
                         //}
                         maintainAspectRatio: false,
-                        aspectRatio: 0.9,
+                        aspectRatio: 1.5,
                         scales: {
                             yAxes: [
                               {
