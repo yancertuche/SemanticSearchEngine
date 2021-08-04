@@ -115,7 +115,7 @@ export class Data extends Component {
             </div>
           </div>
           <div className="table-container">
-            <CTable la={this.props.la}></CTable>
+            <CTable data = {this.state.resultGeneral} la={this.props.la}></CTable>
           </div>
           <div className="searchData-container">
             <Card>

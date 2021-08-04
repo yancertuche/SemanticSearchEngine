@@ -1,61 +1,42 @@
 import React, {Component} from 'react';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
-import {Table} from 'react-bootstrap';
+import {Table, ThemeProvider} from 'react-bootstrap';
 
 export class CTable extends Component{
 
     render(){
+        const hStyle = {padding: '2em'};
+        const headStyle = {
+            alignItems: 'center' ,
+            justifyContent: 'center',
+            fontWeight : 'bold',
+            fontSize : '18px'}
         return(
             <I18nProvider locale={this.props.la}>
-                <div>
+                <div style={hStyle}>
                     <h4>{translate('tableTitle')}</h4>
-                    <Table striped bordered hover responsive variant="dark">
+                    <Table striped bordered hover responsive >
                         <thead>
                             <tr>
-                            <th>#</th>
-                            <th>{translate('articulo')}</th>
-                            <th>{translate('autor')}</th>
-                            <th>{translate('año')}</th>
-                            <th>{translate('link')}</th>
+                                <th style={headStyle}>{translate('articulo')}</th>
+                                <th style={headStyle}>{translate('autor')}</th>
+                                <th style={headStyle}>{translate('año')}</th>
+                                <th style={headStyle}>{translate('link')}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Lnk</td>
-                            </tr>
-                            <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <td>3</td>
-                            <td colSpan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
-                            <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            </tr>
-                            <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <td>3</td>
-                            <td colSpan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
+                            {this.props.data.map(item => (
+                                <tr>
+                                <td>{item.Title}</td>
+                                <td>{item.Autors.join(" , ").split(/(?=[A-Z])/).join(" ")}</td>
+                                <td>{item.year}</td>
+                                <td>{<a href={item.url} target="_blank" rel="noopener noreferrer">
+                                        <h6>{translate('source')}</h6>
+                                    </a>}
+                                </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </Table>
 
