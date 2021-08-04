@@ -32,6 +32,5 @@ export default {
         'año' : 'Año',
         'link' : 'Link',
         'source' : 'Ir a la fuente'
-
     }
 }

@@ -14,12 +14,16 @@ import ConfigData from '../Config/server.json';
 
 /* Page  Data Source-fuente de datos */
 export class Data extends Component {
-  
+
+
   state = {
     resultGeneral : [],
     /* graphics data */
     yearLine : [],
-    autorHbar : []
+    autorHbar : [],
+    /* form search */
+    input : "",
+    resultCard : []
 
   }
 
@@ -78,6 +82,19 @@ export class Data extends Component {
     return [arrayLabels,arrayValues]
   }
 
+  onChange =(event)=>{
+    event.preventDefault()
+    this.setState({input : event.target.value})
+  }
+  onClicked = () =>{
+    console.log(this.state.input)
+    var a =  this.state.resultGeneral.filter(i =>
+      i.Title.toLowerCase().includes(this.state.input.toLowerCase())
+    );
+    this.setState({resultCard : a} )
+
+  }
+
   componentDidMount(){
     const Url_Base = ConfigData.BASE_URL
     const resource = ConfigData.PAPERS_SOURCE
@@ -125,15 +142,18 @@ export class Data extends Component {
                     
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <h4>Consulta por título, autor o año</h4>
-                        <Form.Control placeholder="Search" />
-                        <Button variant="dark" type="submit">
-                          Submit
+                        <Form.Control placeholder="Search" onChange={this.onChange} />
+                        <Button variant="dark" type="submit" onClick ={this.onClicked}>
+                          {translate('buscar')}
                         </Button>
                       </Form.Group>
                     
                   </div>
                   <div className="card-rta-continer">
-                    <CardByTitle la={this.props.la}></CardByTitle>  
+                    { this.state.resultCard.length > 0 
+                    ?<CardByTitle data ={this.state.resultCard}la={this.props.la}></CardByTitle>  
+                    :<h5>{translate('bienvenido') , translate('resultadosMsg') }</h5>
+                  }
                   </div>
                 </Card>
               </div>
