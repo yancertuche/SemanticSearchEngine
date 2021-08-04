@@ -7,3 +7,7 @@
     padding: 2em;
     
 }
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: transparent;
+  }

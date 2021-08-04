@@ -5,6 +5,7 @@
     "RELATIONS_RESOURCE": "/relation",
     "SEARCH_RESOURCE": "/search",
     "DONA_RESOURCE": "/dona",
+    "PAPERS_SOURCE" : "/paper",
     "NO_RESULT" : [
         {
             "Name": {
