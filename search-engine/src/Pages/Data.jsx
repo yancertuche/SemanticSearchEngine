@@ -9,8 +9,50 @@ import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
 import '../Styles/DataStyles.css'
 import CardByTitle from '../Components/CardByTitle';
+import axios from 'axios';
+import ConfigData from '../Config/server.json';
 
+/* Page  Data Source-fuente de datos */
 export class Data extends Component {
+  
+  
+  createStructure = (array) => {
+    var arr = {}
+    array.forEach(function(item){
+      if(!arr[item.Title.value]){
+        arr[item.Title.value] = [item.NameAutor.value]
+
+      }else{
+        arr[item.Title.value].push(item.NameAutor.value)
+      } 
+    });
+
+    var arrRequired = [];
+    for (var category in arr){
+      for(var item in array){
+        console.log(item)
+        if(array[item].Title.value === category){
+          arrRequired.push({ 'Title' : category, 'Autors' : arr[category], 'year': array[item].Year.value, 'url' : array[item].url.value });
+          break;
+        }
+      }
+      
+    } 
+    
+    return  arrRequired
+  }
+
+  componentDidMount(){
+    const Url_Base = ConfigData.BASE_URL
+    const resource = ConfigData.PAPERS_SOURCE
+    axios.get(Url_Base+resource)
+    .then( response => {
+      var a = this.createStructure(response.data.results.bindings)
+      console.log(a)
+    })
+  }
+
+
 
   render(){
     return (
