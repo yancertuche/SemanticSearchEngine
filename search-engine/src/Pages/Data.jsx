@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Card, Button} from 'react-bootstrap';
-import { MDBIcon } from "mdbreact";
 import Form from 'react-bootstrap/Form';
 import CTable from '../Components/CTable';
 import Hbar from '../Components/Hbar';
@@ -75,9 +74,9 @@ export class Data extends Component {
       }
     }
     // Reorganice result to send a graphic
-    for (var i in hash){
-      arrayLabels.push(i)
-      arrayValues.push(hash[i])
+    for (var j in hash){
+      arrayLabels.push(j)
+      arrayValues.push(hash[j])
     }
     return [arrayLabels,arrayValues]
   }
@@ -128,7 +127,10 @@ export class Data extends Component {
                                 lineTitle={translate('lineTitle')}></Line>
             </div>
             <div className="gr-container">
-              <Hbar></Hbar>
+              <Hbar data={[2, 4]} 
+                    labels={["autor", "autor"]}
+                    variable={"Autor"}
+                    title ={"Cantidad de articulos x autor"}></Hbar>
             </div>
           </div>
           <div className="table-container">
@@ -152,7 +154,7 @@ export class Data extends Component {
                   <div className="card-rta-continer">
                     { this.state.resultCard.length > 0 
                     ?<CardByTitle data ={this.state.resultCard}la={this.props.la}></CardByTitle>  
-                    :<h5>{translate('bienvenido') , translate('resultadosMsg') }</h5>
+                    :<h5>{translate('bienvenido')}, {translate('resultadosMsg') }</h5>
                   }
                   </div>
                 </Card>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
-import {Table, ThemeProvider} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 
 export class CTable extends Component{
 

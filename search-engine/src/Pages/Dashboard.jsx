@@ -3,7 +3,7 @@ import Bar from '../Components/Bar';
 import Line from '../Components/Line';
 import {I18nProvider} from '../i18n';
 import translate from '../i18n/translate';
-import {Button, Card} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import '../Styles/DashboardStyles.css';
 
 
