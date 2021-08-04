@@ -15,7 +15,16 @@ import ConfigData from '../Config/server.json';
 /* Page  Data Source-fuente de datos */
 export class Data extends Component {
   
-  
+  state = {
+    resultGeneral : [],
+    /* graphics data */
+    yearLine : [],
+    autorHbar : []
+
+  }
+
+  /* create a new Json object with format array of object
+  where each object is a paper*/
   createStructure = (array) => {
     var arr = {}
     array.forEach(function(item){
@@ -32,14 +41,41 @@ export class Data extends Component {
       for(var item in array){
         console.log(item)
         if(array[item].Title.value === category){
-          arrRequired.push({ 'Title' : category, 'Autors' : arr[category], 'year': array[item].Year.value, 'url' : array[item].url.value });
+          arrRequired.push({ 'Title' : category, 'Autors' : arr[category], 'year': Number(array[item].Year.value), 'url' : array[item].url.value });
           break;
         }
       }
       
     } 
-    
+
     return  arrRequired
+  }
+
+  /* paper x year of publication */
+  yearPublication = (array) =>{
+    var arrayLabels = []
+    var arrayValues = []
+    array.sort(function(a, b){
+      if(a.year < b.year) return -1;
+      if (a.year > b.year) return 1;
+    })
+
+    var hash = {}; //Keep track of counts
+    //Count the values
+    for (var i in array) {
+      var obj = array[i];
+      if (hash[obj.year]) {
+        hash[obj.year] += 1;
+      } else {
+        hash[obj.year] = 1;
+      }
+    }
+    // Reorganice result to send a graphic
+    for (var i in hash){
+      arrayLabels.push(i)
+      arrayValues.push(hash[i])
+    }
+    return [arrayLabels,arrayValues]
   }
 
   componentDidMount(){
@@ -48,7 +84,9 @@ export class Data extends Component {
     axios.get(Url_Base+resource)
     .then( response => {
       var a = this.createStructure(response.data.results.bindings)
-      console.log(a)
+      var b  = this.yearPublication(a)
+      this.setState({resultGeneral :  a })
+      this.setState({yearLine : b })
     })
   }
 
@@ -67,8 +105,8 @@ export class Data extends Component {
           </div>
           <div className="graphicData-container">  
             <div className="gr-container">
-              <Line DataLineLabels ={[2002, 2008 , 2014 , 2016 ]}
-                                DataLine ={[8 , 20, 2 , 15]}
+              <Line DataLineLabels ={this.state.yearLine[0]}
+                                DataLine ={this.state.yearLine[1]}
                                 Variable ={"Total Documents"}
                                 lineTitle={translate('lineTitle')}></Line>
             </div>
