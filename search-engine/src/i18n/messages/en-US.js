@@ -31,7 +31,11 @@ export default {
         'autor' : 'Autor(s)',
         'año' : 'Year',
         'link' : 'Link',
-        'source' : 'Source'
+        'source' : 'Source',
+        /* Data Explore */
+        'donaTitleDomainCompany' : 'Domains of reporting companies',
+        'barTitleTeamByCompany' : 'Average Product Line Migration Team by Company Size',
+        'HbarTitleBenefits' : 'Most reported benefits in industrial cases',
 
 
     }

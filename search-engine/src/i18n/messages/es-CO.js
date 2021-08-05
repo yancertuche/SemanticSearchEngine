@@ -31,6 +31,10 @@ export default {
         'autor' : 'Autor(es)',
         'año' : 'Año',
         'link' : 'Link',
-        'source' : 'Ir a la fuente'
+        'source' : 'Ir a la fuente',
+        /* Data Explore */
+        'donaTitleDomainCompany' : 'Dominios de las compañías que realizaron un reporte',
+        'barTitleTeamByCompany' : 'Promedio del equipo de migración a Líneas de productos por tamaño de empresa',
+        'HbarTitleBenefits' : 'Beneficios más reportados en los casos industriales',
     }
 }

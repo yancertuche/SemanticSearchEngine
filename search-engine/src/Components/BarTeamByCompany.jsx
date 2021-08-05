@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
-import Hbar from './Hbar';
+import Bar from '../Components/Bar';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
 import {Card} from 'react-bootstrap';
 
-
-export class HbarBenefits extends Component{
+export class BarTeamByCompany extends Component{
 
     state ={
         dataDona : [],
@@ -23,27 +22,30 @@ export class HbarBenefits extends Component{
         }
     }
 
+    
+    componentDidMount(){
+    }
+
     render(){
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
-                    
-                    <Hbar data={[2, 4]} 
-                    labels={["benefivio", "beneficio "]}
-                    variable={"benefit"}
-                    title ={translate('HbarTitleBenefits')}></Hbar>
+                    <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
+                                    DataBar={[2, 4, 10]}
+                                    Var ={'Empleados'}
+                                    barTitle={translate('barTitleTeamByCompany')}></Bar> 
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
                     </div>
                     {this.state.seeMoreG1
                             ? <Card><p>hola akkadksaksa as</p> </Card>
                             : <label></label>
-                    }
-            
-                </div> 
+
+                    }   
+                </div>
             </I18nProvider>
         )
     }
 };
 
-export default HbarBenefits;
+export default BarTeamByCompany;

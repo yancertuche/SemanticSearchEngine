@@ -9,6 +9,7 @@ import ReactWordcloud from 'react-wordcloud';
 import DonaNumInstances from '../Components/DonaNumInstances';
 import HbarBenefits from '../Components/HbarBenefits';
 import DonaDomainCompany from '../Components/DonaDomainCompany';
+import BarTeamByCompany from '../Components/BarTeamByCompany';
 
 
 export class Dashboard extends Component {
@@ -37,10 +38,7 @@ export class Dashboard extends Component {
                         </div>
                         <div className="each-container">
                             <div className="G-container">
-                                <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
-                                            DataBar={[2, 4, 10]}
-                                            Var ={'Empleados'}
-                                            barTitle={translate('barTitle')}></Bar>         
+                                <BarTeamByCompany la={this.props.la}></BarTeamByCompany>        
                             </div>
                         </div>
                         <div className="each-container">
@@ -56,7 +54,7 @@ export class Dashboard extends Component {
                                 <ReactWordcloud words={[
                                                 {
                                                     text: 'told',
-                                                    value: 64,
+                                                    value: 20,
                                                 },
                                                 {
                                                     text: 'mistake',
