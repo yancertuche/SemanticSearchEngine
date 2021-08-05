@@ -21,7 +21,7 @@ export default class Hbar extends React.Component {
                         }
                     ]
                 }} width={100}
-                    height={26} options={{ indexAxis: 'y' }} />
+                    height={26} options={{ indexAxis: 'y'  }} />
             </div>
         );
     }
