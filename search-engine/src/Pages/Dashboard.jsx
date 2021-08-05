@@ -7,6 +7,7 @@ import {Card} from 'react-bootstrap';
 import '../Styles/DashboardStyles.css';
 import ReactWordcloud from 'react-wordcloud';
 import DonaNumInstances from '../Components/DonaNumInstances';
+import HbarBenefits from '../Components/HbarBenefits';
 
 
 export class Dashboard extends Component {
@@ -30,16 +31,7 @@ export class Dashboard extends Component {
                     <div className="top-container">
                         <div className="each-container">
                             <div className="G-container">
-                                    <Line DataLineLabels ={[2002, 2008 , 2014 ]}
-                                        DataLine ={[2, 1, 2]}
-                                        Variable ={"Total Documents"}
-                                        lineTitle={translate('lineTitle')}></Line>
-                                    <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <h6>Ver detalle</h6> </button >
-                                    {this.state.seeMoreG1
-                                    ? <Card><p>hola</p> </Card>
-                                    : <label></label>
-
-                                }   
+                                <HbarBenefits  la={this.props.la} ></HbarBenefits>
                             </div>
                         </div>
                         <div className="each-container">
@@ -74,7 +66,7 @@ export class Dashboard extends Component {
                         </div>
                         <div className="each-container">
                             <div className="G-container">
-                                <DonaNumInstances></DonaNumInstances>
+                              
                             </div>
                         </div>
                         <div className="each-container">

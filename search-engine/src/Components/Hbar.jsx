@@ -12,11 +12,11 @@ export default class Hbar extends React.Component {
                     datasets: [
                         {
                             label: this.props.variable,
-                            backgroundColor: 'rgba(255,99,132,0.2)',
-                            borderColor: 'rgba(255,99,132,1)',
+                            backgroundColor: '#2a9df4',
+                            borderColor: '#2a9df4',
                             borderWidth: 1,
-                            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                            hoverBorderColor: 'rgba(255,99,132,1)',
+                            hoverBackgroundColor: '#187bcd',
+                            hoverBorderColor: '#187bcd',
                             data: this.props.data
                         }
                     ]

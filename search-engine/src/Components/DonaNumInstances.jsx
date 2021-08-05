@@ -56,9 +56,11 @@ export class DonaNumInstances extends Component{
                         DataDo={this.state.dataDona[1]}
                         donaTitle={translate('donaTitle')}>
                     </Doughnut>
-                    <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <h6>Ver detalle</h6> </button >
+                    <div style={{ float: 'right'}}>
+                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
+                    </div>
                     {this.state.seeMoreG1
-                            ? <Card><p>hola</p> </Card>
+                            ? <Card><p>hola akkadksaksa as</p> </Card>
                             : <label></label>
 
                     }   

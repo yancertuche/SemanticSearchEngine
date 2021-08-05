@@ -21,9 +21,6 @@ export class Result extends Component{
         this.state = { 
             /* results to render in cards */
             results : [],
-            /* Graphics Data */
-            dataBar : [],
-            dataDona : [],
             /* inputs states */
             classFirst: "",
             classSecond: "",
@@ -60,29 +57,6 @@ export class Result extends Component{
             }
             this.setState({listClassFirst : result});
             console.log(result)
-        })
-        .catch(error => console.log(error))
-
-        /******************************************************************/  
-        /* GRAPHICS*/
-        /******************************************************************/
-        /* DONA  */
-        const resourceDona = ConfigData.DONA_RESOURCE
-        axios.get(Url_Base+resourceDona)
-        .then( response => {
-            console.log(response)
-            var refe = response.data.results.bindings
-            var data = []
-            var names = []
-            var count = []
-            for(var i=0; i < refe.length; i++){
-                names.push(refe[i].NameClass.value)
-                count.push(refe[i].counter.value)
-            }
-            data.push(names)
-            data.push(count)
-            this.setState({dataDona : data})
-
         })
         .catch(error => console.log(error))
 
@@ -367,13 +341,6 @@ setTimeout(() => {
                                     { this.state.results.length === 0 
                                     ? <p><b>{translate('bienvenido')}</b> , {translate('resultadosMsg')}</p>
                                     : <CardResult crd={this.state.results}></CardResult>}
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="Graphic-container">
-                                <Doughnut LabelsDo ={this.state.dataDona[0]}
-                                     DataDo={this.state.dataDona[1]}
-                                     donaTitle={translate('donaTitle')}></Doughnut>
                                 </div>
                             </div>
                         </div>
