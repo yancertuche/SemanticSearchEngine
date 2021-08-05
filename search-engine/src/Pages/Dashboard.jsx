@@ -5,6 +5,7 @@ import {I18nProvider} from '../i18n';
 import translate from '../i18n/translate';
 import {Card} from 'react-bootstrap';
 import '../Styles/DashboardStyles.css';
+import ReactWordcloud from 'react-wordcloud';
 
 
 export class Dashboard extends Component {
@@ -59,10 +60,17 @@ export class Dashboard extends Component {
                 <div className="row">
                     <div className="col">
                         <div className="G-container">
-                            <Line DataLineLabels ={[2002, 2008 , 2014 ]}
-                                DataLine ={[2, 1, 2]}
-                                Variable ={"Total Documents"}
-                                lineTitle={translate('lineTitle')}></Line>
+                            <ReactWordcloud words={[
+                                            {
+                                                text: 'told',
+                                                value: 64,
+                                            },
+                                            {
+                                                text: 'mistake',
+                                                value: 20,
+                                            }]}>
+                            </ReactWordcloud >
+                            
                         </div>
                     </div>
                     <div className="col">
