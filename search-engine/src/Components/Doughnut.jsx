@@ -5,7 +5,7 @@ export class Doughnut extends Component{
     render(){
         return(
             <div>
-                    <h4>{this.props.donaTitle} </h4>
+                    <h5>{this.props.donaTitle} </h5>
                             <CChart type="pie" datasets={[
                                                                 {
                                                                 data: this.props.DataDo,

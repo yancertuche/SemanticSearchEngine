@@ -5,7 +5,7 @@ export class Bar extends Component{
     render(){
         return(
             <div>
-                    <h4>{this.props.barTitle} </h4>
+                    <h5>{this.props.barTitle} </h5>
                     <CChart type="bar" datasets={[
                                                 {
                                                     label: this.props.Var ,

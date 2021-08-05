@@ -6,7 +6,7 @@ export class Line extends Component{
     render(){
         return(
             <div>
-                <h4>{this.props.lineTitle} </h4>
+                <h5>{this.props.lineTitle} </h5>
                     <CChart
                     type="line"
                     labels ={this.props.DataLineLabels}

@@ -50,7 +50,7 @@ export class DonaNumInstances extends Component{
 
     render(){
         return(
-            <I18nProvider>
+            <I18nProvider locale={this.props.la}>
                 <div>
                     <Doughnut LabelsDo ={this.state.dataDona[0]}
                         DataDo={this.state.dataDona[1]}

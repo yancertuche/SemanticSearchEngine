@@ -27,60 +27,63 @@ export class Dashboard extends Component {
         return (
             <I18nProvider locale={this.props.la}>
                 <div className="Dash-container">
-                    <div className="each-container">
-                        <div className="G-container">
+                    <div className="top-container">
+                        <div className="each-container">
+                            <div className="G-container">
+                                    <Line DataLineLabels ={[2002, 2008 , 2014 ]}
+                                        DataLine ={[2, 1, 2]}
+                                        Variable ={"Total Documents"}
+                                        lineTitle={translate('lineTitle')}></Line>
+                                    <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <h6>Ver detalle</h6> </button >
+                                    {this.state.seeMoreG1
+                                    ? <Card><p>hola</p> </Card>
+                                    : <label></label>
+
+                                }   
+                            </div>
+                        </div>
+                        <div className="each-container">
+                            <div className="G-container">
+                                <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
+                                            DataBar={[2, 4, 10]}
+                                            Var ={'Empleados'}
+                                            barTitle={translate('barTitle')}></Bar>         
+                            </div>
+                        </div>
+                        <div className="each-container">
+                            <div className="G-container">
+                                <DonaNumInstances la={this.props.la}></DonaNumInstances>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bottom-container">
+                        <div className="each-container">
+                            <div className="G-container">
+                                <h4>Nube de Palabra</h4>
+                                <ReactWordcloud words={[
+                                                {
+                                                    text: 'told',
+                                                    value: 64,
+                                                },
+                                                {
+                                                    text: 'mistake',
+                                                    value: 20,
+                                                }]} size={[400,260]}>
+                                </ReactWordcloud >
+                            </div>
+                        </div>
+                        <div className="each-container">
+                            <div className="G-container">
+                                <DonaNumInstances></DonaNumInstances>
+                            </div>
+                        </div>
+                        <div className="each-container">
+                            <div className="G-container">
                                 <Line DataLineLabels ={[2002, 2008 , 2014 ]}
                                     DataLine ={[2, 1, 2]}
                                     Variable ={"Total Documents"}
                                     lineTitle={translate('lineTitle')}></Line>
-                                <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <h6>Ver detalle</h6> </button >
-                                {this.state.seeMoreG1
-                                ? <Card><p>hola</p> </Card>
-                                : <label></label>
-
-                            }   
-                        </div>
-                    </div>
-                    <div className="each-container">
-                        <div className="G-container">
-                            <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
-                                        DataBar={[2, 4, 10]}
-                                        Var ={'Empleados'}
-                                        barTitle={translate('barTitle')}></Bar>         
-                        </div>
-                    </div>
-                    <div className="each-container">
-                        <div className="G-container">
-                            <DonaNumInstances></DonaNumInstances>
-                        </div>
-                    </div>
-                    <div class="break"></div>
-                    <div className="each-container">
-                        <div className="G-container">
-                            <h4>Nube de Palabra</h4>
-                            <ReactWordcloud words={[
-                                            {
-                                                text: 'told',
-                                                value: 64,
-                                            },
-                                            {
-                                                text: 'mistake',
-                                                value: 20,
-                                            }]} size={[400,260]}>
-                            </ReactWordcloud >
-                        </div>
-                    </div>
-                    <div className="each-container">
-                        <div className="G-container">
-                            <DonaNumInstances></DonaNumInstances>
-                        </div>
-                    </div>
-                    <div className="each-container">
-                        <div className="G-container">
-                            <Line DataLineLabels ={[2002, 2008 , 2014 ]}
-                                DataLine ={[2, 1, 2]}
-                                Variable ={"Total Documents"}
-                                lineTitle={translate('lineTitle')}></Line>
+                            </div>
                         </div>
                     </div>
                 </div>
