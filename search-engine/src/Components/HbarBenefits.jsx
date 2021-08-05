@@ -31,7 +31,7 @@ export class HbarBenefits extends Component{
                     <Hbar data={[2, 4]} 
                     labels={["benefivio", "beneficio "]}
                     variable={"benefit"}
-                    title ={"Benenficios más reportados"}></Hbar>
+                    title ={"Benenficios más reportados en los casos industriales"}></Hbar>
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
                     </div>

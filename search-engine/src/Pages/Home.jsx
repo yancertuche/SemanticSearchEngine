@@ -59,13 +59,13 @@ export class Home extends Component {
                         */}
                   </div>
                 <br></br>
-                <h2> {translate('por')} Yan Carlos Certuche Grueso </h2>
+                <h4> {translate('por')} Yan Carlos Certuche Grueso </h4>
                 <br></br>
-                <div className="logos"> 
-                  <img src={puj} alt="Italian Trulli" width='80px' height='100px'/>
-                  <img src={reactImg} alt="Italian Trulli" width='80px' height='80px'/>
-                  <img src={javaImg} alt="Italian Trulli" width='80px' height='110px'/>
-                </div>
+              </div>
+              <div className="logos"> 
+                  <img src={puj} alt="Italian Trulli" width='60px' height='80px'/>
+                  <img src={reactImg} alt="Italian Trulli" width='60px' height='60px'/>
+                  <img src={javaImg} alt="Italian Trulli" width='60px' height='90px'/>
               </div>
       </div>
       </I18nProvider>

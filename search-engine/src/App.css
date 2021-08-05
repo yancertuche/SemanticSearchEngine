@@ -10,7 +10,8 @@
   text-align: center;
   vertical-align: middle;
   position: relative;
-  top :30%
+  top :30%;
+  height: 80%;
 }
 
 .Title{
@@ -47,5 +48,6 @@
 .logos{
   text-align: right;
   padding-right: 2%;
-  bottom: 0;
+  position: relative;
+  bottom: 3%;
 }

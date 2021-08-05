@@ -8,6 +8,7 @@ import '../Styles/DashboardStyles.css';
 import ReactWordcloud from 'react-wordcloud';
 import DonaNumInstances from '../Components/DonaNumInstances';
 import HbarBenefits from '../Components/HbarBenefits';
+import DonaDomainCompany from '../Components/DonaDomainCompany';
 
 
 export class Dashboard extends Component {
@@ -44,7 +45,7 @@ export class Dashboard extends Component {
                         </div>
                         <div className="each-container">
                             <div className="G-container">
-                                <DonaNumInstances la={this.props.la}></DonaNumInstances>
+                                <DonaDomainCompany la={this.props.la}></DonaDomainCompany>
                             </div>
                         </div>
                     </div>
@@ -66,7 +67,9 @@ export class Dashboard extends Component {
                         </div>
                         <div className="each-container">
                             <div className="G-container">
-                              
+                           
+                                <DonaNumInstances la={this.props.la}></DonaNumInstances>
+                           
                             </div>
                         </div>
                         <div className="each-container">
