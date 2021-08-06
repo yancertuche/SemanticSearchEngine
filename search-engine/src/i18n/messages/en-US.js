@@ -36,6 +36,7 @@ export default {
         'donaTitleDomainCompany' : 'Domains of reporting companies',
         'barTitleTeamByCompany' : 'Average Product Line Migration Team by Company Size',
         'HbarTitleBenefits' : 'Most reported benefits in industrial cases',
+        'cloudWorldTitle' : 'Companies found in the reported industrial cases',
 
 
     }

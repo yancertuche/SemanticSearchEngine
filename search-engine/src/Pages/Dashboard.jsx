@@ -10,6 +10,7 @@ import DonaNumInstances from '../Components/DonaNumInstances';
 import HbarBenefits from '../Components/HbarBenefits';
 import DonaDomainCompany from '../Components/DonaDomainCompany';
 import BarTeamByCompany from '../Components/BarTeamByCompany';
+import CloudOfCompany from '../Components/CloudOfCompany';
 
 
 export class Dashboard extends Component {
@@ -50,17 +51,7 @@ export class Dashboard extends Component {
                     <div className="bottom-container">
                         <div className="each-container">
                             <div className="G-container">
-                                <h4>Nube de Palabra</h4>
-                                <ReactWordcloud words={[
-                                                {
-                                                    text: 'told',
-                                                    value: 20,
-                                                },
-                                                {
-                                                    text: 'mistake',
-                                                    value: 20,
-                                                }]} size={[400,260]}>
-                                </ReactWordcloud >
+                                <CloudOfCompany la={this.props.la}></CloudOfCompany>
                             </div>
                         </div>
                         <div className="each-container">

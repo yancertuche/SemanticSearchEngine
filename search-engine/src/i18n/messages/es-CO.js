@@ -36,5 +36,6 @@ export default {
         'donaTitleDomainCompany' : 'Dominios de las compañías que realizaron un reporte',
         'barTitleTeamByCompany' : 'Promedio del equipo de migración a Líneas de productos por tamaño de empresa',
         'HbarTitleBenefits' : 'Beneficios más reportados en los casos industriales',
+        'cloudWorldTitle' : 'Compañías encontradas en los casos industriales reportados',
     }
 }
