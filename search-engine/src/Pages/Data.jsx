@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Card, Button} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import CTable from '../Components/CTable';
-import Hbar from '../Components/Hbar';
 import Line from '../Components/Line';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
@@ -130,8 +129,8 @@ export class Data extends Component {
             <div className="gr-container">
               <HbarAutor data={[2, 4]} 
                     labels={["autor", "autor"]}
-                    variable={"Autor"}
-                    title ={"Cantidad de articulos x autor"}></HbarAutor>
+                    variable={"Papers"}
+                    title ={"Autores con mayor cantidad de artículos"}></HbarAutor>
             </div>
           </div>
           <div className="table-container">

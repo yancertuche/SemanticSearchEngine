@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import { withRouter } from "react-router-dom";
-import Doughnut from '../Components/Doughnut';
+
 import '../Styles/ResultStyles.css';
 import Select from 'react-select/async';
 import {MDBBtn} from "mdbreact";

@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import Bar from '../Components/Bar';
-import Line from '../Components/Line';
+
 import {I18nProvider} from '../i18n';
-import translate from '../i18n/translate';
-import {Card} from 'react-bootstrap';
 import '../Styles/DashboardStyles.css';
 import ReactWordcloud from 'react-wordcloud';
 import DonaNumInstances from '../Components/DonaNumInstances';
