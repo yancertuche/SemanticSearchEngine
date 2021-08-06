@@ -23,8 +23,28 @@ export class CloudOfCompany extends Component{
         }
     }
 
+    createStructure = (array) =>{
+        var arr  = []
+        var i = 0
+        array.forEach(element => {
+            if(!arr.includes(element)){
+                arr.push({ text : element.Companies.value.split(/(?=[A-Z])/).join(" "), value : 1 })
+            }else{
+                var indice = arr.indexOf(element)
+                arr[indice].value += 1
+            }
+        });
+
+        return arr
+    }
     
     componentDidMount(){
+        axios.get(ConfigData.BASE_URL+ConfigData.COMPANY_SOURCE)
+        .then(response => {
+            var a  = this.createStructure(response.data.results.bindings)
+            this.setState({dataDona : a})
+        }
+        )
     }
 
     render(){
@@ -32,15 +52,7 @@ export class CloudOfCompany extends Component{
             <I18nProvider locale={this.props.la}>
                 <div>
                 <h4>{translate('cloudWorldTitle')}</h4>
-                                <ReactWordcloud words={[
-                                                {
-                                                    text: 'told',
-                                                    value: 20,
-                                                },
-                                                {
-                                                    text: 'mistake',
-                                                    value: 20,
-                                                }]} size={[400,260]}>
+                                <ReactWordcloud words={this.state.dataDona} size={[400,260]}>
                                 </ReactWordcloud> 
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >

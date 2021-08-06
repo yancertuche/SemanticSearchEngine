@@ -8,6 +8,7 @@
     "PAPERS_SOURCE" : "/paper",
     "BENEFIT_SOURCE" : "/benefit",
     "COMPANY_SOURCE" : "/company",
+    "CHALLENGE_SOURCE" : "/challenge",
     "NO_RESULT" : [
         {
             "Name": {
