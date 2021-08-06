@@ -15,18 +15,6 @@ import HbarChallenges from '../Components/HbarChallenges';
 
 
 export class Dashboard extends Component {
-    state ={
-        seeMoreG1 : false
-    }
-
-    seeMoreG1 = () =>{
-        if(this.state.seeMoreG1 === false){
-            this.setState({seeMoreG1 : true})
-        }
-        if(this.state.seeMoreG1 === true){
-            this.setState({seeMoreG1 : false})
-        }
-    }
 
     render(){
         return (
@@ -57,9 +45,7 @@ export class Dashboard extends Component {
                         </div>
                         <div className="each-container">
                             <div className="G-container">
-                           
                                 <DonaNumInstances la={this.props.la}></DonaNumInstances>
-                           
                             </div>
                         </div>
                         <div className="each-container">

@@ -6,6 +6,7 @@
     "SEARCH_RESOURCE": "/search",
     "DONA_RESOURCE": "/dona",
     "PAPERS_SOURCE" : "/paper",
+    "BENEFIT_SOURCE" : "/benefit",
     "NO_RESULT" : [
         {
             "Name": {

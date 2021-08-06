@@ -23,13 +23,39 @@ export class HbarBenefits extends Component{
         }
     }
 
+    createStructure = (array) => {
+        var arrayLabels = []
+        var arrayValues = []
+        /* ordena de menor a mayor */
+        array.sort(function(a, b){
+        if(a.countp.value < b.countp.value) return -1;
+        if (a.countp.value > b.countp.value) return 1;
+        })
+
+        /* organiza */
+        for (var j in array){
+            arrayLabels.push(array[j].Benefit.value)
+            arrayValues.push(array[j].countp.value)
+          }
+        
+        return [arrayLabels , arrayValues]
+    }
+
+    componentDidMount(){
+        axios.get(ConfigData.BASE_URL+ConfigData.BENEFIT_SOURCE)
+        .then(response =>{
+            var a = this.createStructure(response.data.results.bindings)
+            this.setState({dataDona : a})
+        })
+    }
+
     render(){
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
                     
-                    <Hbar data={[2, 4]} 
-                    labels={["benefivio", "beneficio "]}
+                    <Hbar data={this.state.dataDona[1]} 
+                    labels={this.state.dataDona[0]}
                     variable={"benefit"}
                     title ={translate('HbarTitleBenefits')}></Hbar>
                     <div style={{ float: 'right'}}>

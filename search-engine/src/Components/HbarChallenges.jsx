@@ -29,7 +29,7 @@ export class HbarChallenges extends Component{
                 <div>
                     
                     <Hbar data={[2, 4, 5]} 
-                    labels={["challenge2 ", "challenge1 ", "challenge1 " ]}
+                    labels={["challenge2", "challenge1", "challenge3" ]}
                     variable={"challenge"}
                     title ={translate('HbarTitleChallenge')}></Hbar>
                     <div style={{ float: 'right'}}>
