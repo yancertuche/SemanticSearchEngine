@@ -7,6 +7,7 @@
     "DONA_RESOURCE": "/dona",
     "PAPERS_SOURCE" : "/paper",
     "BENEFIT_SOURCE" : "/benefit",
+    "COMPANY_SOURCE" : "/company",
     "NO_RESULT" : [
         {
             "Name": {

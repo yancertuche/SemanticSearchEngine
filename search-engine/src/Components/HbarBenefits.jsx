@@ -34,7 +34,7 @@ export class HbarBenefits extends Component{
 
         /* organiza */
         for (var j in array){
-            arrayLabels.push(array[j].Benefit.value)
+            arrayLabels.push(array[j].Benefit.value.split(/(?=[A-Z])/).join(" "))
             arrayValues.push(array[j].countp.value)
           }
         
@@ -56,7 +56,7 @@ export class HbarBenefits extends Component{
                     
                     <Hbar data={this.state.dataDona[1]} 
                     labels={this.state.dataDona[0]}
-                    variable={"benefit"}
+                    variable={"Papers"}
                     title ={translate('HbarTitleBenefits')}></Hbar>
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
