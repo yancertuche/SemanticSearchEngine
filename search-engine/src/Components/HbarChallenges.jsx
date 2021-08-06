@@ -23,13 +23,51 @@ export class HbarChallenges extends Component{
         }
     }
 
+    createStructure = (array) =>{
+        var arrayLabels = []
+        var arrayValues = []
+        var arr = []
+        
+        /* cuenta */
+        array.forEach(element => {
+            if(!arr[element.Challenge.value]){
+                arr[element.Challenge.value] = 1
+            }else{
+                arr[element.Challenge.value] += 1
+            }
+        });
+        
+        /* ordena de menor a mayor */
+        arr.sort(function(a, b){
+            console.log("estos son a y b ", a , b)
+            if(a < b) return -1;
+            if (a > b) return 1;
+        })
+    
+        /* organiza */
+        for (var j in arr){
+            arrayLabels.push(j.split(/(?=[A-Z])/).join(" "))
+            arrayValues.push(arr[j])
+          }
+        
+        return [arrayLabels , arrayValues]
+    }
+
+    componentDidMount(){
+        axios.get(ConfigData.BASE_URL+ConfigData.CHALLENGE_SOURCE)
+        .then(response =>{
+            var a = this.createStructure(response.data.results.bindings)
+            this.setState({dataDona : a})
+        })
+    }
+
     render(){
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
                     
-                    <Hbar data={[2, 4, 5]} 
-                    labels={["challenge2", "challenge1", "challenge3" ]}
+                    <Hbar data={this.state.dataDona[1]} 
+                    labels={this.state.dataDona[0]}
                     variable={"challenge"}
                     title ={translate('HbarTitleChallenge')}></Hbar>
                     <div style={{ float: 'right'}}>

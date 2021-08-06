@@ -25,17 +25,18 @@ export class CloudOfCompany extends Component{
 
     createStructure = (array) =>{
         var arr  = []
-        var i = 0
         array.forEach(element => {
-            if(!arr.includes(element)){
-                arr.push({ text : element.Companies.value.split(/(?=[A-Z])/).join(" "), value : 1 })
+            if(!arr[element.Companies.value]){
+                arr[element.Companies.value] = 1
             }else{
-                var indice = arr.indexOf(element)
-                arr[indice].value += 1
+                arr[element.Companies.value] += 1
             }
         });
-
-        return arr
+        var arrFinal = []
+        for (var item in arr){
+            arrFinal.push({text : item , value :  arr[item] })
+        }
+        return arrFinal
     }
     
     componentDidMount(){
