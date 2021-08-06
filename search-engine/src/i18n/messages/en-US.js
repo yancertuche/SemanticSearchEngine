@@ -37,6 +37,7 @@ export default {
         'barTitleTeamByCompany' : 'Average Product Line Migration Team by Company Size',
         'HbarTitleBenefits' : 'Most reported benefits in industrial cases',
         'cloudWorldTitle' : 'Companies found in the reported industrial cases',
+        'HbarTitleChallenge' : 'Most reported challenges in industrial cases',
 
 
     }
