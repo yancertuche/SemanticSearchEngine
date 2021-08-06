@@ -10,6 +10,7 @@ import '../Styles/DataStyles.css'
 import CardByTitle from '../Components/CardByTitle';
 import axios from 'axios';
 import ConfigData from '../Config/server.json';
+import HbarAutor from '../Components/HbarAutor';
 
 /* Page  Data Source-fuente de datos */
 export class Data extends Component {
@@ -127,10 +128,10 @@ export class Data extends Component {
                                 lineTitle={translate('lineTitle')}></Line>
             </div>
             <div className="gr-container">
-              <Hbar data={[2, 4]} 
+              <HbarAutor data={[2, 4]} 
                     labels={["autor", "autor"]}
                     variable={"Autor"}
-                    title ={"Cantidad de articulos x autor"}></Hbar>
+                    title ={"Cantidad de articulos x autor"}></HbarAutor>
             </div>
           </div>
           <div className="table-container">
