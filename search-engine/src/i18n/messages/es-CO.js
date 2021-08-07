@@ -37,6 +37,8 @@ export default {
         'barTitleTeamByCompany' : 'Promedio del equipo de migración a Líneas de productos por tamaño de empresa',
         'HbarTitleBenefits' : 'Beneficios más reportados en los casos industriales',
         'cloudWorldTitle' : 'Compañías encontradas en los casos industriales reportados',
-        'HbarTitleChallenge' : 'Retos más reportados por las compañías'
+        'HbarTitleChallenge' : 'Retos más reportados por las compañías',
+        /* see more button */
+        'verdetalle' : 'Ver más',
     }
 }

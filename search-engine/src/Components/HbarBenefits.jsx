@@ -50,13 +50,13 @@ export class HbarBenefits extends Component{
     }
 
     render(){
+        var holi = this.props.la;
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
-                    
                     <Hbar data={this.state.dataDona[1]} 
                     labels={this.state.dataDona[0]}
-                    variable={"Papers"}
+                    variable={'Articulo'}
                     title ={translate('HbarTitleBenefits')}></Hbar>
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >

@@ -38,6 +38,8 @@ export default {
         'HbarTitleBenefits' : 'Most reported benefits in industrial cases',
         'cloudWorldTitle' : 'Companies found in the reported industrial cases',
         'HbarTitleChallenge' : 'Challenges most reported by companies',
+        /* see more button */
+        'verdetalle' : 'See more',
 
 
     }

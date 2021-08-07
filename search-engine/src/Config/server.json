@@ -10,6 +10,7 @@
     "COMPANY_SOURCE" : "/company",
     "CHALLENGE_SOURCE" : "/challenge",
     "DOMAIN_SOURCE" : "/domain",
+    "TEAM_SOURCE" : "/team",
     "NO_RESULT" : [
         {
             "Name": {

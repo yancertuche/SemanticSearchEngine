@@ -20,7 +20,7 @@ export default class Hbar extends React.Component {
                             data: this.props.data
                         }
                     ]
-                }}  options={{ indexAxis: 'y'  }} />
+                }}  options={{ indexAxis: 'y', scaleStepWidth: 1, scaleOverride:true  }} />
             </div>
         );
     }

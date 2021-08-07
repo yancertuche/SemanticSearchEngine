@@ -36,7 +36,7 @@ export class DonaDomainCompany extends Component{
 
           /* organiza */
         for (var j in arr){
-        arrayLabels.push(j)
+        arrayLabels.push(j.split(/(?=[A-Z])/).join(" "))
         arrayValues.push(arr[j])
         }
 

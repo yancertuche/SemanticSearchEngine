@@ -34,7 +34,7 @@ export class CloudOfCompany extends Component{
         });
         var arrFinal = []
         for (var item in arr){
-            arrFinal.push({text : item , value :  arr[item] })
+            arrFinal.push({text : item.split(/(?=[A-Z])/).join(" ") , value :  arr[item] })
         }
         return arrFinal
     }
