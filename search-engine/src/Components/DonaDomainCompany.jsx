@@ -21,7 +21,27 @@ export class DonaDomainCompany extends Component{
             this.setState({seeMoreG1 : false})
         }
     }
+    createStructure = (array) => {
+        var arrayLabels = []
+        var arrayValues = []
+        var arr = {}
+        array.forEach(function(item){
+          if(!arr[item.Domain.value]){
+            arr[item.Domain.value] = 1
+    
+          }else{
+            arr[item.Domain.value] += 1
+          } 
+        });
 
+          /* organiza */
+        for (var j in arr){
+        arrayLabels.push(j)
+        arrayValues.push(arr[j])
+        }
+
+        return  [arrayLabels , arrayValues]
+    }
     
     componentDidMount(){
         /******************************************************************/  
@@ -29,21 +49,10 @@ export class DonaDomainCompany extends Component{
         /******************************************************************/
         /* DONA  */
         
-        axios.get(ConfigData.BASE_URL+ConfigData.DONA_RESOURCE)
+        axios.get(ConfigData.BASE_URL+ConfigData.DOMAIN_SOURCE)
         .then( response => {
-            console.log(response)
-            var refe = response.data.results.bindings
-            var data = []
-            var names = []
-            var count = []
-            for(var i=0; i < refe.length; i++){
-                names.push(refe[i].NameClass.value)
-                count.push(refe[i].counter.value)
-            }
-            data.push(names)
-            data.push(count)
-            this.setState({dataDona : data})
-
+            var a = this.createStructure(response.data.results.bindings)
+            this.setState({dataDona : a})
         })
         .catch(error => console.log(error))
     }

@@ -13,11 +13,17 @@ export class Doughnut extends Component{
                                                                     '#FF6384',
                                                                     '#36A2EB',
                                                                     '#FFCE56',
+                                                                    '#003F5C',
+                                                                    "#274B7C",
+                                                                    "#F95D6A"
                                                                 ],
                                                                 hoverBackgroundColor: [
                                                                     '#FF6384',
                                                                     '#36A2EB',
                                                                     '#FFCE56',
+                                                                    '#003F5C',
+                                                                    "#274B7C",
+                                                                    "#F95D6A"
                                                                 ],
                                                                 }]} 
                                                                 labels={this.props.LabelsDo}

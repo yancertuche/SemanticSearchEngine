@@ -9,6 +9,7 @@
     "BENEFIT_SOURCE" : "/benefit",
     "COMPANY_SOURCE" : "/company",
     "CHALLENGE_SOURCE" : "/challenge",
+    "DOMAIN_SOURCE" : "/domain",
     "NO_RESULT" : [
         {
             "Name": {
