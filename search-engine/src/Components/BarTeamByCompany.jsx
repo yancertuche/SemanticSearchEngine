@@ -11,7 +11,9 @@ export class BarTeamByCompany extends Component{
     state ={
         dataDona : [],
         seeMoreG1 : false,
-        bigCompany : []
+        bigCompany : [],
+        smallCompany :[],
+        mediumCompany :[],
     }
 
     seeMoreG1 = () =>{
@@ -52,6 +54,8 @@ export class BarTeamByCompany extends Component{
         });
 
         this.setState({bigCompany : BCompany})
+        this.setState({samllCompany : SCompany})
+        this.setState({mediumCompany : MCompany})
         var ABCompany = this.average(BCompany)
         var ASCompany = this.average(SCompany)
         var AMCompany = this.average(MCompany)
@@ -86,15 +90,44 @@ export class BarTeamByCompany extends Component{
                                 <Card.Body>
                                 <Card.Header>Empresas Grandes</Card.Header> 
                                 <ListGroup>
-                                {
-                                    this.state.bigCompany.map(item =>(
-                                        <div>
-                                            <ListGroup.Item>{<a href={item.url.value} target="_blank" rel="noopener noreferrer">
-                                                             {item.Company.value.split(/(?=[A-Z])/).join(" ")}
-                                                            </a>}
-                                            </ListGroup.Item> 
-                                        </div>
-                                    ))
+                                {   this.state.bigCompany.length > 0 
+                                    ?this.state.bigCompany.map(item =>(
+                                            <div>
+                                                <ListGroup.Item>{<a href={item.url.value} target="_blank" rel="noopener noreferrer">
+                                                                {item.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                                </a>}
+                                                </ListGroup.Item> 
+                                            </div>
+                                        ))
+                                    :<ListGroup> Sin Resultados </ListGroup>
+                                }
+                                </ListGroup>
+                                <Card.Header>Empresas Medianas</Card.Header> 
+                                <ListGroup>
+                                {   this.state.mediumCompany.length > 0 
+                                    ?this.state.mediumCompany.map(item =>(
+                                            <div>
+                                                <ListGroup.Item>{<a href={item.url.value} target="_blank" rel="noopener noreferrer">
+                                                                {item.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                                </a>}
+                                                </ListGroup.Item> 
+                                            </div>
+                                        ))
+                                    :<ListGroup> Sin Resultados </ListGroup>
+                                }
+                                </ListGroup>
+                                <Card.Header>Empresas Pequeñas</Card.Header> 
+                                <ListGroup>
+                                {   this.state.smallCompany.length > 0 
+                                    ?this.state.smallCompany.map(item =>(
+                                            <div>
+                                                <ListGroup.Item>{<a href={item.url.value} target="_blank" rel="noopener noreferrer">
+                                                                {item.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                                </a>}
+                                                </ListGroup.Item> 
+                                            </div>
+                                        ))
+                                    :<ListGroup> Sin Resultados </ListGroup>
                                 }
                                 </ListGroup>
                                 </Card.Body>
