@@ -88,18 +88,23 @@ export class DonaDomainCompany extends Component{
                     </div>
                     {this.state.seeMoreG1
                             ? <Card>
+                                <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
+                                <Card.Title>Empresas por dominio</Card.Title>
                                 {this.state.details.length > 0 
                                 ? this.state.details.map(item => (
                                     <div>
-                                    <Card.Header>{item.domain}</Card.Header>
+                                    <Card.Header>{item.domain.split(/(?=[A-Z])/).join(" ")}</Card.Header>
                                     <ListGroup> {item.data.map( detail => (
                                         <div>
-                                        <ListGroup.Item>{detail.Company.value}</ListGroup.Item>
+                                        <ListGroup.Item>{<a href={detail.url.value} target="_blank" rel="noopener noreferrer">
+                                        {detail.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                                </a>}</ListGroup.Item>
                                         </div>
                                     ))}</ListGroup>
                                     </div>
                                 ))
                                 :<ListGroup> Sin Resultados </ListGroup>}
+                                </div>
                             </Card>
                             : <label></label>
 

@@ -87,7 +87,8 @@ export class BarTeamByCompany extends Component{
                     </div>
                     {this.state.seeMoreG1
                             ? <Card>
-                                <Card.Body>
+                                <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
+                                <Card.Title>Empresas por tamaño</Card.Title>
                                 <Card.Header>Empresas Grandes</Card.Header> 
                                 <ListGroup>
                                 {   this.state.bigCompany.length > 0 
@@ -130,7 +131,7 @@ export class BarTeamByCompany extends Component{
                                     :<ListGroup> Sin Resultados </ListGroup>
                                 }
                                 </ListGroup>
-                                </Card.Body>
+                                </div>
                             </Card>
                             : <label></label>
 
