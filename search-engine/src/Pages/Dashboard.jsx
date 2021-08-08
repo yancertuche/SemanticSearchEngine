@@ -8,6 +8,8 @@ import DonaDomainCompany from '../Components/DonaDomainCompany';
 import BarTeamByCompany from '../Components/BarTeamByCompany';
 import CloudOfCompany from '../Components/CloudOfCompany';
 import HbarChallenges from '../Components/HbarChallenges';
+import { Card } from 'react-bootstrap';
+import translate from '../i18n/translate';
 
 
 export class Dashboard extends Component {
@@ -16,6 +18,13 @@ export class Dashboard extends Component {
         return (
             <I18nProvider locale={this.props.la}>
                 <div className="Dash-container">
+                    <div className="description-advance-container">
+                        <Card>
+                        <Card.Body>
+                            <h4>{translate('descriptionExplorePage')}</h4>
+                        </Card.Body>
+                        </Card>
+                    </div>
                     <div className="top-container">
                         <div className="each-container">
                             <div className="G-container">

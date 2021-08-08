@@ -50,7 +50,6 @@ export class HbarBenefits extends Component{
     }
 
     render(){
-        var holi = this.props.la;
         return(
             <I18nProvider locale={this.props.la}>
                 <div>

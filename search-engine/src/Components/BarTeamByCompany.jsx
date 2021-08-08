@@ -44,9 +44,9 @@ export class BarTeamByCompany extends Component{
         var SCompany=[]
         var MCompany=[]
         array.forEach(element => {
-            if(element.CompanySize.value == "big"){
+            if(element.CompanySize.value === "big"){
                 BCompany.push(element)
-            }else if(element.CompanySize.value == "small"){
+            }else if(element.CompanySize.value === "small"){
                 SCompany.push(element)
             }else{
                 MCompany.push(element)

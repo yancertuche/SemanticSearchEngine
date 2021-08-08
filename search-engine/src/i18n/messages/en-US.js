@@ -41,7 +41,9 @@ export default {
         /* see more button */
         'verdetalle' : 'See more',
         /* Result - advance serch Page*/
-        'descriptionAdvancePage' : 'In this section you can search or choose from all the most reported categories in the industrial cases and expand the information relating to other categories'
+        'descriptionAdvancePage' : 'In this section you can search or choose from all the most reported categories in the industrial cases and expand the information relating to other categories',
+        /* Explore page */
+        'descriptionExplorePage' : 'Here are some highlights of industry experiences reported by companies that have approached or migrated to PLE Product Line Engineering'
 
 
     }

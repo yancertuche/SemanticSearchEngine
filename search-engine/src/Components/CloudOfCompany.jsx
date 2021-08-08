@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { I18nProvider } from '../i18n';
 import translate from '../i18n/translate';
-import Bar from '../Components/Bar';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
 import {Card} from 'react-bootstrap';

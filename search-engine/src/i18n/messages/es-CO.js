@@ -41,6 +41,8 @@ export default {
         /* see more button */
         'verdetalle' : 'Ver más',
         /* Result - advance serch Page*/
-        'descriptionAdvancePage' : 'En esta sección podrá búscar o elegir sobre la totalidad de las categorias más reportadas en los casos industriales y ampliar la información relacionandola con otras categorías'
+        'descriptionAdvancePage' : 'En esta sección podrá búscar o elegir sobre la totalidad de las categorias más reportadas en los casos industriales y ampliar la información relacionandola con otras categorías',
+        /* Explore page */
+        'descriptionExplorePage' : 'Aqui encontrarás algunos aspectos destacados de las experiencias industriales reportadas por empresas que han realizado un acercamiento o han migrado a Ingeniería de Línea de Productos PLE'
     }
 }

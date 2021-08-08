@@ -179,7 +179,7 @@ export class Data extends Component {
                   <div className="form-crd-container">
                     
                       <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <h4>Consulta por título, autor o año</h4>
+                        <h4>Consulta por título</h4>
                         <Form.Control placeholder="Search" onChange={this.onChange} />
                         <Button variant="dark" type="submit" onClick ={this.onClicked}>
                           {translate('buscar')}
