@@ -50,15 +50,7 @@ export class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                    
-                       
-
-    
-
-                    
-                
+                </div>   
             </I18nProvider>
         )
     }

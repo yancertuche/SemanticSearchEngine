@@ -42,7 +42,6 @@ export class Data extends Component {
     var arrRequired = [];
     for (var category in arr){
       for(var item in array){
-        console.log(item)
         if(array[item].Title.value === category){
           arrRequired.push({ 'Title' : category, 'Autors' : arr[category], 'year': Number(array[item].Year.value), 'url' : array[item].url.value });
           break;
@@ -81,10 +80,46 @@ export class Data extends Component {
     return [arrayLabels,arrayValues]
   }
 
+  Autors = (array) =>{
+    /* aorganizar arr por autores */
+    var arr = {}
+    array.forEach(function(item){
+      if(!arr[item.NameAutor.value]){
+        arr[item.NameAutor.value] = [item]
+
+      }else{
+        arr[item.NameAutor.value].push(item)
+      } 
+    });
+    /* crear estrcutura autor data */
+    var autor = []
+    for (var j in arr){
+      autor.push({autor : j, data : Number(arr[j].length)})
+    }
+
+    /* organizar de mayor a menor */
+    autor.sort(function(a, b){
+      if(a.data.length < b.data.length) return 1;
+      if (a.data.length > b.data.length) return -1;
+    })
+
+    var arrayLabels = []
+    var arrayValues = []
+    for (var j in autor){
+      arrayLabels.push(autor[j].autor.split(/(?=[A-Z])/).join(" "))
+      arrayValues.push(autor[j].data)
+    }
+
+    var autorsFinal = [arrayLabels.slice(0,4), arrayValues.slice(0,4) ]
+    console.log(autorsFinal, "aquii")
+    this.setState({autorHbar : autorsFinal})
+  }
+
   onChange =(event)=>{
     event.preventDefault()
     this.setState({input : event.target.value})
   }
+
   onClicked = () =>{
     console.log(this.state.input)
     var a =  this.state.resultGeneral.filter(i =>
@@ -103,6 +138,7 @@ export class Data extends Component {
       var b  = this.yearPublication(a)
       this.setState({resultGeneral :  a })
       this.setState({yearLine : b })
+      this.Autors(response.data.results.bindings)
     })
   }
 
@@ -127,8 +163,8 @@ export class Data extends Component {
                                 lineTitle={translate('lineTitle')}></Line>
             </div>
             <div className="gr-container">
-              <HbarAutor data={[2, 4]} 
-                    labels={["autor", "autor"]}
+              <HbarAutor data={this.state.autorHbar[1]} 
+                    labels={this.state.autorHbar[0]}
                     variable={"Papers"}
                     title ={"Autores con mayor cantidad de artículos"}></HbarAutor>
             </div>

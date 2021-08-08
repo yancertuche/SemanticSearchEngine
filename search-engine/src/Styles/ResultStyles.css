@@ -36,3 +36,10 @@
 .labelError{
     color: red;
 }
+
+.description-advance-container{
+    margin-bottom: 2%;
+    height: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
+}

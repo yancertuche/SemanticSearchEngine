@@ -1,16 +1,14 @@
-
 import React, {Component} from 'react';
 import { withRouter } from "react-router-dom";
-
 import '../Styles/ResultStyles.css';
 import Select from 'react-select/async';
 import {MDBBtn} from "mdbreact";
-
 import {I18nProvider} from '../i18n';
 import translate from '../i18n/translate'
 import CardResult from '../Components/CardResult';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
+import { Card, Button} from 'react-bootstrap';
 
 
 
@@ -280,6 +278,13 @@ setTimeout(() => {
             <I18nProvider locale={this.props.la}>
                 <div className="Result-container">
                     <div className="Container">
+                        <div className="description-advance-container">
+                            <Card>
+                            <Card.Body>
+                                <h4>{translate('descriptionAdvancePage')}</h4>
+                            </Card.Body>
+                            </Card>
+                        </div>
                         <div className="row">
                             <div className="col">
                                 <div className="row">
@@ -317,19 +322,9 @@ setTimeout(() => {
                                 </div>
                                 <div className="row justify-content-center">
                                     <div className="btn-search">
-                                        <MDBBtn color="elegant"  type="submit" className="mr-auto" onClick={this.handleQuery.bind(this)}>
+                                        <Button variant="dark" type="submit" onClick={this.handleQuery.bind(this)}>
                                         {translate('buscar')}
-                                        </MDBBtn>
-                                        {/*<SearchBar onResults={this.handleResult.bind(this)} textButton={translate('buscar')}></SearchBar> */}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="row">
-                                    <div className ="col">
-                                        <h2 className="Title">
-                                            {translate('avanzada')}
-                                        </h2>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
