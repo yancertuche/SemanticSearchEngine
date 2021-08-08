@@ -5,12 +5,14 @@ import Doughnut from '../Components/Doughnut';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
 import {Card} from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 
 export class DonaDomainCompany extends Component{
 
     state ={
         dataDona : [],
-        seeMoreG1 : false
+        seeMoreG1 : false,
+        details : []
     }
 
     seeMoreG1 = () =>{
@@ -33,6 +35,22 @@ export class DonaDomainCompany extends Component{
             arr[item.Domain.value] += 1
           } 
         });
+
+        var seeMore = {}
+        array.forEach(function(item){
+            if(!seeMore[item.Domain.value]){
+                seeMore[item.Domain.value] = [item]
+      
+            }else{
+                seeMore[item.Domain.value].push(item)
+            } 
+          });
+        var seemore =[]
+        for(var i in seeMore){
+            seemore.push ({ domain : i , data : seeMore[i]})
+        }
+        console.log("esto es el detalle", seemore)
+        this.setState({details:seemore})
 
           /* organiza */
         for (var j in arr){
@@ -69,7 +87,20 @@ export class DonaDomainCompany extends Component{
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
                     </div>
                     {this.state.seeMoreG1
-                            ? <Card><p>hola akkadksaksa as</p> </Card>
+                            ? <Card>
+                                {this.state.details.length > 0 
+                                ? this.state.details.map(item => (
+                                    <div>
+                                    <Card.Header>{item.domain}</Card.Header>
+                                    <ListGroup> {item.data.map( detail => (
+                                        <div>
+                                        <ListGroup.Item>{detail.Company.value}</ListGroup.Item>
+                                        </div>
+                                    ))}</ListGroup>
+                                    </div>
+                                ))
+                                :<ListGroup> Sin Resultados </ListGroup>}
+                            </Card>
                             : <label></label>
 
                     }   
