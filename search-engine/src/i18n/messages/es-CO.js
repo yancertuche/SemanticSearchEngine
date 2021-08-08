@@ -40,5 +40,7 @@ export default {
         'HbarTitleChallenge' : 'Retos más reportados por las compañías',
         /* see more button */
         'verdetalle' : 'Ver más',
+        /* Result - advance serch Page*/
+        'descriptionAdvancePage' : 'En esta sección podrá búscar o elegir sobre la totalidad de las categorias más reportadas en los casos industriales y ampliar la información relacionandola con otras categorías'
     }
 }

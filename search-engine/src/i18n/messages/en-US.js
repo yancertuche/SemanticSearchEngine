@@ -40,6 +40,8 @@ export default {
         'HbarTitleChallenge' : 'Challenges most reported by companies',
         /* see more button */
         'verdetalle' : 'See more',
+        /* Result - advance serch Page*/
+        'descriptionAdvancePage' : 'In this section you can search or choose from all the most reported categories in the industrial cases and expand the information relating to other categories'
 
 
     }

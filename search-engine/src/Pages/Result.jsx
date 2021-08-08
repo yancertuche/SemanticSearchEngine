@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { withRouter } from "react-router-dom";
 import '../Styles/ResultStyles.css';
 import Select from 'react-select/async';
-import {MDBBtn} from "mdbreact";
 import {I18nProvider} from '../i18n';
 import translate from '../i18n/translate'
 import CardResult from '../Components/CardResult';
