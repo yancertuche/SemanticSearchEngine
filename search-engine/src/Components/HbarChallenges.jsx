@@ -4,14 +4,15 @@ import translate from '../i18n/translate';
 import Hbar from './Hbar';
 import ConfigData from '../Config/server.json';
 import axios from 'axios';
-import {Card} from 'react-bootstrap';
+import {Card, ListGroup} from 'react-bootstrap';
 
 
 export class HbarChallenges extends Component{
 
     state ={
         dataDona : [],
-        seeMoreG1 : false
+        seeMoreG1 : false,
+        details :[]
     }
 
     seeMoreG1 = () =>{
@@ -27,7 +28,22 @@ export class HbarChallenges extends Component{
         var arrayLabels = []
         var arrayValues = []
         var arr = []
+        /* see more */
+        var seeMore = {}
+        array.forEach(function(item){
+            if(!seeMore[item.Challenge.value]){
+                seeMore[item.Challenge.value] = [item]
         
+            }else{
+                seeMore[item.Challenge.value].push(item)
+            } 
+            });
+        var seemore =[]
+        for(var i in seeMore){
+            seemore.push ({ challenge : i , data : seeMore[i]})
+        }
+        console.log("esto es el detalle", seemore)
+        this.setState({details:seemore})
         /* cuenta */
         array.forEach(element => {
             if(!arr[element.Challenge.value]){
@@ -74,7 +90,25 @@ export class HbarChallenges extends Component{
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
                     </div>
                     {this.state.seeMoreG1
-                            ? <Card><p>hola akkadksaksa as</p> </Card>
+                            ? <Card>
+                            <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
+                            <Card.Title>Empresas por reto reportado</Card.Title>
+                            {this.state.details.length > 0 
+                            ? this.state.details.map(item => (
+                                <div>
+                                <Card.Header>{item.challenge.split(/(?=[A-Z])/).join(" ")}</Card.Header>
+                                <ListGroup> {item.data.map( detail => (
+                                    <div>
+                                    <ListGroup.Item>{<a href={detail.url.value} target="_blank" rel="noopener noreferrer">
+                                    {detail.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                            </a>}</ListGroup.Item>
+                                    </div>
+                                ))}</ListGroup>
+                                </div>
+                            ))
+                            :<ListGroup> Sin Resultados </ListGroup>}
+                            </div>
+                        </Card>
                             : <label></label>
                     }
             

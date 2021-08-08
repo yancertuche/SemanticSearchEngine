@@ -36,6 +36,7 @@ export class DonaDomainCompany extends Component{
           } 
         });
 
+        /* see more */
         var seeMore = {}
         array.forEach(function(item){
             if(!seeMore[item.Domain.value]){
