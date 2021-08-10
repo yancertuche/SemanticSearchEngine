@@ -6,7 +6,7 @@ export default class Hbar extends React.Component {
     render() {
         return (
             <div>
-                <h4>{this.props.title}</h4>
+                <h5>{this.props.title}</h5>
                 <Bar data={{
                     labels: this.props.labels,
                     datasets: [

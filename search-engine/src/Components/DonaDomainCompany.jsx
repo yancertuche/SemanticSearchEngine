@@ -85,7 +85,7 @@ export class DonaDomainCompany extends Component{
                         donaTitle={translate('donaTitleDomainCompany')}>
                     </Doughnut>
                     <div style={{ float: 'right'}}>
-                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
+                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
                     </div>
                     {this.state.seeMoreG1
                             ? <Card>

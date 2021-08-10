@@ -84,10 +84,10 @@ export class HbarChallenges extends Component{
                     
                     <Hbar data={this.state.dataDona[1]} 
                     labels={this.state.dataDona[0]}
-                    variable={"challenge"}
+                    variable={"Papers"}
                     title ={translate('HbarTitleChallenge')}></Hbar>
                     <div style={{ float: 'right'}}>
-                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
+                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
                     </div>
                     {this.state.seeMoreG1
                             ? <Card>

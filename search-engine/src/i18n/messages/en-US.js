@@ -3,7 +3,7 @@ import {LOCALES} from '../locales'
 export default {
     [LOCALES.ENGLISH]: {
         'hola' : 'HELLO',
-        'nombre': 'Search Engine on Product Line Engineering - Industrial Cases implementation  ',
+        'nombre': 'Product Line Engineering Search Engine - Industrial Cases Application',
         'buscar' : 'Search',
         'consulta' : 'Query',
         'por' : 'By',
@@ -37,13 +37,19 @@ export default {
         'barTitleTeamByCompany' : 'Average Product Line Migration Team by Company Size',
         'HbarTitleBenefits' : 'Most reported benefits in industrial cases',
         'cloudWorldTitle' : 'Companies found in the reported industrial cases',
-        'HbarTitleChallenge' : 'Challenges most reported by companies',
+        'HbarTitleChallenge' : 'Most reported Challenges in industrial cases',
+        'hbarautorsData' : 'Authors with the highest number of articles',
+        'consultaTitulo' : 'Search by paper\'s title',
         /* see more button */
         'verdetalle' : 'See more',
         /* Result - advance serch Page*/
         'descriptionAdvancePage' : 'In this section you can search or choose from all the most reported categories in the industrial cases and expand the information relating to other categories',
         /* Explore page */
-        'descriptionExplorePage' : 'Here are some highlights of industry experiences reported by companies that have approached or migrated to PLE Product Line Engineering'
+        'descriptionExplorePage' : 'Here are some highlights of industry experiences reported by companies that have approached or migrated to PLE Product Line Engineering',
+        'Empresasportamaño' : 'Companies classified by size',
+        'Empresasgrandes' : 'Big companies',
+        'Empresasmedianas' : 'Medium companies',
+        'Empresaspeque' : 'Small companies'
 
 
     }

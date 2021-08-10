@@ -78,9 +78,9 @@ export class BarTeamByCompany extends Component{
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
-                    <Bar LabelsBar ={ ["Empresa Pequeña (<10)", "Empresa mediana (11-250)" , "Empresa grande (>250)"]} 
+                    <Bar LabelsBar ={ [" Small company (<10)", "Medium company (11-250)" , "Big company (>250)"]} 
                                     DataBar={this.state.dataDona}
-                                    Var ={'Empleados'}
+                                    Var ={'Employees'}
                                     barTitle={translate('barTitleTeamByCompany')}></Bar> 
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
@@ -88,8 +88,8 @@ export class BarTeamByCompany extends Component{
                     {this.state.seeMoreG1
                             ? <Card>
                                 <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
-                                <Card.Title>Empresas por tamaño</Card.Title>
-                                <Card.Header>Empresas Grandes</Card.Header> 
+                                <Card.Title>{translate('Empresasportamaño')}</Card.Title>
+                                <Card.Header>{translate('Empresasgrandes')}</Card.Header> 
                                 <ListGroup>
                                 {   this.state.bigCompany.length > 0 
                                     ?this.state.bigCompany.map(item =>(
@@ -103,7 +103,7 @@ export class BarTeamByCompany extends Component{
                                     :<ListGroup> Sin Resultados </ListGroup>
                                 }
                                 </ListGroup>
-                                <Card.Header>Empresas Medianas</Card.Header> 
+                                <Card.Header>{translate('Empresasmedianas')}</Card.Header> 
                                 <ListGroup>
                                 {   this.state.mediumCompany.length > 0 
                                     ?this.state.mediumCompany.map(item =>(
@@ -117,7 +117,7 @@ export class BarTeamByCompany extends Component{
                                     :<ListGroup> Sin Resultados </ListGroup>
                                 }
                                 </ListGroup>
-                                <Card.Header>Empresas Pequeñas</Card.Header> 
+                                <Card.Header>{translate('Empresaspeque')}</Card.Header> 
                                 <ListGroup>
                                 {   this.state.smallCompany.length > 0 
                                     ?this.state.smallCompany.map(item =>(

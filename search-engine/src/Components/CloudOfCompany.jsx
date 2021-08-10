@@ -51,11 +51,11 @@ export class CloudOfCompany extends Component{
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
-                <h4>{translate('cloudWorldTitle')}</h4>
+                <h5>{translate('cloudWorldTitle')}</h5>
                                 <ReactWordcloud words={this.state.dataDona} size={[400,260]}>
                                 </ReactWordcloud> 
                     <div style={{ float: 'right'}}>
-                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}Ver detalle</label> </button >
+                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
                     </div>
                     {this.state.seeMoreG1
                             ? <Card><p>hola akkadksaksa as</p> </Card>

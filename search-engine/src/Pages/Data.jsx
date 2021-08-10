@@ -159,14 +159,14 @@ export class Data extends Component {
             <div className="gr-container">
               <Line DataLineLabels ={this.state.yearLine[0]}
                                 DataLine ={this.state.yearLine[1]}
-                                Variable ={"Total Documents"}
+                                Variable ={"Number of Documents"}
                                 lineTitle={translate('lineTitle')}></Line>
             </div>
             <div className="gr-container">
               <HbarAutor data={this.state.autorHbar[1]} 
                     labels={this.state.autorHbar[0]}
                     variable={"Papers"}
-                    title ={"Autores con mayor cantidad de artículos"}></HbarAutor>
+                    title ={translate('hbarautorsData')}></HbarAutor>
             </div>
           </div>
           <div className="table-container">
@@ -179,7 +179,7 @@ export class Data extends Component {
                   <div className="form-crd-container">
                     
                       <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <h4>Consulta por título</h4>
+                        <h4>{translate('consultaTitulo')}</h4>
                         <Form.Control placeholder="Search" onChange={this.onChange} />
                         <Button variant="dark" type="submit" onClick ={this.onClicked}>
                           {translate('buscar')}

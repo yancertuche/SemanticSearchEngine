@@ -32,6 +32,8 @@ export default {
         'año' : 'Año',
         'link' : 'Link',
         'source' : 'Ir a la fuente',
+        'hbarautorsData' : 'Autores con mayor cantidad de artículos',
+        'consultaTitulo' : 'Consulta por título',
         /* Data Explore */
         'donaTitleDomainCompany' : 'Dominios de las compañías que realizaron un reporte',
         'barTitleTeamByCompany' : 'Promedio del equipo de migración a Líneas de productos por tamaño de empresa',
@@ -43,6 +45,10 @@ export default {
         /* Result - advance serch Page*/
         'descriptionAdvancePage' : 'En esta sección podrá búscar o elegir sobre la totalidad de las categorias más reportadas en los casos industriales y ampliar la información relacionandola con otras categorías',
         /* Explore page */
-        'descriptionExplorePage' : 'Aqui encontrarás algunos aspectos destacados de las experiencias industriales reportadas por empresas que han realizado un acercamiento o han migrado a Ingeniería de Línea de Productos PLE'
+        'descriptionExplorePage' : 'Aqui encontrarás algunos aspectos destacados de las experiencias industriales reportadas por empresas que han realizado un acercamiento o han migrado a Ingeniería de Línea de Productos PLE',
+        'Empresasportamaño' : 'Empresas clasificadas por tamaño',
+        'Empresasgrandes' : 'Empresas grandes',
+        'Empresasmedianas' : 'Empresas medianas',
+        'Empresaspeque' : 'Empresas pequeñas'
     }
 }
