@@ -334,7 +334,7 @@ setTimeout(() => {
                                 <div className="Card-container">
                                     { this.state.results.length === 0 
                                     ? <h5>{translate('bienvenido')}, {translate('resultadosMsg')}</h5>
-                                    : <CardResult crd={this.state.results}></CardResult>}
+                                    : <CardResult crd={this.state.results} la={this.props.la}></CardResult>}
                                 </div>
                             </div>
                         </div>

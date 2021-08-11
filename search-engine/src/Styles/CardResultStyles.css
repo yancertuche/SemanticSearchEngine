@@ -4,3 +4,12 @@
 .cardInside{
     padding: 1em;
 }
+
+.icon-text-partition{
+    position: flex;
+    padding: 0.5em;
+}
+.icon-partition{
+    float: left;
+    padding: 1em;
+}

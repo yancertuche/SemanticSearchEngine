@@ -44,6 +44,7 @@ export default {
         'verdetalle' : 'See more',
         /* Result - advance serch Page*/
         'descriptionAdvancePage' : 'In this section you can search or choose from all the most reported categories in the industrial cases and expand the information relating to other categories',
+        'Clic aqui para ir a la fuente' : 'Click here to go to source',
         /* Explore page */
         'descriptionExplorePage' : 'Here are some highlights of industry experiences reported by companies that have approached or migrated to PLE Product Line Engineering',
         'Empresasportamaño' : 'Companies classified by size',
