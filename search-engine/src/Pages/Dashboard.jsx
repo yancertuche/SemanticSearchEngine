@@ -28,7 +28,7 @@ export class Dashboard extends Component {
                     <div className="top-container">
                         <div className="each-container">
                             <div className="G-container">
-                                <HbarBenefits  la={this.props.la} ></HbarBenefits>
+                                <HbarChallenges la={this.props.la}></HbarChallenges>
                             </div>
                         </div>
                         <div className="each-container">
@@ -55,7 +55,7 @@ export class Dashboard extends Component {
                         </div>
                         <div className="each-container">
                             <div className="G-container">
-                                <HbarChallenges la={this.props.la}></HbarChallenges>
+                                <HbarBenefits  la={this.props.la} ></HbarBenefits>
                             </div>
                         </div>
                     </div>

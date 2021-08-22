@@ -22,10 +22,10 @@ export default {
         /* nav bar */
         'principal':'Principal',
         'explorar': 'Explore Data',
-        'avanzada': 'Advanced search ',
+        'avanzada': 'Simple search ',
         'fuente' : 'Data source',
         /* Data Page */
-        'descriptionDataPage' :'The industrial experiences included in the search engine correspond to a subset of those published in the SPLC Product Line Engineering conference through 2020',
+        'descriptionDataPage' :'The industrial experiences included in the search engine correspond to a subset of those published in the SPLC Product Line Engineering conference until 2020',
         'tableTitle' : 'Documents list',
         'articulo': 'Paper',
         'autor' : 'Autor(s)',

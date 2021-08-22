@@ -12,7 +12,8 @@ export class HbarChallenges extends Component{
     state ={
         dataDona : [],
         seeMoreG1 : false,
-        details :[]
+        details :[], 
+        loading : true
     }
 
     seeMoreG1 = () =>{
@@ -74,6 +75,7 @@ export class HbarChallenges extends Component{
         .then(response =>{
             var a = this.createStructure(response.data.results.bindings)
             this.setState({dataDona : a})
+            this.setState({loading: false })
         })
     }
 
@@ -81,37 +83,38 @@ export class HbarChallenges extends Component{
         return(
             <I18nProvider locale={this.props.la}>
                 <div>
-                    
-                    <Hbar data={this.state.dataDona[1]} 
-                    labels={this.state.dataDona[0]}
-                    variable={"Papers"}
-                    title ={translate('HbarTitleChallenge')}></Hbar>
-                    <div style={{ float: 'right'}}>
-                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
-                    </div>
-                    {this.state.seeMoreG1
-                            ? <Card>
-                            <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
-                            <Card.Title>Empresas por reto reportado</Card.Title>
-                            {this.state.details.length > 0 
-                            ? this.state.details.map(item => (
-                                <div>
-                                <Card.Header>{item.challenge.split(/(?=[A-Z])/).join(" ")}</Card.Header>
-                                <ListGroup> {item.data.map( detail => (
+                    {this.state.loading
+                        ? <p>Loading...</p>
+                        :<div><Hbar data={this.state.dataDona[1]} 
+                        labels={this.state.dataDona[0]}
+                        variable={"Papers"}
+                        title ={translate('HbarTitleChallenge')}></Hbar>
+                        <div style={{ float: 'right'}}>
+                            <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
+                        </div>
+                        {this.state.seeMoreG1
+                                ? <Card>
+                                <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
+                                <Card.Title>Empresas por reto reportado</Card.Title>
+                                {this.state.details.length > 0 
+                                ? this.state.details.map(item => (
                                     <div>
-                                    <ListGroup.Item>{<a href={detail.url.value} target="_blank" rel="noopener noreferrer">
-                                    {detail.Company.value.split(/(?=[A-Z])/).join(" ")}
-                                                            </a>}</ListGroup.Item>
+                                    <Card.Header>{item.challenge.split(/(?=[A-Z])/).join(" ")}</Card.Header>
+                                    <ListGroup> {item.data.map( detail => (
+                                        <div>
+                                        <ListGroup.Item>{<a href={detail.url.value} target="_blank" rel="noopener noreferrer">
+                                        {detail.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                                </a>}</ListGroup.Item>
+                                        </div>
+                                    ))}</ListGroup>
                                     </div>
-                                ))}</ListGroup>
+                                ))
+                                :<ListGroup> Sin Resultados </ListGroup>}
                                 </div>
-                            ))
-                            :<ListGroup> Sin Resultados </ListGroup>}
-                            </div>
-                        </Card>
-                            : <label></label>
-                    }
-            
+                            </Card>
+                                : <label></label>
+                        }
+                    </div>}
                 </div> 
             </I18nProvider>
         )

@@ -99,9 +99,10 @@ export class Data extends Component {
 
     /* organizar de mayor a menor */
     autor.sort(function(a, b){
-      if(a.data.length < b.data.length) return 1;
-      if (a.data.length > b.data.length) return -1;
+      if(a.data < b.data) return 1;
+      if (a.data > b.data) return -1;
     })
+    console.log("los autores sort", autor)
 
     var arrayLabels = []
     var arrayValues = []
@@ -109,6 +110,8 @@ export class Data extends Component {
       arrayLabels.push(autor[j].autor.split(/(?=[A-Z])/).join(" "))
       arrayValues.push(autor[j].data)
     }
+
+    console.log("los autores completos", arrayLabels, arrayValues)
 
     var autorsFinal = [arrayLabels.slice(0,4), arrayValues.slice(0,4) ]
     console.log(autorsFinal, "aquii")
