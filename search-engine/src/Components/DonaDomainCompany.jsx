@@ -12,7 +12,8 @@ export class DonaDomainCompany extends Component{
     state ={
         dataDona : [],
         seeMoreG1 : false,
-        details : []
+        details : [], 
+        loading : true
     }
 
     seeMoreG1 = () =>{
@@ -72,6 +73,7 @@ export class DonaDomainCompany extends Component{
         .then( response => {
             var a = this.createStructure(response.data.results.bindings)
             this.setState({dataDona : a})
+            this.setState({loading : false})
         })
         .catch(error => console.log(error))
     }
@@ -79,38 +81,41 @@ export class DonaDomainCompany extends Component{
     render(){
         return(
             <I18nProvider locale={this.props.la}>
-                <div>
-                    <Doughnut LabelsDo ={this.state.dataDona[0]}
-                        DataDo={this.state.dataDona[1]}
-                        donaTitle={translate('donaTitleDomainCompany')}>
-                    </Doughnut>
-                    <div style={{ float: 'right'}}>
-                        <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
-                    </div>
-                    {this.state.seeMoreG1
-                            ? <Card>
-                                <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
-                                <Card.Title>Empresas por dominio</Card.Title>
-                                {this.state.details.length > 0 
-                                ? this.state.details.map(item => (
-                                    <div>
-                                    <Card.Header>{item.domain.split(/(?=[A-Z])/).join(" ")}</Card.Header>
-                                    <ListGroup> {item.data.map( detail => (
+                {this.state.loading
+                ?<p>Loading...</p>
+                :    <div>
+                        <Doughnut LabelsDo ={this.state.dataDona[0]}
+                            DataDo={this.state.dataDona[1]}
+                            donaTitle={translate('donaTitleDomainCompany')}>
+                        </Doughnut>
+                        <div style={{ float: 'right'}}>
+                            <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >
+                        </div>
+                        {this.state.seeMoreG1
+                                ? <Card>
+                                    <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
+                                    <Card.Title>{translate('empresasPorDominio')}</Card.Title>
+                                    {this.state.details.length > 0 
+                                    ? this.state.details.map(item => (
                                         <div>
-                                        <ListGroup.Item>{<a href={detail.url.value} target="_blank" rel="noopener noreferrer">
-                                        {detail.Company.value.split(/(?=[A-Z])/).join(" ")}
-                                                                </a>}</ListGroup.Item>
+                                        <Card.Header>{item.domain.split(/(?=[A-Z])/).join(" ")}</Card.Header>
+                                        <ListGroup> {item.data.map( detail => (
+                                            <div>
+                                            <ListGroup.Item>{<a href={detail.url.value} target="_blank" rel="noopener noreferrer">
+                                            {detail.Company.value.split(/(?=[A-Z])/).join(" ")}
+                                                                    </a>}</ListGroup.Item>
+                                            </div>
+                                        ))}</ListGroup>
                                         </div>
-                                    ))}</ListGroup>
+                                    ))
+                                    :<ListGroup> Sin Resultados </ListGroup>}
                                     </div>
-                                ))
-                                :<ListGroup> Sin Resultados </ListGroup>}
-                                </div>
-                            </Card>
-                            : <label></label>
+                                </Card>
+                                : <label></label>
 
-                    }   
-                </div>
+                        }   
+                    </div>
+                }
             </I18nProvider>
         )
     }

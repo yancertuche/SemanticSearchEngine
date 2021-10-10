@@ -52,7 +52,12 @@ export class CloudOfCompany extends Component{
             <I18nProvider locale={this.props.la}>
                 <div>
                 <h5>{translate('cloudWorldTitle')}</h5>
-                                <ReactWordcloud words={this.state.dataDona} size={[400,260]}>
+                                <ReactWordcloud words={this.state.dataDona} size={[400,260]}
+                                options={{
+                                    fontFamily: 'Roboto',
+                                    fontSizes: [15, 20], rotations: 2,
+                                    rotationAngles: [90, 0]
+                                  }}>
                                 </ReactWordcloud> 
                     <div style={{ float: 'right'}}>
                         <button onClick ={this.seeMoreG1} className="btn-primary-outline"> <label style={{fontSize: '12px'}}>{'<< '}{translate('verdetalle')}</label> </button >

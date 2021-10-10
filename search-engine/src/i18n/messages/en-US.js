@@ -40,6 +40,9 @@ export default {
         'HbarTitleChallenge' : 'Most reported Challenges in industrial cases',
         'hbarautorsData' : 'Authors with the highest number of articles',
         'consultaTitulo' : 'Search by paper\'s title',
+        'sinResultados' : 'No results',
+        'empresasPorReto' : 'Companies by reported challenge',
+        'empresasPorDominio' : 'Companies by domain',
         /* see more button */
         'verdetalle' : 'See more',
         /* Result - advance serch Page*/

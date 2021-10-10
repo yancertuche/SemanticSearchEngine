@@ -40,6 +40,9 @@ export default {
         'HbarTitleBenefits' : 'Beneficios más reportados en los casos industriales',
         'cloudWorldTitle' : 'Compañías encontradas en los casos industriales reportados',
         'HbarTitleChallenge' : 'Retos más reportados por las compañías',
+        'sinResultados' : 'Sin Resultados',
+        'empresasPorReto' : 'Empresas por reto reportado',
+        'empresasPorDominio' : 'Empresas por dominio',
         /* see more button */
         'verdetalle' : 'Ver más',
         /* Result - advance serch Page*/

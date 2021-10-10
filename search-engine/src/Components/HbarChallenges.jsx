@@ -95,7 +95,7 @@ export class HbarChallenges extends Component{
                         {this.state.seeMoreG1
                                 ? <Card>
                                 <div style={{ padding : '2em', height : '200px', overflowY: 'scroll'}}>
-                                <Card.Title>Empresas por reto reportado</Card.Title>
+                                <Card.Title>{translate('empresasPorReto')}</Card.Title>
                                 {this.state.details.length > 0 
                                 ? this.state.details.map(item => (
                                     <div>
@@ -109,7 +109,7 @@ export class HbarChallenges extends Component{
                                     ))}</ListGroup>
                                     </div>
                                 ))
-                                :<ListGroup> Sin Resultados </ListGroup>}
+                                :<ListGroup>{translate('sinResultados')}</ListGroup>}
                                 </div>
                             </Card>
                                 : <label></label>

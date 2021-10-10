@@ -26,7 +26,7 @@ export class CardResult extends Component{
                     :<Card >
                         <Card.Body>
                         {Object.entries(currency).map( label => {
-                            if (label[0] == 'Name' || label[0] == 'NameAutor' ){
+                            if (label[0] === 'Name' || label[0] === 'NameAutor' ){
                                 return <div className="icon-text-partition">
                                             <div className="icon-partition">
                                                 <MDBIcon size ="2x" icon="user" />
@@ -37,7 +37,7 @@ export class CardResult extends Component{
                                             </div>
                                         </div>
                             }
-                            if (label[0] == 'TitleObjRelated' || label[0] == 'Title'){
+                            if (label[0] === 'TitleObjRelated' || label[0] === 'Title'){
                                 return <div className="icon-text-partition">
                                             <div className="icon-partition">
                                                 <MDBIcon size ="2x" icon="book" />
@@ -61,7 +61,7 @@ export class CardResult extends Component{
                                                 </a>
                                         </div>
                             }
-                            if (label[0] == 'Year'|| label[0] == 'YearObjRelated' ){
+                            if (label[0] === 'Year'|| label[0] === 'YearObjRelated' ){
                                 return <div className="icon-text-partition">
                                             <div className="icon-partition">
                                                 <MDBIcon size ="2x" icon="calendar" />
@@ -72,7 +72,7 @@ export class CardResult extends Component{
                                             </div>
                                         </div>
                             }
-                            if (label[0] == 'Description'|| label[0] == 'DescriptionObjRelated' ){
+                            if (label[0] === 'Description'|| label[0] === 'DescriptionObjRelated' ){
                                 return <div className="icon-text-partition">
                                             <div className="icon-partition">
                                                 <MDBIcon size ="2x" icon="align-left" />
@@ -83,7 +83,7 @@ export class CardResult extends Component{
                                             </div>
                                         </div>
                             }
-                            if (label[0] == 'Instance' ){
+                            if (label[0] === 'Instance' ){
                                 return <div>
                                             <div>
                                                 <Card.Header>
@@ -94,7 +94,7 @@ export class CardResult extends Component{
                                             </div>
                                         </div>
                             }
-                            if (label[0] == 'NameCompany' ){
+                            if (label[0] === 'NameCompany' ){
                                 return <div className="icon-text-partition">
                                             <div className="icon-partition">
                                                 <MDBIcon size ="2x" icon="industry" />

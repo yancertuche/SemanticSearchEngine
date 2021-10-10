@@ -100,7 +100,7 @@ export class BarTeamByCompany extends Component{
                                                 </ListGroup.Item> 
                                             </div>
                                         ))
-                                    :<ListGroup> Sin Resultados </ListGroup>
+                                    :<ListGroup>{translate('sinResultados')}</ListGroup>
                                 }
                                 </ListGroup>
                                 <Card.Header>{translate('Empresasmedianas')}</Card.Header> 
@@ -114,7 +114,7 @@ export class BarTeamByCompany extends Component{
                                                 </ListGroup.Item> 
                                             </div>
                                         ))
-                                    :<ListGroup> Sin Resultados </ListGroup>
+                                    :<ListGroup>{translate('sinResultados')}</ListGroup>
                                 }
                                 </ListGroup>
                                 <Card.Header>{translate('Empresaspeque')}</Card.Header> 
@@ -128,7 +128,7 @@ export class BarTeamByCompany extends Component{
                                                 </ListGroup.Item> 
                                             </div>
                                         ))
-                                    :<ListGroup> Sin Resultados </ListGroup>
+                                    :<ListGroup>{translate('sinResultados')}</ListGroup>
                                 }
                                 </ListGroup>
                                 </div>
